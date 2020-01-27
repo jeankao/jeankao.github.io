@@ -1,6 +1,6 @@
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=big5" />
 </head>
 
 <body background="back.gif">
