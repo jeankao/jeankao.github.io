@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        實戰：日誌 - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @charset "UTF-8";@import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram{text-align:center;background-color:inherit;border-radius:0;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.MJX_Assistive_MathML{display:none}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;padding:0 15px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc-label{opacity:.3;background-color:#ccc;border:none;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:23px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child > ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:3px;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-published-note{color:#337ab7}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em}.focus,:focus{outline:none!important}::-moz-focus-inner{border:0!important}body{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 id="實戰：日誌"><a class="anchor hidden-xs" href="#實戰：日誌" title="實戰：日誌"><span class="octicon octicon-link"></span></a>實戰：日誌</h1><p>接下來我們要建立個人數位助理的網站專案，在這個專案中有 2 個獨立的功能：日誌以及記帳。</p><h2 id="建立專案與應用程式"><a class="anchor hidden-xs" href="#建立專案與應用程式" title="建立專案與應用程式"><span class="octicon octicon-link"></span></a>建立專案與應用程式</h2><h3 id="建立新專案"><a class="anchor hidden-xs" href="#建立新專案" title="建立新專案"><span class="octicon octicon-link"></span></a>建立新專案</h3><p>在終端機中下達指令建立一個新的專案</p><pre><code class="bash hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">django-admin.py startproject assistant
+</div></div></code></pre><p>打完指令後，會產生一個 <code>assistant</code> 的資料夾</p><pre><code class="bash hljs">assistant/
+    manage.py
+    assistant/
+        __init__.py
+        settings.py
+        urls.py
+        wsgi.py
+</code></pre><h3 id="在專案下建立應用程式"><a class="anchor hidden-xs" href="#在專案下建立應用程式" title="在專案下建立應用程式"><span class="octicon octicon-link"></span></a>在專案下建立應用程式</h3><pre><code class="bash hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code"><span class="hljs-built_in">cd</span> assistant
+python manage.py startapp journal
+</div></div></code></pre><p>修改專案設定檔 <code>assistant/assistant/settings.py</code>，新增<ins>第 34 行</ins>，修改<ins>第 28, 58, 107, 109 行</ins>：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="28"></span>
+<span data-linenumber="29"></span>
+<span data-linenumber="30"></span>
+<span data-linenumber="31"></span>
+<span data-linenumber="32"></span>
+<span data-linenumber="33"></span>
+<span data-linenumber="34"></span>
+<span data-linenumber="35"></span>
+<span data-linenumber="36"></span>
+<span data-linenumber="37"></span>
+<span data-linenumber="38"></span>
+<span data-linenumber="39"></span>
+<span data-linenumber="40"></span>
+<span data-linenumber="41"></span></div><div class="code">ALLOWED_HOSTS = [<span class="hljs-string">'*'</span>]
+
+
+<span class="hljs-comment"># Application definition</span>
+
+INSTALLED_APPS = [
+    <span class="hljs-string">'journal'</span>,
+    <span class="hljs-string">'django.contrib.admin'</span>,
+    <span class="hljs-string">'django.contrib.auth'</span>,
+    <span class="hljs-string">'django.contrib.contenttypes'</span>,
+    <span class="hljs-string">'django.contrib.sessions'</span>,
+    <span class="hljs-string">'django.contrib.messages'</span>,
+    <span class="hljs-string">'django.contrib.staticfiles'</span>,
+]
+</div></div></code></pre><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="55"></span>
+<span data-linenumber="56"></span>
+<span data-linenumber="57"></span>
+<span data-linenumber="58"></span>
+<span data-linenumber="59"></span>
+<span data-linenumber="60"></span>
+<span data-linenumber="61"></span>
+<span data-linenumber="62"></span>
+<span data-linenumber="63"></span>
+<span data-linenumber="64"></span>
+<span data-linenumber="65"></span>
+<span data-linenumber="66"></span>
+<span data-linenumber="67"></span>
+<span data-linenumber="68"></span>
+<span data-linenumber="69"></span></div><div class="code">TEMPLATES = [
+    {
+        <span class="hljs-string">'BACKEND'</span>: <span class="hljs-string">'django.template.backends.django.DjangoTemplates'</span>,
+        <span class="hljs-string">'DIRS'</span>: [<span class="hljs-string">'templates'</span>],
+        <span class="hljs-string">'APP_DIRS'</span>: <span class="hljs-keyword">True</span>,
+        <span class="hljs-string">'OPTIONS'</span>: {
+            <span class="hljs-string">'context_processors'</span>: [
+                <span class="hljs-string">'django.template.context_processors.debug'</span>,
+                <span class="hljs-string">'django.template.context_processors.request'</span>,
+                <span class="hljs-string">'django.contrib.auth.context_processors.auth'</span>,
+                <span class="hljs-string">'django.contrib.messages.context_processors.messages'</span>,
+            ],
+        },
+    },
+]
+</div></div></code></pre><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="104"></span>
+<span data-linenumber="105"></span>
+<span data-linenumber="106"></span>
+<span data-linenumber="107"></span>
+<span data-linenumber="108"></span>
+<span data-linenumber="109"></span></div><div class="code"><span class="hljs-comment"># Internationalization</span>
+<span class="hljs-comment"># https://docs.djangoproject.com/en/2.1/topics/i18n/</span>
+
+LANGUAGE_CODE = <span class="hljs-string">'zh-hant'</span>
+
+TIME_ZONE = <span class="hljs-string">'Asia/Taipei'</span>
+</div></div></code></pre><h2 id="資料庫"><a class="anchor hidden-xs" href="#資料庫" title="資料庫"><span class="octicon octicon-link"></span></a>資料庫</h2><p>修改 <code>assistant/web/models.py</code>，新增<ins>第 4 - 10 行</ins>，定義日誌資料表：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span></div><div class="code"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models
+
+<span class="hljs-comment"># Create your models here.</span>
+<span class="hljs-comment"># 日誌</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Journal</span><span class="hljs-params">(models.Model)</span>:</span>
+    content = models.TextField(<span class="hljs-string">"內容"</span>)
+    created = models.DateField(auto_now_add=<span class="hljs-keyword">True</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.content
+</div></div></code></pre><p>執行以下指令建立資料庫：</p><pre><code class="bash hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+</div></div></code></pre><p>開啟網站服務</p><pre><code class="bash hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">python manage.py runserver 0.0.0.0:80
+</div></div></code></pre><h2 id="網址、視圖、範本、表單"><a class="anchor hidden-xs" href="#網址、視圖、範本、表單" title="網址、視圖、範本、表單"><span class="octicon octicon-link"></span></a>網址、視圖、範本、表單</h2><h3 id="網址"><a class="anchor hidden-xs" href="#網址" title="網址"><span class="octicon octicon-link"></span></a>網址</h3><p>開啟 <code>assistant/assistant/urls.py</code>，修改為以下程式碼：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="16"></span>
+<span data-linenumber="17"></span>
+<span data-linenumber="18"></span>
+<span data-linenumber="19"></span>
+<span data-linenumber="20"></span>
+<span data-linenumber="21"></span>
+<span data-linenumber="22"></span>
+<span data-linenumber="23"></span>
+<span data-linenumber="24"></span></div><div class="code"><span class="hljs-keyword">from</span> django.contrib <span class="hljs-keyword">import</span> admin
+<span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path, include
+<span class="hljs-keyword">from</span> django.views.generic <span class="hljs-keyword">import</span> RedirectView
+
+urlpatterns = [
+    path(<span class="hljs-string">'admin/'</span>, admin.site.urls),
+    path(<span class="hljs-string">''</span>, RedirectView.as_view(url=<span class="hljs-string">'journal/'</span>)), 
+    path(<span class="hljs-string">'journal'</span>, include(<span class="hljs-string">'journal.urls'</span>)),
+]
+</div></div></code></pre><ul>
+<li>修改<ins>第 17 行</ins>，從 <code>django.urls</code> 額外引用 <code>include</code></li>
+<li>新增<ins>第 22, 23 行</ins>，加入 2 條路徑規則</li>
+</ul><p>新增檔案 <code>assistant/journal/urls.py</code></p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span></div><div class="code"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path
+<span class="hljs-keyword">from</span> .views <span class="hljs-keyword">import</span> *
+
+urlpatterns = [
+    path(<span class="hljs-string">''</span>, JournalList.as_view(), name=<span class="hljs-string">"journal_list"</span>), 
+    path(<span class="hljs-string">'create/'</span>, JournalCreate.as_view()),
+    path(<span class="hljs-string">'&lt;int:pk&gt;/update/'</span>, JournalUpdate.as_view()), 
+    path(<span class="hljs-string">'&lt;int:pk&gt;/delete/'</span>, JournalDelete.as_view()),
+]
+</div></div></code></pre><div class="alert alert-info">
+<p><img alt=":bulb:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/bulb.png" title=":bulb:"> <strong><code>urls.py</code> 裡的 <code>include()</code> 的作用是什麼？</strong></p>
+<p>如上所示，我在們 <code>assistant/journal/urls.py</code> 中定義了應用程式 <code>journal</code> 的 4 條路徑規則：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">路徑</th>
+<th style="text-align:left">對應功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code> </code></td>
+<td style="text-align:left">日誌列表</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>create/</code></td>
+<td style="text-align:left">新增日誌</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;int:pk&gt;/update/</code></td>
+<td style="text-align:left">修改日誌</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;int:pk&gt;/delete/</code></td>
+<td style="text-align:left">刪除日誌</td>
+</tr>
+</tbody>
+</table>
+<p>又在 <code>assistant/assistant/urls.py</code> 定義網站專案的路徑規則中，以<ins>第 23 行</ins> 程式碼：</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="23"></span></div><div class="code">    path(<span class="hljs-string">'journal/'</span>, include(<span class="hljs-string">'journal.urls'</span>)),
+</div></div></code></pre>
+<p>將應用程式 <code>journal</code> 定義的路徑規則以前置 <code>journal/</code> 字串的方式加入網站專案中，等同於在專案的路徑規則中加入以下 4 條規則：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">路徑</th>
+<th style="text-align:left">對應功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>journal/</code></td>
+<td style="text-align:left">日誌列表</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>journal/create/</code></td>
+<td style="text-align:left">新增日誌</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>journal/&lt;int:pk&gt;/update/</code></td>
+<td style="text-align:left">修改日誌</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>journal/&lt;int:pk&gt;/delete/</code></td>
+<td style="text-align:left">刪除日誌</td>
+</tr>
+</tbody>
+</table>
+</div><h3 id="視圖"><a class="anchor hidden-xs" href="#視圖" title="視圖"><span class="octicon octicon-link"></span></a>視圖</h3><p>開啟 <code>assistant/journal/views.py</code>，修改為以下程式碼：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span>
+<span data-linenumber="17"></span>
+<span data-linenumber="18"></span>
+<span data-linenumber="19"></span>
+<span data-linenumber="20"></span>
+<span data-linenumber="21"></span>
+<span data-linenumber="22"></span>
+<span data-linenumber="23"></span>
+<span data-linenumber="24"></span>
+<span data-linenumber="25"></span>
+<span data-linenumber="26"></span>
+<span data-linenumber="27"></span>
+<span data-linenumber="28"></span>
+<span data-linenumber="29"></span></div><div class="code"><span class="hljs-keyword">from</span> django.shortcuts <span class="hljs-keyword">import</span> render
+<span class="hljs-keyword">from</span> django.views.generic <span class="hljs-keyword">import</span> ListView, CreateView, UpdateView, DeleteView
+<span class="hljs-keyword">from</span> .models <span class="hljs-keyword">import</span> Journal
+
+<span class="hljs-comment"># Create your views here.</span>
+<span class="hljs-comment"># 日誌列表</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JournalList</span><span class="hljs-params">(ListView)</span>:</span>
+    model = Journal
+    ordering = [<span class="hljs-string">'-id'</span>]      <span class="hljs-comment"># 依 id 欄位反向排序(新的在前面)</span>
+
+<span class="hljs-comment"># 新增日誌</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JournalCreate</span><span class="hljs-params">(CreateView)</span>:</span>
+    model = Journal
+    fields = [<span class="hljs-string">'content'</span>]            <span class="hljs-comment"># 自動產生表單時僅顯示 content 欄位</span>
+    success_url = <span class="hljs-string">'/journal/'</span>       <span class="hljs-comment"># 操作成功後重新導向日誌列表頁面</span>
+    template_name = <span class="hljs-string">'form.html'</span>
+
+<span class="hljs-comment"># 修改日誌</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JournalUpdate</span><span class="hljs-params">(UpdateView)</span>:</span>
+    model = Journal
+    fields = [<span class="hljs-string">'content'</span>]            <span class="hljs-comment"># 自動產生表單時僅顯示 content 欄位</span>
+    success_url = <span class="hljs-string">'/journal/'</span>       <span class="hljs-comment"># 操作成功後重新導向日誌列表頁面</span>
+    template_name = <span class="hljs-string">'form.html'</span>
+
+<span class="hljs-comment"># 刪除日誌</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JournalDelete</span><span class="hljs-params">(DeleteView)</span>:</span>
+    model = Journal
+    success_url = <span class="hljs-string">'/journal/'</span>       <span class="hljs-comment"># 操作成功後重新導向日誌列表頁面</span>
+    template_name = <span class="hljs-string">'confirm_delete.html'</span>
+</div></div></code></pre><h3 id="範本"><a class="anchor hidden-xs" href="#範本" title="範本"><span class="octicon octicon-link"></span></a>範本</h3><p>為了將所有的頁面範本集中管理，前面在專案設定檔中已經指定了頁面範本的搜尋路徑，接下來我們就將所有的頁面範本都放在這個資料夾下。</p><h4 id="建立頁面範本資料夾"><a class="anchor hidden-xs" href="#建立頁面範本資料夾" title="建立頁面範本資料夾"><span class="octicon octicon-link"></span></a>建立頁面範本資料夾</h4><p>新增頁面範本資料夾 <code>assistant/templates</code></p><p>建立 <code>journal</code> 應用程式的頁面範本資料夾 <code>assistant/templates/journal</code></p><h4 id="新增頁面範本"><a class="anchor hidden-xs" href="#新增頁面範本" title="新增頁面範本"><span class="octicon octicon-link"></span></a>新增頁面範本</h4><p>新增網站基底頁面範本 <code>assistant/templates/base.html</code>：</p><pre><code class="html hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span>
+<span data-linenumber="17"></span></div><div class="code"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"zh-hant"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"X-UA-Compatible"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"ie=edge"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>數位助理<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>數位助理<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/journal/"</span>&gt;</span>日誌列表<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/journal/create/"</span>&gt;</span>寫日誌<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{% block content %}{% endblock %}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>    
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></div></code></pre><p><kbd><img src="https://i.imgur.com/RnABGPy.png" alt=""></kbd></p><p>新增<strong>日誌列表</strong>頁面範本 <code>assistant/templates/journal/journal_list.html</code></p><pre><code class="html hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span>
+<span data-linenumber="17"></span>
+<span data-linenumber="18"></span>
+<span data-linenumber="19"></span></div><div class="code"><span class="xml">{% extends 'base.html' %}
+
+{% block content %}
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>我的日誌：<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>時間<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>項目<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>操作<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  {% for journal in journal_list %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span></span><span class="hljs-template-variable">{{ journal.created|date:"l" }}</span><span class="xml"></span><span class="hljs-template-variable">{{ journal.created }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ journal.id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/update/"</span>&gt;</span></span><span class="hljs-template-variable">{{ journal.content }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ journal.id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/delete/"</span>&gt;</span>刪除<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  {% endfor %}
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+{% endblock %}
+</span></div></div></code></pre><ul>
+<li><ins>第 11 - 17 行</ins>，將 <code>journal_list</code> 中的每筆紀錄拿出來處理，每次拿到一筆紀錄就放在 <code>journal</code> 這個變數中</li>
+</ul><p><kbd><img src="https://i.imgur.com/SvMN8dC.png" alt=""></kbd></p><div class="alert alert-info">
+<p><img alt=":bulb:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/bulb.png" title=":bulb:"> <strong>關於 date 過濾器</strong></p>
+<p>它是用來處理日期/時間資料的過濾器，依據使用者指定的格式輸出。以下摘列 date 過濾器接受的部份常用格式字元及其代表意義：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">格式字元</th>
+<th style="text-align:left">說明</th>
+<th style="text-align:left">範例輸出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>d</code></td>
+<td style="text-align:left">月份的第幾天，以前置 0 補滿 2 位</td>
+<td style="text-align:left">‘01’ 到 ‘31’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>j</code></td>
+<td style="text-align:left">月份的第幾天，無前置 0</td>
+<td style="text-align:left">‘1’ 到 ‘31’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>D</code></td>
+<td style="text-align:left">短文字型式的星期幾</td>
+<td style="text-align:left"><code>Fri</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>l</code></td>
+<td style="text-align:left">長文字型式的星期幾</td>
+<td style="text-align:left"><code>Friday</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>w</code></td>
+<td style="text-align:left">數字型式的星期幾</td>
+<td style="text-align:left">‘0’(星期天) 到 ‘6’(星期六)</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>z</code></td>
+<td style="text-align:left">年份中的第幾天，由 0 起算</td>
+<td style="text-align:left">‘0’ 到 ‘365’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>W</code></td>
+<td style="text-align:left">ISO-8601標準中的週次，以星期一為一週起始</td>
+<td style="text-align:left">‘1’ 到 ‘53’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>m</code></td>
+<td style="text-align:left">月份，以前置 0 補滿 2 位</td>
+<td style="text-align:left">‘01’ 到 ‘12’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>n</code></td>
+<td style="text-align:left">月份，無前置 0</td>
+<td style="text-align:left">‘1’ 到 ‘12’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>M</code></td>
+<td style="text-align:left">短文字型式的月份名</td>
+<td style="text-align:left">‘Jan’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>b</code></td>
+<td style="text-align:left">短文字型式的月份名，全小寫</td>
+<td style="text-align:left">‘feb’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>F</code></td>
+<td style="text-align:left">長文字型式的月份名</td>
+<td style="text-align:left">‘September’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>t</code></td>
+<td style="text-align:left">當月份的總日數</td>
+<td style="text-align:left">‘28’ 到 ‘31’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>y</code></td>
+<td style="text-align:left">2位型式的西元年份</td>
+<td style="text-align:left">‘19’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>Y</code></td>
+<td style="text-align:left">4位型式的西元年份</td>
+<td style="text-align:left">‘2019’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>L</code></td>
+<td style="text-align:left">當年是否為閏年</td>
+<td style="text-align:left">‘True’ 或 ‘False’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>g</code></td>
+<td style="text-align:left">12小時制的小時，無前置 0</td>
+<td style="text-align:left">‘1’ 到 ‘12’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>G</code></td>
+<td style="text-align:left">24小時制的小時，無前置 0</td>
+<td style="text-align:left">‘0’ 到 ‘23’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>h</code></td>
+<td style="text-align:left">12小時制的小時，以前置 0 補滿 2 位</td>
+<td style="text-align:left">‘01’ 到 ‘12’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>H</code></td>
+<td style="text-align:left">24小時制的小時，以前置 0 補滿 2 位</td>
+<td style="text-align:left">‘00’ 到 ‘23’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>i</code></td>
+<td style="text-align:left">分鐘，以前置 0 補滿 2 位</td>
+<td style="text-align:left">‘00’ 到 ‘59’</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>s</code></td>
+<td style="text-align:left">秒數，以前置 0 補滿 2 位</td>
+<td style="text-align:left">‘00’ 到 ‘59’</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意，在正體中文語系下：</strong></p>
+<ul>
+<li>‘D’ 與 ‘l’ 沒有差別，都會以 ‘星期一’ 這樣的格式顯示星期幾</li>
+<li>月份的 ‘M’, ‘b’, ‘F’ 也無差別，都會以 ‘一月’ 這樣的方式呈現</li>
+</ul>
+<p>完整列表請參見官方網站說明文件：<br>
+<a href="https://docs.djangoproject.com/en/2.1/ref/templates/builtins/#date" target="_blank" rel="noopener" done="">https://docs.djangoproject.com/en/2.1/ref/templates/builtins/#date</a></p>
+</div><p>新增<strong>共用編輯表單</strong>頁面範本 <code>assistant/templates/form.html</code></p><pre><code class="html hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span></div><div class="code"><span class="xml">{% extends 'base.html' %}
+
+{% block content %}
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>&gt;</span>
+  {% csrf_token %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+    </span><span class="hljs-template-variable">{{ form.as_table }}</span><span class="xml">
+  <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"送出"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+{% endblock %}
+</span></div></div></code></pre><ul>
+<li><ins>第 5 行</ins>，產生 CSRF 驗證資料</li>
+<li><ins>第 7 行</ins>，將 <code>form</code> 變數中的表單欄位以表格的型式輸出</li>
+</ul><p><kbd><img src="https://i.imgur.com/5cv1li4.png" alt=""></kbd></p><p>新增<strong>共用刪除表單</strong>頁面範本 <code>assistant/templates/confirm_delete.html</code></p><pre><code class="html hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span></div><div class="code"><span class="xml">{% extends 'base.html' %}
+
+{% block content %}
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>刪除紀錄<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span><span class="hljs-template-variable">{{ object }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>確定要刪除這筆記錄嗎？<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>&gt;</span>
+  {% csrf_token %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"是的，我要刪除"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+{% endblock %}
+</span></div></div></code></pre><p><kbd><img src="https://i.imgur.com/n3ndKMz.png" alt=""></kbd></p><h2 id="使用者登入與登出"><a class="anchor hidden-xs" href="#使用者登入與登出" title="使用者登入與登出"><span class="octicon octicon-link"></span></a>使用者登入與登出</h2><h3 id="新增登入登出路徑規則"><a class="anchor hidden-xs" href="#新增登入登出路徑規則" title="新增登入登出路徑規則"><span class="octicon octicon-link"></span></a>新增登入登出路徑規則</h3><p>開啟 <code>assistant/assistant/urls.py</code>，新增以下程式碼：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="20"></span>
+<span data-linenumber="21"></span>
+<span data-linenumber="22"></span>
+<span data-linenumber="23"></span>
+<span data-linenumber="24"></span>
+<span data-linenumber="25"></span></div><div class="code">urlpatterns = [
+    path(<span class="hljs-string">'admin/'</span>, admin.site.urls),
+    path(<span class="hljs-string">''</span>, RedirectView.as_view(url=<span class="hljs-string">'journal/'</span>)), 
+    path(<span class="hljs-string">'journal/'</span>, include(<span class="hljs-string">'journal.urls'</span>)),
+    path(<span class="hljs-string">'accounts/'</span>, include(<span class="hljs-string">'django.contrib.auth.urls'</span>)),
+]
+</div></div></code></pre><div class="alert alert-info">
+<p><img alt=":bulb:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/bulb.png" title=":bulb:"> 直接利用內建的應用程式 <code>django.contrib.auth</code> 來處理使用者登入與登出。</p>
+</div><p>開啟專案設定檔 <code>assistant/assistant/settings.py</code>，增加以下程式碼：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="123"></span>
+<span data-linenumber="124"></span></div><div class="code"><span class="hljs-comment"># Redirect to home URL after login (Default redirects to /accounts/profile/)</span>
+LOGIN_REDIRECT_URL = <span class="hljs-string">'/'</span>    <span class="hljs-comment"># 設定登人後導向的頁面</span>
+</div></div></code></pre><h3 id="登入登出頁面範本"><a class="anchor hidden-xs" href="#登入登出頁面範本" title="登入登出頁面範本"><span class="octicon octicon-link"></span></a>登入登出頁面範本</h3><p>新增資料夾 <code>assistant/templates/registration</code></p><p>新增<strong>登入</strong>頁面範本 <code>assistant/templates/registration/login.html</code></p><pre><code class="html hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span>
+<span data-linenumber="17"></span>
+<span data-linenumber="18"></span>
+<span data-linenumber="19"></span>
+<span data-linenumber="20"></span>
+<span data-linenumber="21"></span>
+<span data-linenumber="22"></span></div><div class="code"><span class="xml">{% extends "base.html" %}
+
+{% block content %}
+{% if form.errors %}
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>帳號或密碼不符合，請再試一次。<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+{% endif %}
+
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">""</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span>&gt;</span>
+  {% csrf_token %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>帳號：<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span></span><span class="hljs-template-variable">{{ form.username }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>密碼：<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span></span><span class="hljs-template-variable">{{ form.password }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"登入"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+{% endblock %}
+</span></div></div></code></pre><ul>
+<li><ins>第 4 - 6 行</ins>，若 <code>form.errors</code> 不是空的，表示登入有誤，因此顯示錯誤訊息。</li>
+<li><ins>第 10 - 17 行</ins>，除了像前一個留言板的範例用 <code>{{ form.as_p }}</code> 或 <code>{{ form.as_table }}</code> 來自動將表單元件轉成 HTML 碼之外，也可以像這個例子，自己編寫表單元素的 HTML 碼。</li>
+</ul><p><kbd><img src="https://i.imgur.com/oxCInBF.png" alt=""></kbd></p><p>新增<strong>登出</strong>頁面範本 <code>assistant/templates/registration/logged_out.html</code></p><pre><code class="html hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span></div><div class="code">{% extends "base.html" %}
+
+{% block content %}
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>您已登出!!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>  
+
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{% url 'login'%}"</span>&gt;</span>請按此處重新登入<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+{% endblock %}
+</div></div></code></pre><p><kbd><img src="https://i.imgur.com/wHRd0wp.png" alt=""></kbd></p><p>修改<strong>網站基底</strong>頁面範本 <code>assistant/templates/base.htm</code>，加上登出/登入連結：</p><pre><code class="html hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span>
+<span data-linenumber="17"></span>
+<span data-linenumber="18"></span>
+<span data-linenumber="19"></span>
+<span data-linenumber="20"></span>
+<span data-linenumber="21"></span>
+<span data-linenumber="22"></span></div><div class="code"><span class="xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"zh-hant"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"X-UA-Compatible"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"ie=edge"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>數位助理<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>數位助理<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/journal/"</span>&gt;</span>日誌列表<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/journal/create/"</span>&gt;</span>寫日誌<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    {% if user.is_authenticated %}
+      </span><span class="hljs-template-variable">{{ user.username }}</span><span class="xml"> <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{% url 'logout' %}"</span>&gt;</span>登出<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    {% else %}
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{% url 'login' %}"</span>&gt;</span>登入<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    {% endif %}
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>{% block content %}{% endblock %}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</span></div></div></code></pre><ul>
+<li>新增<ins>第 14 - 18 行</ins>，若使用者已登入，則顯示登入帳號以及登出連結，否則顯示登入連結
+<div class="alert alert-info">
+<p><img alt=":bulb:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/bulb.png" title=":bulb:"> 這 2 條名為 <code>login</code> 與 <code>logout</code> 的路徑規則有被定義在 <code>django.contrib.auth</code> 應用程式的路徑規則中，還記得剛才我們有將它們引入專案的路徑規則組嗎？</p>
+</div>
+</li>
+</ul><p><kbd><img src="https://i.imgur.com/LBzpmYM.png" alt=""></kbd><br>
+<kbd><img src="https://i.imgur.com/jCgto7m.png" alt=""></kbd></p><h2 id="限制登入後才能執行日記功能"><a class="anchor hidden-xs" href="#限制登入後才能執行日記功能" title="限制登入後才能執行日記功能"><span class="octicon octicon-link"></span></a>限制登入後才能執行日記功能</h2><p>到目前為止，雖然提供了使用者登人與登出的功能，但實際上使用者登入與否並不影響他在這個網站上所能進行的操作，即使在沒登入的狀態也能寫日誌、修改日誌、甚至刪除日誌。</p><p>你可能會想到在可以頁面範本中檢查使用者的登入狀況，再決定是否要顯示相關的連結。但是，看不到連結，不代表不能手動在網址列打上這些功能的存取路徑，一旦使用者「猜」到他想執行的操作所對應到的路徑，他可以自己打在網址列上，再讓瀏覽器送出存取請求來執行他想進行的動作。</p><p>為了做好網站的權限管控，不能只把不讓使用者操作的連結藏起來就好，而是應該在處理使用者請求執行某項功能的時候，要同時檢核他的權限。</p><p>這個範例的需求比較簡單，因為它是個人用的數位助理，所以只要檢查使用者是否已登入就好，不需要更複雜的權限管理。</p><p>開啟 <code>assistant/journal/views.py</code>，修改為以下程式碼：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span>
+<span data-linenumber="17"></span>
+<span data-linenumber="18"></span>
+<span data-linenumber="19"></span>
+<span data-linenumber="20"></span>
+<span data-linenumber="21"></span>
+<span data-linenumber="22"></span>
+<span data-linenumber="23"></span>
+<span data-linenumber="24"></span>
+<span data-linenumber="25"></span>
+<span data-linenumber="26"></span>
+<span data-linenumber="27"></span>
+<span data-linenumber="28"></span>
+<span data-linenumber="29"></span>
+<span data-linenumber="30"></span></div><div class="code"><span class="hljs-keyword">from</span> django.shortcuts <span class="hljs-keyword">import</span> render
+<span class="hljs-keyword">from</span> django.views.generic <span class="hljs-keyword">import</span> ListView, CreateView, UpdateView, DeleteView
+<span class="hljs-keyword">from</span> .models <span class="hljs-keyword">import</span> Journal
+<span class="hljs-keyword">from</span> django.contrib.auth.mixins <span class="hljs-keyword">import</span> LoginRequiredMixin
+
+<span class="hljs-comment"># Create your views here.</span>
+<span class="hljs-comment"># 日誌列表</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JournalList</span><span class="hljs-params">(LoginRequiredMixin, ListView)</span>:</span>
+    model = Journal
+    ordering = [<span class="hljs-string">'-id'</span>]      <span class="hljs-comment"># 依 id 欄位反向排序(新的在前面)</span>
+
+<span class="hljs-comment"># 新增日誌</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JournalCreate</span><span class="hljs-params">(LoginRequiredMixin, CreateView)</span>:</span>
+    model = Journal
+    fields = [<span class="hljs-string">'content'</span>]            <span class="hljs-comment"># 自動產生表單時僅顯示 content 欄位</span>
+    success_url = <span class="hljs-string">'/journal/'</span>       <span class="hljs-comment"># 操作成功後重新導向日誌列表頁面</span>
+    template_name = <span class="hljs-string">'form.html'</span>
+
+<span class="hljs-comment"># 修改日誌</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JournalUpdate</span><span class="hljs-params">(LoginRequiredMixin, UpdateView)</span>:</span>
+    model = Journal
+    fields = [<span class="hljs-string">'content'</span>]            <span class="hljs-comment"># 自動產生表單時僅顯示 content 欄位</span>
+    success_url = <span class="hljs-string">'/journal/'</span>       <span class="hljs-comment"># 操作成功後重新導向日誌列表頁面</span>
+    template_name = <span class="hljs-string">'form.html'</span>
+
+<span class="hljs-comment"># 刪除日誌</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JournalDelete</span><span class="hljs-params">(LoginRequiredMixin, DeleteView)</span>:</span>
+    model = Journal
+    success_url = <span class="hljs-string">'/journal/'</span>       <span class="hljs-comment"># 操作成功後重新導向日誌列表頁面</span>
+    template_name = <span class="hljs-string">'confirm_delete.html'</span>
+</div></div></code></pre><ul>
+<li>新增<ins>第 4 行</ins>，引用 Django 內建的 <code>LoginRequiredMixin</code> 混成的類別</li>
+<li>修改<ins>第 8, 13, 20, 27 行</ins>，將 <code>LoginRequiredMixin</code> 加進 <code>JournalList</code>、<code>JournalCreate</code>、<code>JournalUpdate</code>、<code>JournalDelete</code> 的繼承列表
+<ul>
+<li>注意，要將混成的類別寫在原始繼承類別的前面。</li>
+</ul>
+</li>
+</ul><p>修改完成後，若在未登入的情況下，不論是點按日誌列表，或是寫日誌，亦或是直接在網址列登打修改某篇日誌或刪除某篇日誌的路徑，都會直接被轉址到要求使用者登入的頁面，待登入成功後才能繼續原先欲操作的功能：</p><p><kbd><img src="https://i.imgur.com/tXNtVjw.png" alt=""></kbd></p><h2 id="分頁顯示"><a class="anchor hidden-xs" href="#分頁顯示" title="分頁顯示"><span class="octicon octicon-link"></span></a>分頁顯示</h2><p>在日誌列表的頁面上，會將所有的日誌記錄全部列出來，但當日誌經過一段時間的累積之後，在同一個頁面上要顯示所有的日誌，有可能會因為數量太大，而導致頁面產生的速度過慢。因此一般的網站在處理清單式的頁面的時候，通常都會採用分頁的手法，將所有紀錄拆分成多頁顯示，每一項最多僅顯示固定筆數的紀錄。</p><h3 id="修改視圖，加入分頁設定"><a class="anchor hidden-xs" href="#修改視圖，加入分頁設定" title="修改視圖，加入分頁設定"><span class="octicon octicon-link"></span></a>修改視圖，加入分頁設定</h3><p>開啟 <code>assistant/journal/views.py</code>，修改 <code>JournalList</code> 類別，新增<ins>第 13 行</ins>，通用視圖 <code>ListView</code> 的衍生類別可以透過指定 <code>paginate_by</code> 屬性來指定每頁顯示的最多資料筆數：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span></div><div class="code"><span class="hljs-comment"># 日誌列表</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JournalList</span><span class="hljs-params">(LoginRequiredMixin, ListView)</span>:</span>
+    model = Journal
+    ordering = [<span class="hljs-string">'-id'</span>]      <span class="hljs-comment"># 依 id 欄位反向排序(新的在前面)</span>
+    paginate_by = <span class="hljs-number">3</span>         <span class="hljs-comment"># 設定每頁最多顯示的資料筆數</span>
+</div></div></code></pre><p><em>註：為了便於示範，在不產生過多測試資料的情況下，這裡設定每頁最多只顯示 3 筆日誌。實務上每頁顯示的資料量應該會更多。</em></p><h3 id="處理頁面範本，加入分頁連結"><a class="anchor hidden-xs" href="#處理頁面範本，加入分頁連結" title="處理頁面範本，加入分頁連結"><span class="octicon octicon-link"></span></a>處理頁面範本，加入分頁連結</h3><p>在視圖中指定 <code>paginate_by</code> 屬性值，<code>ListView</code> 會自動依據這個設定取出目前頁面的資料量。因此頁面範本中只能取得最多 <code>paginate_by</code> 筆數的紀錄，但在頁面上顯示這些紀錄後，我們目前的頁面範本並不會自動顯示上一頁、下一頁、或其他分頁頁碼的連結。這部份不是 <code>ListView</code> 的工作，頁面如何呈現，該呈現什麼，這是頁面範本的任務。因此需要修改頁面範本，來規範這些分頁的連結該出現在何處，以及如何呈現這些分頁連結。</p><h4 id="建立分頁連結範本"><a class="anchor hidden-xs" href="#建立分頁連結範本" title="建立分頁連結範本"><span class="octicon octicon-link"></span></a>建立分頁連結範本</h4><p>首先新增分頁連結的範本 <code>assistant/templates/pagination.html</code>：</p><pre><code class="html hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span>
+<span data-linenumber="17"></span></div><div class="code"><span class="xml">{% if is_paginated %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  {% if page_obj.has_previous %}
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"?page=</span></span></span><span class="hljs-template-variable">{{ page_obj.previous_page_number }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>上一頁<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  {% endif %}
+  {% for page in paginator.page_range %}
+    {% if page == page_obj.number %}
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">font</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"red"</span>&gt;</span></span><span class="hljs-template-variable">{{ page }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">font</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    {% else %}
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"?page=</span></span></span><span class="hljs-template-variable">{{ page }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ page }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    {% endif %}
+  {% endfor %}
+  {% if page_obj.has_next %}
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"?page=</span></span></span><span class="hljs-template-variable">{{ page_obj.next_page_number }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>下一頁<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  {% endif %}
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+{% endif %}
+</span></div></div></code></pre><p>這個分頁連結的範本所產生的 HTML 碼並不是一個完整的頁面，僅產生分頁連結的部份而已。若有其他的頁面範本需要產生分頁連結的時候，可以在頁面範本中透過底下的標籤來引用分頁連結範本：</p><pre><code class="python hljs">{% include <span class="hljs-string">'pagination.html'</span> %}
+</code></pre><h4 id="將分頁連結加入日誌列表"><a class="anchor hidden-xs" href="#將分頁連結加入日誌列表" title="將分頁連結加入日誌列表"><span class="octicon octicon-link"></span></a>將分頁連結加入日誌列表</h4><p>修改日誌列表頁面範本 <code>assistant/templates/journal/journal_list.html</code>，新增<ins>第 19 行</ins>，引入 <code>pagination.html</code> 分頁連結範本：</p><pre><code class="html hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span>
+<span data-linenumber="17"></span>
+<span data-linenumber="18"></span>
+<span data-linenumber="19"></span>
+<span data-linenumber="20"></span></div><div class="code"><span class="xml">{% extends 'base.html' %}
+
+{% block content %}
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>我的日誌<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>時間<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>項目<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>操作<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  {% for journal in journal_list %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span></span><span class="hljs-template-variable">{{ journal.created|date:"l" }}</span><span class="xml"></span><span class="hljs-template-variable">{{ journal.created }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ journal.id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/update/"</span>&gt;</span></span><span class="hljs-template-variable">{{ journal.content }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ journal.id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/delete/"</span>&gt;</span>刪除<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  {% endfor %}
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+{% include 'pagination.html' %}
+{% endblock %}
+</span></div></div></code></pre><p><kbd><img src="https://i.imgur.com/tDKN887.png" alt=""></kbd></p></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#實戰：日誌" title="實戰：日誌">實戰：日誌</a><ul class="nav">
+<li><a href="#建立專案與應用程式" title="建立專案與應用程式">建立專案與應用程式</a><ul class="nav">
+<li><a href="#建立新專案" title="建立新專案">建立新專案</a></li>
+<li><a href="#在專案下建立應用程式" title="在專案下建立應用程式">在專案下建立應用程式</a></li>
+</ul>
+</li>
+<li><a href="#資料庫" title="資料庫">資料庫</a></li>
+<li><a href="#網址、視圖、範本、表單" title="網址、視圖、範本、表單">網址、視圖、範本、表單</a><ul class="nav">
+<li><a href="#網址" title="網址">網址</a></li>
+<li><a href="#視圖" title="視圖">視圖</a></li>
+<li><a href="#範本" title="範本">範本</a></li>
+</ul>
+</li>
+<li><a href="#使用者登入與登出" title="使用者登入與登出">使用者登入與登出</a><ul class="nav">
+<li><a href="#新增登入登出路徑規則" title="新增登入登出路徑規則">新增登入登出路徑規則</a></li>
+<li><a href="#登入登出頁面範本" title="登入登出頁面範本">登入登出頁面範本</a></li>
+</ul>
+</li>
+<li><a href="#限制登入後才能執行日記功能" title="限制登入後才能執行日記功能">限制登入後才能執行日記功能</a></li>
+<li><a href="#分頁顯示" title="分頁顯示">分頁顯示</a><ul class="nav">
+<li><a href="#修改視圖，加入分頁設定" title="修改視圖，加入分頁設定">修改視圖，加入分頁設定</a></li>
+<li><a href="#處理頁面範本，加入分頁連結" title="處理頁面範本，加入分頁連結">處理頁面範本，加入分頁連結</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#實戰：日誌" title="實戰：日誌">實戰：日誌</a><ul class="nav">
+<li><a href="#建立專案與應用程式" title="建立專案與應用程式">建立專案與應用程式</a><ul class="nav">
+<li><a href="#建立新專案" title="建立新專案">建立新專案</a></li>
+<li><a href="#在專案下建立應用程式" title="在專案下建立應用程式">在專案下建立應用程式</a></li>
+</ul>
+</li>
+<li><a href="#資料庫" title="資料庫">資料庫</a></li>
+<li><a href="#網址、視圖、範本、表單" title="網址、視圖、範本、表單">網址、視圖、範本、表單</a><ul class="nav">
+<li><a href="#網址" title="網址">網址</a></li>
+<li><a href="#視圖" title="視圖">視圖</a></li>
+<li><a href="#範本" title="範本">範本</a></li>
+</ul>
+</li>
+<li><a href="#使用者登入與登出" title="使用者登入與登出">使用者登入與登出</a><ul class="nav">
+<li><a href="#新增登入登出路徑規則" title="新增登入登出路徑規則">新增登入登出路徑規則</a></li>
+<li><a href="#登入登出頁面範本" title="登入登出頁面範本">登入登出頁面範本</a></li>
+</ul>
+</li>
+<li><a href="#限制登入後才能執行日記功能" title="限制登入後才能執行日記功能">限制登入後才能執行日記功能</a></li>
+<li><a href="#分頁顯示" title="分頁顯示">分頁顯示</a><ul class="nav">
+<li><a href="#修改視圖，加入分頁設定" title="修改視圖，加入分頁設定">修改視圖，加入分頁設定</a></li>
+<li><a href="#處理頁面範本，加入分頁連結" title="處理頁面範本，加入分頁連結">處理頁面範本，加入分頁連結</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        Javascript基礎 - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @charset "UTF-8";@import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram{text-align:center;background-color:inherit;border-radius:0;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.MJX_Assistive_MathML{display:none}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;padding:0 15px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc-label{opacity:.3;background-color:#ccc;border:none;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:23px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child > ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:3px;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-published-note{color:#337ab7}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em}.focus,:focus{outline:none!important}::-moz-focus-inner{border:0!important}body{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 id="Javascript基礎"><a class="anchor hidden-xs" href="#Javascript基礎" title="Javascript基礎"><span class="octicon octicon-link"></span></a>Javascript基礎</h1><p>在撰寫網頁的時候，HTML主要是決定了網頁內容及文件架構，透過 CSS 來決定文件的外觀，最後還可以使用 Javascript 來與使用者互動，比如說在瀏覽器端動態改變網頁的內容，當使用者觸發某些事件的時候，變更元素的所套用的所套用的CSS 類別來變更其外觀，又或者在使用者送出表單前先驗證表單欄位所填的內容是否符合需求…等。</p><p>Javascript 雖然名字當中含有 Java，但它跟 Java 語言一點關係也沒有。它是一種直譯式(執行時不需經過預先編譯)的腳本語言，瀏覽器已內建 Javascript 的直譯器，因此不需要另行安裝其它程式。</p><h2 id="引用方式"><a class="anchor hidden-xs" href="#引用方式" title="引用方式"><span class="octicon octicon-link"></span></a>引用方式</h2><p>在網頁中要引用 Javascript 程式碼來執行有 2 種方式：內嵌或引用外部檔案。</p><h3 id="內嵌"><a class="anchor hidden-xs" href="#內嵌" title="內嵌"><span class="octicon octicon-link"></span></a>內嵌</h3><p>將程式碼寫在 <code>&lt;script&gt;</code> 與 <code>&lt;/script&gt;</code> 標籤之間，而 <code>script</code> 標籤可放在 <code>&lt;head&gt;&lt;/head&gt;</code> 內或放在 <code>&lt;body&gt;&lt;/body&gt;</code> 內均可。例：</p><pre><code class="html hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span>
+<span data-linenumber="17"></span>
+<span data-linenumber="18"></span>
+<span data-linenumber="19"></span></div><div class="code"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"X-UA-Compatible"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"ie=edge"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Javascript 測試<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="undefined">
+        alert("在 head 內的測試訊息");
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    ...其它內容...
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="undefined">
+        alert("在 body 內的測試訊息");
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    ...其它內容...
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></div></code></pre><p><kbd><img src="https://i.imgur.com/qbzCyDx.png" alt=""></kbd></p><div class="alert alert-info">
+<p><img alt=":bulb:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/bulb.png" title=":bulb:"> <strong>何時載入 Javascript 比較好？</strong></p>
+<p>瀏覽器在載入網頁的時候，會依照 HTML 原始碼標籤出現的順序進行解譯，因此 Javascript 程式碼出現的位置也會影響到它被執行的時間。</p>
+<p>在網頁上的 Javascript 程式主要目的是為了與使用者互動，一般來說為了提升網頁顯示的效能，會建議盡量將 Javascript 程式碼置於 HTML 原始碼末段，讓瀏覽器將網頁的其它內容元素繪製完成後，再來執行 Javascript 程式碼。</p>
+</div><h3 id="引用外部檔案"><a class="anchor hidden-xs" href="#引用外部檔案" title="引用外部檔案"><span class="octicon octicon-link"></span></a>引用外部檔案</h3><p>可用文字編輯器將 Javascript 程式碼寫在副檔名為 .js 的檔案中，再透過 <code>&lt;script src="引用檔案.js"&gt;&lt;/script&gt;</code> 引用外部檔案來執行。例：</p><pre><code class="js hljs"><span class="hljs-comment">/* demo.js */</span>
+document.write(<span class="hljs-string">"這是用 Javascript 產生的內容"</span>);
+</code></pre><pre><code class="html hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span></div><div class="code"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"X-UA-Compatible"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"ie=edge"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Javascript 測試<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"demo.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></div></code></pre><p>雖然在 HTML 檔案的 <code>body</code> 標籤內沒有包含其它內容，僅透過 <code>script</code> 標籤引入了外部的 <code>demo.js</code> 來執行，該檔案內的 <code>document.write()</code> 可用來動態在網頁中插入內容，因此最終頁面上顯示了「這是用 Javascript 產生的內容」：</p><p><kbd><img src="https://i.imgur.com/t32RCLS.png" alt=""></kbd></p><div class="alert alert-warning">
+<p><img alt=":warning:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/warning.png" title=":warning:"> <strong>注意：</strong></p>
+<p>用來引用外部 Javascript 腳本程式的 <code>script</code> 標籤，不可再內嵌其它程式碼。如需另外內嵌程式碼，需使用另外一組 <code>script</code> 標籤。例如：</p>
+<pre><code class="html hljs"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"demo.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="undefined">
+  var myTitle = document.querySelector('h1');
+
+  myTitle.textContent = '新標題';
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+</div><h2 id="基礎語法"><a class="anchor hidden-xs" href="#基礎語法" title="基礎語法"><span class="octicon octicon-link"></span></a>基礎語法</h2><p>先來看一個範例，請準備 3 個檔案，檔名及內容如下：</p><ul>
+<li>
+<p>首先是 HTML 文件 <code>ex1.html</code>：</p>
+<pre><code class="html hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span>
+<span data-linenumber="17"></span></div><div class="code"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"X-UA-Compatible"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"IE=edge"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Javascript<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"screen"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"ex1.css"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"title"</span>&gt;</span>歡迎光臨<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"main"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"ex1.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></div></code></pre>
+<p>目前樣式檔與腳本檔都還沒準備好，因此以瀏覽器開啟 <code>ex1.html</code> 的話，頁面看起來大概像這樣：</p>
+<p><kbd><img src="https://i.imgur.com/wI5RgTO.png" alt=""></kbd></p>
+</li>
+<li>
+<p>在同一個資料夾下新增樣式檔 <code>ex1.css</code>：</p>
+<pre><code class="css hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span>
+<span data-linenumber="17"></span></div><div class="code"><span class="hljs-selector-class">.container</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">90%</span>;
+    <span class="hljs-attribute">background-color</span>: skyblue;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">5pt</span> auto;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">5pt</span>;
+}
+
+<span class="hljs-selector-id">#title</span> {
+    <span class="hljs-attribute">font-family</span>: <span class="hljs-string">"微軟正黑體"</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">5pt</span>;
+}
+
+<span class="hljs-selector-id">#main</span> {
+    <span class="hljs-attribute">min-height</span>: <span class="hljs-number">100px</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">5pt</span>;
+    <span class="hljs-attribute">background-color</span>: snow;
+}
+</div></div></code></pre>
+<p>給定一些簡單的樣式規則後，讓瀏覽器重新載入網頁：</p>
+<p><kbd><img src="https://i.imgur.com/0jHl4ND.png" alt=""></kbd></p>
+</li>
+<li>
+<p>在相同資料夾新增 Javascript 腳本程式 <code>ex1.js</code>：</p>
+<pre><code class="js hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code"><span class="hljs-comment">// ex1.js</span>
+<span class="hljs-keyword">var</span> myTitle = document.querySelector(<span class="hljs-string">'h1'</span>);
+<span class="hljs-keyword">var</span> mainContent = document.querySelector(<span class="hljs-string">'#main'</span>);
+myTitle.textContent = <span class="hljs-string">"Hello, world"</span>;
+mainContent.textContent = <span class="hljs-string">'這一行內容是用 Javascript 產生的噢！'</span>;
+</div></div></code></pre>
+<p>重新載入網頁後，頁面看起來應該會像這樣：</p>
+<p><kbd><img src="https://i.imgur.com/Krk3T0Q.png" alt=""></kbd></p>
+<p>咦？原本 <code>ex1.html</code> 的內容被改掉了耶！發生什麼事了？</p>
+<ul>
+<li>
+<p><ins>第 1 行</ins>，<code>//</code> 標示了該行其後的內容皆為註解文字，是給人類看的說明訊息，不影響程式的執行結果。</p>
+</li>
+<li>
+<p><ins>第 2 行</ins>，宣告一個名為 <code>myTitle</code> 的變數，而它的初始值被指定為 <code>=</code> 右邊的運算結果。</p>
+<p><code>document</code> 是一個內建的物件(Object)，代表目前這個網頁文件，而 <code>querySelector()</code> 則是 <code>document</code> 這個物件提供的一個操作方法(Method)。要使用物件提供的操作方法時，必須以 <code>.</code> 這個符號來連接物件實例(Instance)以及欲操作的方法名稱。</p>
+<p><code>document.querySelector()</code> 方法是用來在網頁文件中取得指定的元素，在使用需要提供它額外的資訊讓它進行搜尋，這些額外提供的資訊叫做「參數」或「引數」，需要被置於方法名稱後的小括號內，例： <code>document.querySelector('h1')</code></p>
+<p>對 <code>document.querySelector()</code> 來說，它的參數是用來指定篩選/搜尋條件用的，我們可以使用前一堂課 CSS 基礎裡提到的 CSS 篩選規則來篩選出之後欲操作的網頁元素。以本行來說， <code>document.querySelector('h1')</code> 的意思就是在網頁文件中找到 <code>&lt;h1&gt;</code> 元素，並傳回該元素的實例(物件)。若篩選出來的元素超過 1 個，就只傳回第一個被指到的元素。</p>
+<p>總結一下，這行程式碼的意思就是宣告一個名為 <code>myTitle</code> 的變數，用它來接收(記住)從文件中找到的第一個 <code>&lt;h1&gt;</code> 元素。</p>
+<div class="alert alert-info">
+<p><img alt=":bulb:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/bulb.png" title=":bulb:"> <strong>補充</strong>：</p>
+<p>若想要取得所有符合指定條件的元素的話，可以使用 <code>document</code> 物件提供的另一個方法 <code>querySelectorAll()</code>，它會回傳一個陣列，陣列內容即是所有符合條件的網頁元素。</p>
+</div>
+</li>
+<li>
+<p><ins>第 4 行</ins>， <code>myTitle</code> 變數現在就代表了前面搜尋到的那個 <code>&lt;h1&gt;</code> 元素，這類網頁元素都包含了一個名為 <code>textContent</code> 的屬性，用來代表該元素內含的文字資料。同樣的，若我們想要存取某物件的屬性，要使用 <code>.</code> 符號來連接物件以及屬性名稱。</p>
+<p><code>=</code> 這個運算符號的意思是將右邊的運算結果指定給左方的項目，而雙引號 <code>""</code> 包夾起來的這一串連續文字資料叫做「字串」，其內容不包含頭尾的雙引號。</p>
+<p>整句敘述的意思是將 <code>myTitle</code> 的 <code>textContent</code> 屬性的內容設定為 <code>Hello, world</code>，也就是將 <code>myTitle</code> 所代表的 <code>&lt;h1&gt;</code> 元素的文字內容變更為 <code>Hello, world</code>，因此原本 <code>&lt;h1&gt;</code> 標籤裡的「歡迎光臨」就被更改為「Hello, world」。</p>
+</li>
+</ul>
+</li>
+</ul><h3 id="變數及資料型別"><a class="anchor hidden-xs" href="#變數及資料型別" title="變數及資料型別"><span class="octicon octicon-link"></span></a>變數及資料型別</h3><p>除了前述採用內嵌以及引用外部檔案較正式的 2 種引用方式讓瀏覽器來執行 Javascript 程式碼之外，如果只是要先測試程式碼片段的話，最便利的方式就是透過網頁瀏覽器開發者工具中的網頁主控台，將程式碼直接鍵入主控台來執行，透過觀察執行結果來驗證程式碼。</p><div class="alert alert-info">
+<p><img alt=":bulb:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/bulb.png" title=":bulb:"> <strong>網頁主控台</strong></p>
+<p>現在比較新版的網頁瀏覽器都會內建開發者工具，讓網頁開發者在開發階段可以對網頁進行測試，例如：在頁面上暫時修改 CSS 規則來觀察該規則的效果，或對網頁的 javascript 程式碼進行測試與偵錯，查看網路存取狀況…等等。網頁主控台是開發者工具裡的其中一個模組，我們可以在這邊鍵入 Javascript 程式碼來測試執行結果。以下為開啟網頁主控台的方法：</p>
+<p><strong>Google Chrome</strong><br>
+按下網址列最右方的點點點按鈕開啟選單，找到「更多工具」，再點選「開發人員工具」，或者按 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> 組合鍵也可以啟用它：<br>
+<kbd><img src="https://i.imgur.com/G1gjor8.png" alt=""></kbd><br>
+開發人員工具的「Console」頁籤即為 Javascript 主控臺：<br>
+<kbd><img src="https://i.imgur.com/45hmMP0.png" alt=""></kbd></p>
+<p><strong>Firefox</strong><br>
+同樣按下網址列最右方的三條橫線的按鈕開啟選單，點選「網頁開發者」進入下一層子選單，再點選「網頁主控台」，或者直接以 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> 按鈕組合來開啟網頁主控台<br>
+<kbd><img src="https://i.imgur.com/GmztAg1.png" alt=""></kbd><br>
+<kbd><img src="https://i.imgur.com/H1TUhaY.png" alt=""></kbd></p>
+<p><strong>Internet Explorer</strong><br>
+微軟的 Internet Explorer 也有提供類似的功具，但是 IE 對於網頁標準的支援度不佳，安全性也堪慮，目前連微軟公司自己都公開呼籲使用者改用其他較新的瀏覽器。</p>
+<p>你可以將程式碼貼到網頁主控台來測試或驗證，確認無誤之後，再將程式碼寫到 .js 檔案或網頁的 <code>&lt;script&gt;&lt;/script&gt;</code> 標籤中讓網頁載入執行。</p>
+</div><h4 id="基本資料型別"><a class="anchor hidden-xs" href="#基本資料型別" title="基本資料型別"><span class="octicon octicon-link"></span></a>基本資料型別</h4><p>Javascript 的基本(Primitive)資料型別有以下幾種：</p><ul>
+<li>
+<p>數值(Number)</p>
+<p>Javascript 內的數值資料，並不像其他程式語言有整數與浮點數的分別，不管有小數點或沒有小數點的數值，在 Javascript 中是屬於同一種資料型別。</p>
+<p>在撰寫整數數值時，預設是 10 進位，若在數值前加上 <code>0x</code> 前綴字串，則表示 16 進位，例：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> num <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> color_value <span class="token operator">=</span> <span class="token number">0x3AF068</span><span class="token punctuation">;</span>
+</code></pre>
+<p>若要表示浮點數值時，可使用科學記號表示法，例：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> pi <span class="token operator">=</span> <span class="token number">3.1415</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> fp1 <span class="token operator">=</span> <span class="token number">9.8251E92</span><span class="token punctuation">;</span> <span class="token comment">// 9.8251 * 10^92 // 9.8251 乘 10 的 92 次方</span>
+<span class="token keyword">var</span> sm <span class="token operator">=</span> <span class="token number">1.8E-26</span><span class="token punctuation">;</span> <span class="token comment">// 1.8 * 10^-26 // 1.8 乘 10 的 -26 次方</span>
+</code></pre>
+<p>數值常用的運算如下：</p>
+<ul>
+<li>加法 <code>+</code></li>
+<li>減法 <code>-</code></li>
+<li>乘法 <code>*</code></li>
+<li>除法 <code>/</code></li>
+<li>取餘數 <code>%</code></li>
+</ul>
+</li>
+<li>
+<p>字串(String)</p>
+<p>字串是前後都用雙引號 <code>"</code> 或是單引號 <code>'</code> 包夾的一串連續文字的集合，只要前後使用相同的引號即可。例：</p>
+<pre><code class="javascript hljs"><span class="token string">'這是字串'</span>
+<span class="token string">"這也是字串"</span>
+</code></pre>
+<p>另外，在 Javascript 中並沒有「字元」這種資料型別。</p>
+<p>字串常用的操作如下：</p>
+<ul>
+<li>
+<p>取得字串長度 <code>.length</code></p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> mystr <span class="token operator">=</span> <span class="token string">'範例字串 2019/02'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> len <span class="token operator">=</span> mystr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+</code></pre>
+<p><code>len</code> 變數的值會被設定為 <code>12</code>，因為字串裡總共包含 12 個符號。</p>
+</li>
+<li>
+<p>取得某位置的符號 <code>[位置]</code> 或 <code>.charAt(位置)</code></p>
+<p>位置由 <code>0</code> 起算，第一個符號所在的位置是 <code>0</code> 號。例：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> c3 <span class="token operator">=</span> mystr<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment">// c3 的內容會被設為 '串'</span>
+<span class="token keyword">var</span> c6 <span class="token operator">=</span> mystr<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// c6 會被設為 '0'</span>
+</code></pre>
+</li>
+<li>
+<p>附加字串 <code>+ 附加字串</code> 或 <code>.concat(附加字串)</code></p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> s2 <span class="token operator">=</span> mystr <span class="token operator">+</span> <span class="token string">'!!!'</span><span class="token punctuation">;</span>          <span class="token comment">// s2 的內容被設為 '範例字串 2019/02!!!'</span>
+<span class="token keyword">var</span> s3 <span class="token operator">=</span> <span class="token string">'Hello '</span><span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>mystr<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 'Hello 範例字串 2019/02'</span>
+</code></pre>
+</li>
+<li>
+<p>是否包含子字串 <code>.includes(子字串)</code></p>
+<p>如果子串內包含指定的子字串，會傳回 <code>true</code>，否則傳回 <code>false</code>。例：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> hasI <span class="token operator">=</span> mystr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'範例'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// true</span>
+<span class="token keyword">var</span> hasII <span class="token operator">=</span> mystr<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'我好帥'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// false</span>
+</code></pre>
+</li>
+<li>
+<p>取得子字串出現位置 <code>.indexOf(子字串)</code> 或 <code>.search(子字串)</code></p>
+<p>若指定的子字串有在字串中出現，則傳回子字串第一次開始出現的位置，位置編號由 <code>0</code> 起算；若子字串不存在，則傳回 <code>-1</code>。例：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> i1 <span class="token operator">=</span> mystr<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'你好'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// -1</span>
+<span class="token keyword">var</span> i2 <span class="token operator">=</span> mystr<span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span><span class="token string">'2019'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 5</span>
+</code></pre>
+</li>
+<li>
+<p>取出指定位置的子字串 <code>.substr(起始位置, 長度)</code></p>
+<ul>
+<li>
+<p>若省略第 2 個參數「長度」，表示取出從起始位置開始，一直到字串結尾為止的子字串，例：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> ss1 <span class="token operator">=</span> mystr<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// '串 2019/02'</span>
+</code></pre>
+<p>從 <code>3</code> 號位置開始，一直取到字串結尾為止。</p>
+</li>
+<li>
+<p>若由起始位置開始，加上指定長度之後會超過字串長度，則僅取到字串結尾為止，例：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> ss2 <span class="token operator">=</span> mystr<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// '9/02'</span>
+</code></pre>
+<p>從 <code>8</code> 號位置(也就是第 <code>9</code> 個符號)開始，最多取出 <code>8</code> 個符號。</p>
+</li>
+<li>
+<p>若起始位置為負值，表示由字串尾端倒數，最後一個符號的位置編號為 <code>-1</code>。例：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> ss3 <span class="token operator">=</span> mystr<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// '19'</span>
+</code></pre>
+<p>從倒數第 <code>5</code> 個符號開始，最多取 <code>2</code> 個符號。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>以指定符號切分字串 <code>.split(分隔符號)</code></p>
+<p>以分隔符號來將子串進行切割，分割後的字串部件不包含指定的分割符號，結果會依序放在一個陣列內回傳。例：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> timestr <span class="token operator">=</span> <span class="token string">'12:49:37'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> tokens <span class="token operator">=</span> timestr<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ['12', '49', '37']</span>
+</code></pre>
+<p>如果傳入一個空的分隔符號，會將字串內每個字元分割出來。如：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> t2 <span class="token operator">=</span> <span class="token string">'你我他大家好'</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ['你', '我', '他', '大', '家', '好']</span>
+</code></pre>
+</li>
+<li>
+<p>將字串內容全轉為小寫 <code>.toLowerCase()</code></p>
+<p>將字串內的所有英文字母轉換為小寫後，回傳新的結果字串，不會更動原字串。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'Hello! How are you?'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> s2 <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 'hello! how are you?'</span>
+</code></pre>
+</li>
+<li>
+<p>將字串內容轉為大寫 <code>.toUpperCase()</code></p>
+<p>將字串內所有英文字母轉大寫並傳回新的結果字串，原字串不會被變更。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">'Hello! How are you?'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> s2 <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 'HELLO! HOW ARE YOU?'</span>
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>布林值(Boolean)</p>
+<p>只有 2 種值： <code>true</code> 或 <code>false</code>，通常是關係運算式的結果，表示關係成立或不成立。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> n <span class="token operator">=</span> <span class="token number">196</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> isPrime <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> below100 <span class="token operator">=</span> n <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span>    <span class="token comment">// false</span>
+</code></pre>
+</li>
+<li>
+<p>空值(null)</p>
+<p>用來表示空值的特殊關鍵字 <code>null</code>。</p>
+</li>
+<li>
+<p>未定義(undefined)</p>
+<p>用來表示某個識別字尚未被定義的特殊關鍵字 <code>undefined</code>。若宣告了一個變數，但尚未為其賦值，此時該變數就會是 <code>undefined</code>。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> variable<span class="token punctuation">;</span>    <span class="token comment">// 變數 variable 的值為 undefined</span>
+</code></pre>
+</li>
+</ul><h4 id="陣列-array"><a class="anchor hidden-xs" href="#陣列-array" title="陣列-array"><span class="octicon octicon-link"></span></a>陣列 array</h4><p>陣列是 Javascript 中基本開資料結構，用來表示一群資料的集合，其內的每一筆資料彼此之間以半形逗號 <code>,</code> 隔開。要宣告陣列，可以使用 <code>array()</code> 物件形式，或以 <code>[]</code> 形式宣告，例：</p><pre><code class="javascript hljs"><span class="token keyword">var</span> prime_list <span class="token operator">=</span> <span class="token function">array</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> fib <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre><p>陣列內的每筆資料可以是不同的資料型態，例：</p><pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span></div><div class="code"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token number">2</span><span class="token punctuation">,</span>
+    <span class="token string">'最小的質數'</span><span class="token punctuation">,</span>
+    <span class="token number">3.14159265358</span><span class="token punctuation">,</span>
+    <span class="token string">'pi'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span><span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'Dino'</span><span class="token punctuation">,</span> <span class="token string">'score'</span><span class="token punctuation">:</span> <span class="token number">95</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</div></div></code></pre><p>陣列裡每筆資料會依其所在位置自動給定編號，由 <code>0</code> 起算，第 <code>1</code> 筆資料是 <code>0</code> 號，第 <code>2</code> 筆資料是 <code>1</code> 號，餘此類推。要存取其陣列中某筆資料，則需同時使用陣列名稱加上<code>[位置編號]</code>，例：</p><pre><code class="javascript hljs"><span class="token keyword">var</span> pi <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment">// 將 pi 指定為 arr 陣列中 2 號位置的內容</span>
+arr<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'圓周率'</span><span class="token punctuation">;</span>   <span class="token comment">// 將 arr 陣列中的 3 號位置的內容指定為字串 '圓周率'</span>
+</code></pre><p>陣列的基本操作如下：</p><ul>
+<li>
+<p>取得陣列內的元素個素(資料筆數) <code>.length</code></p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> len <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>   <span class="token comment">// len 的值被指定為 10</span>
+</code></pre>
+</li>
+<li>
+<p>合併陣列　<code>.concat()</code></p>
+<p><code>.concat()</code> 方法可以用來合併多個陣列，這個方法不會變更原始的陣列，合併完成後會回傳一個新陣列。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> odds <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> evens <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> alphas <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> nums <span class="token operator">=</span> odds<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>evens<span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment">// [1, 3, 5, 7, 2, 4, 6, 8]</span>
+<span class="token keyword">var</span> alnums <span class="token operator">=</span> alphas<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>evens<span class="token punctuation">,</span> odds<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ['a', 'b', 'c', 2, 4, 6, 8, 1, 3, 5, 7]</span>
+</code></pre>
+</li>
+<li>
+<p>測試是否陣列內所有元素皆符合指定條件 <code>.every()</code></p>
+<p>在使用 <code>.every()</code> 方法時需提供一個回呼函式(callback function)當做參數，用來當做檢測元素是否符合條件的依據，例：</p>
+<pre><code class="javascript hljs"><span class="token comment">// 測試 num 是否為偶數</span>
+<span class="token keyword">function</span> <span class="token function">test_is_even</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> num <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>    <span class="token comment">// 若是偶數的話，它除以 2 的餘數應為 0</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 測試 num 是否小於 10</span>
+<span class="token keyword">function</span> <span class="token function">test_below_ten</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> num <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> is_all_even <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span>test_is_even<span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment">// false</span>
+<span class="token keyword">var</span> is_all_below_ten <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span>test_below_ten<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// true</span>
+</code></pre>
+<p>這個方法會將陣列中的每一個元素，一一交由回呼函式進行測試，若陣列中所有元素都通過測試， <code>.every()</code> 方法會傳回 <code>true</code>；反之，只要有任何一個元素無法通過檢測，則會傳回 <code>false</code>。</p>
+<p><code>.every()</code> 方法的回呼函式最多可接受 3 個引數：</p>
+<ol>
+<li><code>item</code> (必要的)，代表目前正被處理的元素。</li>
+<li><code>index</code> (選用)，代表目前正被處理的元素的索引值(位置編號)。</li>
+<li><code>array</code> (選用)，代表目前呼叫 <code>.every()</code> 方法的陣列。</li>
+</ol>
+<p>舉例來說，若我們要檢查索引值為奇數的元素值也為奇數的話，回呼函式可以這樣定義：</p>
+<pre><code class="javascript hljs"><span class="token keyword">function</span> <span class="token function">idx_val_both_odd</span><span class="token punctuation">(</span>val<span class="token punctuation">,</span> idx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>idx <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>         <span class="token comment">// 如果索引值為奇數</span>
+        <span class="token keyword">return</span> val <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">;</span>    <span class="token comment">// 傳回元素值是否為奇數</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 索引值為偶數時不論奇偶都可以，所以直接回傳 true</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>另外，回呼函式也可以直接以匿名函式(<code>Anonymous Function</code>)形式提供給 <code>.every()</code> 方法，如：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> is_all_even <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> val <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<div class="alert alert-info">
+<p><img alt=":bulb:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/bulb.png" title=":bulb:"> <strong>匿名函式(Anonymous Function)是什麼？</strong></p>
+<p>通常在定義函式的時候，會為函式命名，以便在需要的時候可以重覆使用該函式，而不需重覆定義。匿名函式便是在定義函式時，僅省略了函式的名稱，但其餘部份皆必須保留。</p>
+<p>匿名函式的使用時機，通常是該函式僅在一處被引用到，沒有多處共用的需求時使用。</p>
+<p>在 Javascript 中，需要回呼函式的時候，通常是為了要處理某個特定的情況，少有共用相同處理過程的需求，因此習慣上多會將回呼函式以匿名函式的形式來撰寫。</p>
+</div>
+</li>
+<li>
+<p>將指定值填入陣列 <code>.fill()</code></p>
+<p><code>.fill()</code> 方法的做用是以指定的值填滿陣列，它可接受 3 個參數：</p>
+<ol>
+<li><code>value</code> (必要的)，代表要填入陣列的值。</li>
+<li><code>from</code> (選用)，代表要從哪個索引值開始填入值，若省略則預設為 <code>0</code>。</li>
+<li><code>end</code> (選用)，代表終止填值的索引值，預設為陣列的長度。在此編號前的位置都會被填入指定的值，不包含此位置。</li>
+</ol>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+arr<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// [0, 1, 2, '*', '*', 5, 6, 7, 8, 9]</span>
+arr<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// [0, 1, 2, '*', '*', 5, 6, 'a', 'a', 'a']</span>
+arr<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// [9, 9, 9, 9, 9, 9, 9, 9, 9, 9]</span>
+</code></pre>
+</li>
+<li>
+<p>篩選陣列中符合條件的元素 <code>.filter()</code></p>
+<p>使用 <code>.filter()</code> 方法時，需提供一個回呼函式當做篩選元素的依據，這個方法會為陣列中通過回呼函式篩選的元素集合另外建立一個新陣列再回傳，不會變更原陣列的內容。</p>
+<p>回呼函式可接受 <code>3</code> 個參數，意義同 <code>.every()</code> 方法的回呼函式。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> num <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 將偶數挑出來組成新的陣列</span>
+<span class="token keyword">var</span> num_even <span class="token operator">=</span> num<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> val <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// num_even = [8, 4, 2];</span>
+
+<span class="token comment">// 挑出 num 陣列中所有大於 5 的元素</span>
+<span class="token keyword">var</span> big5 <span class="token operator">=</span> num<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> val <span class="token operator">&gt;</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// big5 = [8, 9, 7];</span>
+</code></pre>
+</li>
+<li>
+<p>傳回第一個滿足條件的元素 <code>.find()</code></p>
+<p>使用 <code>.find()</code> 方法時，需提供回呼函式當成尋找的依據，此方法會傳回第一個可通過回呼函式檢測的元素。若都沒有任何一個元素可通過檢測，則傳回 <code>undefined</code>。</p>
+<p>此方法所需的回呼函式的說明與 <code>.every()</code> 方法相同。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">49</span><span class="token punctuation">,</span> <span class="token number">33</span><span class="token punctuation">,</span> <span class="token number">121</span><span class="token punctuation">,</span> <span class="token number">66</span><span class="token punctuation">,</span> <span class="token number">81</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> first <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> idx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> item <span class="token operator">&gt;=</span> <span class="token number">60</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// first = 121</span>
+</code></pre>
+</li>
+<li>
+<p>傳回第一個滿足條件的元素編號 <code>.findIndex()</code></p>
+<p>與 <code>.find()</code> 方法相似，差別在於 <code>.find()</code> 方法會傳回第一個滿足條件的元素本身，而 <code>.findIndex()</code> 方法則是傳回該元素的索引值。若找不到任何一個滿足條件的元素，則傳回 <code>undefined</code>。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">49</span><span class="token punctuation">,</span> <span class="token number">33</span><span class="token punctuation">,</span> <span class="token number">121</span><span class="token punctuation">,</span> <span class="token number">66</span><span class="token punctuation">,</span> <span class="token number">81</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> first <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">findIndex</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> idx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> item <span class="token operator">&gt;=</span> <span class="token number">60</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// first = 2</span>
+</code></pre>
+</li>
+<li>
+<p>將每個元素交由指定的回呼函式處理 <code>.forEach()</code></p>
+<p>使用 <code>.forEach()</code> 方法時，需提供一個回呼函式用來處理陣列中的每一個元素，這個回呼函式會將陣列中的每一個元素當作參數，每個元素各執行一次回呼函式。</p>
+<p><code>.forEach()</code> 方法的回呼函式可接受 <code>3</code> 個參數，意思與 <code>.every()</code> 方法相同：</p>
+<ol>
+<li><code>item</code> (必要的)，代表目前正被處理的元素。</li>
+<li><code>index</code> (選用)，代表目前正被處理的元素的索引值(位置編號)。</li>
+<li><code>array</code> (選用)，代表目前呼叫 <code>.every()</code> 方法的陣列。</li>
+</ol>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> num <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+num<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>index <span class="token operator">+</span> <span class="token string">' 號元素為 '</span> <span class="token operator">+</span>item<span class="token operator">+</span><span class="token string">', 其平方為 '</span><span class="token operator">+</span>item<span class="token operator">*</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>在主控臺上列出 <code>num</code> 陣列中每個元素的內容</li>
+</ul>
+</li>
+<li>
+<p>判斷陣列是否包含指定元素 <code>.includes()</code></p>
+<p>此方法可接受 2 個參數：</p>
+<ol>
+<li><code>item</code> (必要)，表示要搜尋的元素。</li>
+<li><code>from</code> (選用)，表示開始搜尋的索引編號，若為負值，表示該索引由陣列尾端倒數。若省略時預設值為 <code>0</code>。</li>
+</ol>
+<p>若由 <code>from</code> 指定的索引位置開始搜尋，有找到與 <code>item</code> 相等的元素則此方法會回傳 <code>true</code>，否則回傳 <code>false</code>。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> brands <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'HTC'</span><span class="token punctuation">,</span> <span class="token string">'Apple'</span><span class="token punctuation">,</span> <span class="token string">'Asus'</span><span class="token punctuation">,</span> <span class="token string">'Acer'</span><span class="token punctuation">,</span> <span class="token string">'Nokia'</span><span class="token punctuation">,</span> <span class="token string">'LG'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> t1 <span class="token operator">=</span> brands<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'Apple'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// true</span>
+<span class="token keyword">var</span> t2 <span class="token operator">=</span> brands<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span><span class="token string">'Apple'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// false</span>
+</code></pre>
+</li>
+<li>
+<p>傳回指定元素值在陣列中初次出現的位置編號 <code>.indexOf()</code></p>
+<p>此方法可接受 2 個參數：</p>
+<ol>
+<li><code>item</code> (必要)，表示要搜尋的元素。</li>
+<li><code>from</code> (選用)，表示開始搜尋的索引編號，若為負值，表示該索引由陣列尾端倒數。若省略時預設值為 <code>0</code>。</li>
+</ol>
+<p>由 <code>from</code> 指定的索引位置開始「<strong>往後</strong>」搜尋，若有找到與 <code>item</code> 相等的元素則此方法會回傳第一個找到該元素的索引值，否則傳回 <code>-1</code>。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> brands <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'HTC'</span><span class="token punctuation">,</span> <span class="token string">'Apple'</span><span class="token punctuation">,</span> <span class="token string">'Asus'</span><span class="token punctuation">,</span> <span class="token string">'Acer'</span><span class="token punctuation">,</span> <span class="token string">'Nokia'</span><span class="token punctuation">,</span> <span class="token string">'LG'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> t1 <span class="token operator">=</span> brands<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'Asus'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment">// 2</span>
+<span class="token keyword">var</span> t2 <span class="token operator">=</span> brands<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'Apple'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// -1</span>
+</code></pre>
+</li>
+<li>
+<p>將陣列內容合併為單一字串 <code>.join()</code></p>
+<p><code>.join()</code> 方法會將陣列中的所有元素依序串接、合併成一個字串後回傳。陣列中所有的元素會先被轉換成字串後再串接合併。如果陣列內沒有任何元素(陣列的長度為 <code>0</code>)，會回傳空字串 <code>''</code>。</p>
+<p>它可接受 1 個參數：</p>
+<ol>
+<li><code>sep</code> (選用)，用來表示串接元素時的分隔符號，未指定時預設以半形逗號 <code>,</code> 隔開元素。若分隔符號設定為空字串，則合併後的結果字串在元素間不會有任何符號。</li>
+</ol>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2019</span><span class="token punctuation">,</span><span class="token string">'Mar'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> dstr <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// '2019,Mar,2'</span>
+<span class="token keyword">var</span> dstr2 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// '2019-Mar-2'</span>
+<span class="token keyword">var</span> dstr3 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// '2019/Mar/2'</span>
+<span class="token keyword">var</span> dstr4 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// '2019Mar2'</span>
+<span class="token keyword">var</span> dstr5 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'-$$-'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// '2019-$$-Mar-$$-2'</span>
+
+<span class="token keyword">var</span> empty_arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> estr <span class="token operator">=</span> empty_arr<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'@@@@@'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// ''</span>
+</code></pre>
+</li>
+<li>
+<p>傳回指定元素值在陣列中最後一次出現的位置編號 <code>.lastIndexOf()</code></p>
+<p>作用類似 <code>.indexOf()</code> 方法，只是 <code>.lastIndexOf()</code> 方法是改由後往前搜尋。</p>
+<p>此方法與 <code>.indexOf()</code> 一樣，可接受 2 個參數：</p>
+<ol>
+<li><code>item</code> (必要)，表示要搜尋的元素。</li>
+<li><code>from</code> (選用)，表示開始搜尋的索引編號，若為負值，表示該索引由陣列尾端倒數。若省略時預設值為 <code>陣列長度 - 1</code>，也就是最後一個元素的索引值。</li>
+</ol>
+<p>由 <code>from</code> 指定的索引位置開始「<strong>往前</strong>」搜尋，若有找到與 <code>item</code> 相等的元素則此方法會回傳第一個找到該元素的索引值，否則傳回 <code>-1</code>。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'n'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'n'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> a1 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// 5</span>
+<span class="token keyword">var</span> a2 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 1</span>
+<span class="token keyword">var</span> a3 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 3</span>
+<span class="token keyword">var</span> a4 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// -1</span>
+</code></pre>
+</li>
+<li>
+<p>依指定方法將陣列元素一一轉換 <code>.map()</code></p>
+<p><code>.map()</code> 需一個回呼函式當做轉換元素的依據，這個方法會透過回呼函式一一轉換陣列內的每一個元素，並為轉換後的結果建立一個新陣列再回傳，不會變更原陣列的內容。</p>
+<p>回呼函式可接受 <code>3</code> 個參數，意義同 <code>.every()</code> 方法的回呼函式。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr_strs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token string">'cherry'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> arr_lens <span class="token operator">=</span> arr_strs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> item<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// [5, 6, 6]</span>
+
+<span class="token keyword">var</span> arr_caps <span class="token operator">=</span> arr_strs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> item<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// ['APPLE', 'BANANA', 'CHERRY']</span>
+
+<span class="token keyword">var</span> arr_nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> arr_square <span class="token operator">=</span> arr_nums<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> item<span class="token operator">*</span>item<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// [1, 4, 9, 16, 25, 36]</span>
+</code></pre>
+</li>
+<li>
+<p>將資料加入陣列尾端 <code>.push()</code></p>
+<p><code>.push()</code> 方法可將一或多筆資料附加至陣列尾端，此方法會回傳變更後的陣列長度。此方法會變更陣列的內容。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> primes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> l1 <span class="token operator">=</span> primes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">// 傳回 3, 陣列內容變為 [2, 3, 5]</span>
+<span class="token keyword">var</span> l2 <span class="token operator">=</span> primes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 傳回 7, 陣列內容變為 [2, 3, 5, 7, 11, 13, 17]</span>
+</code></pre>
+</li>
+<li>
+<p>取得最後一筆資料，並將其移除 <code>.pop()</code></p>
+<p><code>.pop()</code> 方法用來傳回陣列最後一個元素，並將其自陣列移除。此方法會變更陣列內容。若陣列長度為 <code>0</code>，則會回傳 <code>undefined</code>。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'this'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'book'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> word <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment">// 'book'</span>
+
+<span class="token keyword">var</span> empty_arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> estr <span class="token operator">=</span> empty_arr<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// undefined</span>
+</code></pre>
+</li>
+<li>
+<p>依指定方式將陣列轉化為單一值 <code>.reduce()</code></p>
+<p><code>.reduce()</code> 方法可接受 2 個參數：</p>
+<ol>
+<li>
+<p><code>callback</code> (必要)，回呼函式，用來處理每個元素如何加到累加器之中。</p>
+<p>此回呼函式可接受 4 個參數：</p>
+<ol>
+<li><code>accu</code> (必要)，累加器(Accumulator)，用來累積處理結果。為上次回呼函式被呼叫後所回傳結果。</li>
+<li><code>item</code> (必要)，目前準備要處理的陣列元素。</li>
+<li><code>index</code> (選用)，目前正待處理的陣列元素的索引值。</li>
+<li><code>array</code> (選用)，目前正在處理的陣列，也就是正在呼叫 <code>.reduce()</code> 方法的陣列。</li>
+</ol>
+</li>
+<li>
+<p><code>initVal</code> (選用)，累加器的初始值。</p>
+</li>
+</ol>
+<p>用文字有點難說明清楚，直接看範例可能比較容易懂：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// 計算 arr 元素的總和</span>
+<span class="token keyword">var</span> sum <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> acc <span class="token operator">+</span> item<span class="token punctuation">;</span>  <span class="token comment">// 每拿到一個 item，加入上次的累加結果 acc</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// sum = 25</span>
+
+<span class="token comment">// 用 .reduce() 來模擬 .filter() 方法，找出所有偶數</span>
+<span class="token keyword">var</span> even1 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        acc<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> acc<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 注意這裡用到 .reduce() 方法的第 2 個參數，將累加器的初值指定為空陣列</span>
+<span class="token comment">// even1 = [2, 4, 0];</span>
+</code></pre>
+</li>
+<li>
+<p>將陣列元素的順序反轉 <code>.reverse()</code></p>
+<p>此方法會將陣列內的元素順序反轉，原本的第一個元素，會變最後一個，第二個元素會變成倒數第二個元素，餘此類推。完成後回傳陣列本身。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'一'</span><span class="token punctuation">,</span> <span class="token string">'二'</span><span class="token punctuation">,</span> <span class="token string">'三'</span><span class="token punctuation">,</span> <span class="token string">'四'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+arr<span class="token punctuation">.</span><span class="token function">reverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// ['四', '三', '二', '一']</span>
+</code></pre>
+</li>
+<li>
+<p>移除並回傳陣列的第 1 個元素 <code>.shift()</code></p>
+<p>類似 <code>.pop()</code> 方法，但是移除並回傳的元素是陣列中第 1 個元素。若陣列本來就是空的(長度為 <code>0</code>)，則回傳 <code>undefined</code>。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'一'</span><span class="token punctuation">,</span> <span class="token string">'二'</span><span class="token punctuation">,</span> <span class="token string">'三'</span><span class="token punctuation">,</span> <span class="token string">'四'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> first <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 傳回 '一'，而 arr 陣列內容變為 ['二', '三', '四']</span>
+</code></pre>
+</li>
+<li>
+<p>回傳陣列的一部份 <code>.slice()</code></p>
+<p>此方法可回傳一個新陣列，其內容為原陣列指定起點與終點間的元素。</p>
+<p>它可接受 2 個參數：</p>
+<ol>
+<li><code>from</code> (選用)，表示要從哪個索引位置開始擷取元素。若省略時，預設值為 <code>0</code>。</li>
+<li><code>end</code> (選用)，擷取至哪個索引位置停止，擷取時不包含此位置的元素。因此最後一個被擷取的元素為此位置前一位。省略未指定時，預設值為陣列長度。</li>
+</ol>
+<p><code>from</code> 與 <code>end</code> 的索引值若為負整數，表示由尾端倒數。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> s1 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// [9, 2, 6]</span>
+<span class="token keyword">var</span> s2 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// []</span>
+<span class="token keyword">var</span> s3 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// [1, 5, 9, 2, 6, 5]</span>
+</code></pre>
+</li>
+<li>
+<p>測試陣列是否至少有一個元素可通過指定條件的測試 <code>.some()</code></p>
+<p>類似 <code>.every()</code> 方法，但只要陣列中有任何一個元素可通過回呼函式的檢測，此方法就會回傳 <code>true</code>；若所有元素的檢測皆失敗，則回傳 <code>false</code>。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">33</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 測試 arr 陣列中是否包含 11 的倍數</span>
+<span class="token keyword">var</span> t1 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> item <span class="token operator">%</span> <span class="token number">11</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// true</span>
+
+<span class="token comment">// 測試 arr 陣列中是否有超過 60 的數</span>
+<span class="token keyword">var</span> t2 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> item <span class="token operator">&gt;</span> <span class="token number">60</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// false</span>
+</code></pre>
+</li>
+<li>
+<p>排序陣列元素 <code>.sort()</code></p>
+<p>此方法可對陣列內所有元素由小到大進行排序，並回傳此陣列。它可接受一個回呼函式當作決定元素排序先後次序的依據，使用時若未提供回呼函式，預設的排序順序是將元素轉為字串後，依據字串的 Unicode 編碼位置(code points)決定。此方法會變更陣列的內容。</p>
+<p>在 Mozilla 的 MDN 網站上提供了一段程式碼：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> months <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'March'</span><span class="token punctuation">,</span> <span class="token string">'Jan'</span><span class="token punctuation">,</span> <span class="token string">'Feb'</span><span class="token punctuation">,</span> <span class="token string">'Dec'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+months<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// ['Dec', 'Feb', 'Jan', 'March']</span>
+
+<span class="token keyword">var</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">100000</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+arr1<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// [1, 100000, 21, 30, 4]</span>
+</code></pre>
+<p>如上述範例所示，預設的排序方式與大部份人預期的不一樣，因此建議提供自訂的回呼函式供此方法使用。此方法的回呼函式需接受 2 個參數，分別代以表排序過程中 <code>.sort()</code> 方法揀選的任意 2 個元素，為了方便說明，假設回呼函式的第一個參數為 <code>a</code>，第二個參數為 <code>b</code>。回呼函式的傳回值代表以下意義：</p>
+<ul>
+<li>若回傳值小於 <code>0</code>，表示 <code>a</code> 元素小於 <code>b</code> 元素，應該把 <code>a</code> 元素排在 <code>b</code> 元素的前面。</li>
+<li>若回傳值為 <code>0</code>，表示 <code>a</code> 元素與 <code>b</code> 元素是一樣大的。它們的順序無法決定。</li>
+<li>若回傳值大於 <code>0</code>，表示 <code>a</code> 元素大於 <code>b</code> 元素，應該把 <code>b</code> 元素排在 <code>a</code> 元素的前面。</li>
+</ul>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">21</span><span class="token punctuation">,</span> <span class="token number">100000</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// 依數值由小到大排序</span>
+arr1<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> a <span class="token operator">-</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// [1, 4, 21, 30, 100000]</span>
+
+<span class="token comment">// 依數值由大到小排序</span>
+arr1<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> b <span class="token operator">-</span> a<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// [100000, 30, 21, 4, 1]</span>
+</code></pre>
+</li>
+<li>
+<p>刪除並插入新元素 <code>.splice()</code></p>
+<p>此方法可接受 1 個以上的參數，說明如下：</p>
+<ol>
+<li><code>from</code> (必要)，表示由哪個索引位置開始刪除元素。</li>
+<li><code>delCount</code> (選用)，表示要從指定位置刪除掉的元素個素。若省略了此參數，或給定的值超過由 <code>from</code> 算起的剩餘元素數量，則會刪除自 <code>from</code> 位置起至陣列最末端的所有元素。</li>
+<li><code>item1</code>, <code>item2</code>, … (選用)，第 3 個參數起，表示要從 <code>from</code> 位置加入陣列的新元素。若沒有指定任何元素，則此方法僅會刪除，並不會新增任何元素到陣列中。</li>
+</ol>
+<p>此方法會修改原陣列的內容，並回傳被刪除的陣列元素所組成的新陣列。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Apple'</span><span class="token punctuation">,</span> <span class="token string">'banana'</span><span class="token punctuation">,</span> <span class="token string">'cherry'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> darr <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 從 1 號位置起刪除 1 個元素</span>
+<span class="token comment">// 傳回 ['banana'] 而 arr 變更為 ['Apple', 'cherry']</span>
+
+<span class="token keyword">var</span> barr <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'Banana'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 從 1 號位置起不刪除元素，並插入 'Banana'</span>
+<span class="token comment">// 傳回 [] 而 arr 變更為 ['Apple', 'Banana', 'cherry']</span>
+
+<span class="token keyword">var</span> carr <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'Coconut'</span><span class="token punctuation">,</span> <span class="token string">'Orange'</span><span class="token punctuation">,</span> <span class="token string">'Pear'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 從 0 號位置起刪除 2 個元素，並插入 'Coconut', 'Orange', 'Pear'</span>
+<span class="token comment">// 傳回 ['Apple', 'Banana']</span>
+<span class="token comment">// arr 陣列變更為 ['Coconut', 'Orange', 'Pear', 'cherry']</span>
+</code></pre>
+</li>
+<li>
+<p>新增元素到陣列的開頭 <code>.unshift()</code></p>
+<p>類似 <code>.push()</code> 方法，只是將元素新增到陣列的開頭，並回傳變更後的陣列長度。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> l1 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">unshift</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// l1 為 5，而 arr 被變更為 [4, 5, 1, 2, 3]</span>
+</code></pre>
+</li>
+</ul><h4 id="物件-object"><a class="anchor hidden-xs" href="#物件-object" title="物件-object"><span class="octicon octicon-link"></span></a>物件 object</h4><p>物件是將相關的數值以及相關功能或操作打包/封裝的一個資料實體，舉例來說，假設現在有兩個學生的資料要記錄：</p><pre><code class="javascript hljs"><span class="token keyword">var</span> mary_name <span class="token operator">=</span> <span class="token string">'Mary'</span><span class="token punctuation">,</span>
+    mary_age <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">,</span>
+    mary_classid <span class="token operator">=</span> <span class="token number">105</span><span class="token punctuation">,</span>
+    mary_seatno <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">,</span>
+    mary_scores <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">98</span><span class="token punctuation">,</span> <span class="token number">99</span><span class="token punctuation">,</span> <span class="token number">95</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> john_name <span class="token operator">=</span> <span class="token string">'John'</span><span class="token punctuation">,</span>
+    john_age <span class="token operator">=</span> <span class="token number">17</span><span class="token punctuation">,</span>
+    john_classid <span class="token operator">=</span> <span class="token number">109</span><span class="token punctuation">,</span>
+    john_seatno <span class="token operator">=</span> <span class="token number">26</span><span class="token punctuation">,</span>
+    john_scores <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">89</span><span class="token punctuation">,</span> <span class="token number">92</span><span class="token punctuation">,</span> <span class="token number">91</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre><p>若改用物件的方式將相關資料封裝在一起，用一對大括號 <code>{}</code> 表示要封裝物件，然後以 <code>資料名稱: 值</code> 為一組的方式將欲封裝在一起的資料一項一項列在大括號的範圍內，若有多組資料，其間以半形逗號 <code>,</code> 隔開。因此，上面的範例可以改寫為這樣：</p><pre><code class="javascript hljs"><span class="token keyword">var</span> mary <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'Mary'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token number">16</span><span class="token punctuation">,</span>
+    classid<span class="token punctuation">:</span> <span class="token number">105</span><span class="token punctuation">,</span>
+    seatno<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+    scores<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">98</span><span class="token punctuation">,</span> <span class="token number">99</span><span class="token punctuation">,</span> <span class="token number">95</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> john <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token number">17</span><span class="token punctuation">,</span>
+    classid<span class="token punctuation">:</span> <span class="token number">109</span><span class="token punctuation">,</span>
+    seatno<span class="token punctuation">:</span> <span class="token number">26</span><span class="token punctuation">,</span>
+    scores<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">89</span><span class="token punctuation">,</span> <span class="token number">92</span><span class="token punctuation">,</span> <span class="token number">91</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p>物件內每一筆資料列表 <code>資料名稱: 值</code> 中的 <code>資料名稱</code> 的部份，稱之為物件的 <code>屬性</code>，而其所對應的值為 <code>屬性值</code>。要存取物件內的屬性的方式有 2 種：</p><ul>
+<li>
+<p>點記法(Dot notation)</p>
+<p>以 <code>物件.屬性</code> 的格式來標示欲存取的物件屬性。例：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> stuname <span class="token operator">=</span> mary<span class="token punctuation">.</span>name<span class="token punctuation">;</span>    <span class="token comment">// 取得 mary 的 name 屬性的值</span>
+mary<span class="token punctuation">.</span>seatno <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>            <span class="token comment">// 將 mary 的 seatno 屬性值變更為 5</span>
+mary<span class="token punctuation">.</span>scores<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>       <span class="token comment">// 將 mary 的 scores 屬性的第一個元素改為 100</span>
+</code></pre>
+</li>
+<li>
+<p>括號記法(Bracket notation)</p>
+<p>以 <code>物件['屬性']</code> 的格式來標示欲存取的物件屬性。例：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> chinese <span class="token operator">=</span> john<span class="token punctuation">[</span><span class="token string">'score'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 取得 john 的 scores 屬性的第一個元素</span>
+john<span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>   <span class="token comment">// 將 john 的 age 屬性值遞增 1</span>
+</code></pre>
+<p>如果要存取的屬性是固定的，而且屬性名稱非數值的話，點記法或括號記法都可以。但若要存取的屬性名稱被暫存在另一個變數內，而在執行的過程中才能決定的話，必須採用括號記法；另一個必須使用括號記法的時機為屬性名稱為數值的情況下。例：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> shape <span class="token operator">=</span> <span class="token punctuation">{</span>
+    type<span class="token punctuation">:</span> <span class="token string">'Rectangle'</span><span class="token punctuation">,</span>
+    left<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+    top<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+    right<span class="token punctuation">:</span> <span class="token number">280</span><span class="token punctuation">,</span>
+    bottom<span class="token punctuation">:</span> <span class="token number">120</span><span class="token punctuation">,</span>
+    <span class="token comment">// 以下 2 個屬性為數值</span>
+    <span class="token number">0</span><span class="token punctuation">:</span> <span class="token string">'rect'</span><span class="token punctuation">,</span>
+    <span class="token number">100</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'left'</span><span class="token punctuation">,</span> <span class="token string">'top'</span><span class="token punctuation">,</span> <span class="token string">'right'</span><span class="token punctuation">,</span> <span class="token string">'bottom'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> attr <span class="token operator">=</span> <span class="token string">'type'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> brief_type <span class="token operator">=</span> shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  <span class="token comment">// 取得 shape 的 0 屬性值</span>
+<span class="token keyword">var</span> t1 <span class="token operator">=</span> shape<span class="token punctuation">[</span>attr<span class="token punctuation">]</span><span class="token punctuation">;</span>       <span class="token comment">// 取得 shape 的 type 屬性值</span>
+attr <span class="token operator">=</span> <span class="token string">'top'</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> t2 <span class="token operator">=</span> shape<span class="token punctuation">[</span>attr<span class="token punctuation">]</span><span class="token punctuation">;</span>       <span class="token comment">// 取得 shape 的 top 屬性值</span>
+shape<span class="token punctuation">[</span><span class="token number">2019</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'中華民國108年'</span><span class="token punctuation">;</span>  <span class="token comment">// 在 shape 新增屬性 2019 的值為 '中華民國108年'</span>
+</code></pre>
+</li>
+</ul><p>物件的屬性除了可以是單純的資料型態之外，也可以是之後會提到的函式，這種函式形式的屬性，一般會被將其稱為該物件的 <code>方法(method)</code>，例：</p><pre><code class="javascript hljs"><span class="token keyword">var</span> stu <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'Tom'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token number">17</span><span class="token punctuation">,</span>
+    sayHi<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hi!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+stu<span class="token punctuation">.</span><span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 呼叫 stu 物件的 sayHi 方法</span>
+</code></pre><p>在瀏覽器的網頁主控台上應該會看到 <code>Hi!</code> 訊息。</p><p><kbd><img src="https://i.imgur.com/BvTolUt.png" alt=""></kbd></p><p>在物件定義的方法內要存取物件自身的屬性或方法時，要透過 <code>this</code> 關鍵字來指涉該物件本身。例：</p><pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span></div><div class="code"><span class="token keyword">var</span> stu <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'Tom'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token number">17</span><span class="token punctuation">,</span>
+    sayHi<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">"says Hi!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    sayMessage<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token string">"says"</span><span class="token punctuation">,</span> msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+stu<span class="token punctuation">.</span><span class="token function">sayHi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+stu<span class="token punctuation">.</span><span class="token function">sayMessage</span><span class="token punctuation">(</span><span class="token string">'Hello!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</div></div></code></pre><p>會印出</p><pre><code> says Hi!
+Tom says Hello!
+</code></pre><ul>
+<li><ins>第 12 行</ins>的 <code>stu.sayHi()</code> 在主控台上印出了 <code> says Hi!</code>，但是在<ins>第 5 行</ins><code>sayHi()</code> 方法要印出 <code>"says Hi!"</code> 字串前原本想要印出 <code>name</code> 的內容，印出來的訊息卻沒有包含 <code>name</code> 的內容？</li>
+<li><ins>第 13 行</ins>的 <code>stu.sayMessage('Hello!')</code> 卻可以將該物件 <code>name</code> 屬性的值印出來。重點在<ins>第 8 行</ins>，<code>name</code> 屬性的前面加上了 <code>this.</code>，用來表示要取用當前這個物件(<code>this</code>)的 <code>name</code> 屬性。</li>
+</ul><h4 id="指定變數值的注意事項"><a class="anchor hidden-xs" href="#指定變數值的注意事項" title="指定變數值的注意事項"><span class="octicon octicon-link"></span></a>指定變數值的注意事項</h4><p>Javascript 中在將變數指定給另一個變數的時候，來源變數的資料型別若不是基本資料型別，在賦值的時候，取得的會是原物件的參考(Reference)，而非原物件的值(value)的副本(copy)。</p><pre><code class="javascript hljs"><span class="token keyword">var</span> a_int <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> b_int <span class="token operator">=</span> a_int<span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"before:"</span><span class="token punctuation">,</span> a_int<span class="token punctuation">,</span> b_int<span class="token punctuation">)</span><span class="token punctuation">;</span>
+b <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"after:"</span><span class="token punctuation">,</span> a_int<span class="token punctuation">,</span> b_int<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>會印出：</p><pre><code>before: 10 10
+after: 10 20
+</code></pre><p>但若是將一個陣列變數或物件變數指定給另一個變數的話，當對其中一個變數修改陣列或物件的內容，也會反映在另一個變數。例：</p><pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span></div><div class="code"><span class="token keyword">var</span> arr_a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>      <span class="token comment">// 將 arr_a 指定為一個陣列物件，其元素內容包依序為 1, 2, 3</span>
+    arr_b <span class="token operator">=</span> arr_a<span class="token punctuation">;</span>          <span class="token comment">// 將 arr_b 指定給 arr_a</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"before:"</span><span class="token punctuation">,</span> arr_a<span class="token punctuation">,</span> arr_b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+arr_b<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment">// 在 arr_b 尾端加入 4</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"after arr_b.push(4):"</span><span class="token punctuation">,</span> arr_a<span class="token punctuation">,</span> arr_b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+arr_a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Two"</span><span class="token punctuation">;</span>           <span class="token comment">// 將 arr_a 第 2 個元素的內容改為 "Two"</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'after arr_a[1] = "Two":'</span><span class="token punctuation">,</span> arr_a<span class="token punctuation">,</span> arr_b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</div></div></code></pre><p>在主控臺中會印出：</p><pre><code>before: (3) [1, 2, 3] (3) [1, 2, 3]
+after arr_b.push(4): (4) [1, 2, 3, 4] (4) [1, 2, 3, 4]
+after arr_a[1] = "Two": (4) [1, "Two", 3, 4] (4) [1, "Two", 3, 4]
+</code></pre><p>不管是修改 <code>arr_a</code> 或 <code>arr_b</code>，所有的變更都會在兩個變數中呈現，改了 <code>arr_a</code> 就等於修改 <code>arr_b</code>，反之亦然。</p><p>因為 <code>arr_b = arr_a</code> 的意思，並不是將 <code>arr_a</code> 這個陣列的內容 <strong>複製(Copy)</strong> 一份給 <code>arr_b</code>，而是將 <code>arr_a</code> 指涉的陣列指定給 <code>arr_b</code>，讓 <code>arr_b</code> 與 <code>arr_a</code> 指涉同一個對象，換句話說，<code>arr_b</code> 與 <code>arr_a</code> 是同一個陣列。</p><p>另一個例子：</p><pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code"><span class="token keyword">var</span> car1 <span class="token operator">=</span> <span class="token punctuation">{</span>brand<span class="token punctuation">:</span> <span class="token string">"Toyota"</span><span class="token punctuation">,</span> model<span class="token punctuation">:</span> <span class="token string">"Yaris"</span><span class="token punctuation">,</span> nickname<span class="token punctuation">:</span> <span class="token string">"小Y"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> car2 <span class="token operator">=</span> car1<span class="token punctuation">;</span>
+
+car2<span class="token punctuation">.</span>m_year <span class="token operator">=</span> <span class="token number">2018</span><span class="token punctuation">;</span>     <span class="token comment">// 指定 car2 的 m_year 屬性值為 2018</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>car1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</div></div></code></pre><p>把 <code>car1</code> 印出來看看，結果如下：</p><pre><code>Object {brand: "Toyota", model: "Yaris", nickname: "小Y", m_year: 2018}
+</code></pre><p><code>car1</code> 原本沒有 <code>m_year</code> 這個屬性，但是在指定 <code>car2</code> 的 <code>m_year</code> 屬性之後，連 <code>car1</code> 也出現了相同的屬性與值。所以<ins>第 2 行</ins>將 <code>car2</code> 設定為 <code>car1</code> 就是讓 <code>car2</code> 與 <code>car1</code> 指涉同一個物件。</p><p>以生活上的例子來說，每個人在出生的時候，父母會幫我們命名，但隨著時間流逝，在成長的過程中，可能還會有家人間稱呼用的小名，求學期間同學互相取的綽號，上英文課會取一個英文名字 … 等。雖然有好幾個不同的稱呼，但是實際上代表的人都是同一個。</p><p>之後講到 Javascript 的函式的時候，把某個變數當成參數傳給函式處理時，也是套用相同的觀念。</p><h3 id="控制結構"><a class="anchor hidden-xs" href="#控制結構" title="控制結構"><span class="octicon octicon-link"></span></a>控制結構</h3><p>在指定的狀況下才要進行某些動作的話，就需要使用到控制結構。在描述狀況成立或不成立，通常是在比較某兩個東西之間的關係，例如：分數不到 60 分的話，比較是的「成績」的值以與「60」這個值；如果下雨的話，比較的是「天氣狀況」與「下雨」這個值。</p><p>要比較兩個東西的關係，會使用到<strong>關係運算子</strong>：</p><table>
+<thead>
+<tr>
+<th>關係運算子</th>
+<th>範例</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;</code></td>
+<td><code>a &lt; b</code></td>
+<td><code>a</code> 是否小於 <code>b</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td><code>a &lt;= b</code></td>
+<td><code>a</code> 是否小於或等於 <code>b</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td><code>a &gt; b</code></td>
+<td><code>a</code> 是否大於 <code>b</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td><code>a &gt;= b</code></td>
+<td><code>a</code> 是否大於或等於 <code>b</code></td>
+</tr>
+<tr>
+<td><code>==</code></td>
+<td><code>a == b</code></td>
+<td><code>a</code> 與 <code>b</code> 是否相等</td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td><code>a != b</code></td>
+<td><code>a</code> 與 <code>b</code> 是否不相等</td>
+</tr>
+<tr>
+<td><code>===</code></td>
+<td><code>a === b</code></td>
+<td><code>a</code> 與 <code>b</code> 是否相等(除了值相等，兩者的資料型態也要相同)</td>
+</tr>
+<tr>
+<td><code>!==</code></td>
+<td><code>a !== b</code></td>
+<td><code>a</code> 與 <code>b</code> 是否不相等(值不相等，或者型態不相同)</td>
+</tr>
+</tbody>
+</table><p>例：</p><pre><code class="javascript hljs"><span class="token keyword">var</span> score <span class="token operator">=</span> <span class="token number">62</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>score <span class="token operator">&lt;</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>score <span class="token operator">&gt;=</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// true</span>
+<span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">"banana"</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str <span class="token operator">&lt;</span> <span class="token string">"apple"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str <span class="token operator">==</span> <span class="token string">"banana"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"200"</span> <span class="token operator">&lt;</span> <span class="token string">"30"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment">// true</span>
+</code></pre><p>兩個字串相比較的時候是由前往後依序比對相同位置的符號，如果符號相同，則繼續比對下一組，直到同一位置的符號不同，或已經比到字串結尾了。因此上面的最後一行 <code>"200" &lt; "30"</code> 的結果為 <code>true</code> 是因為 <code>'2'</code> 這個符號的編碼值小於 <code>'3'</code> 的符號編碼值(回憶一下計算機概論裡的 ASCII 編碼表，概念上一樣，但是實際上用的碼表大多了)。</p><p>如果關係運算子前後的兩個運算元的資料型態不相同，Javascript 會試著將它們自動轉型再進行比較，例：</p><pre><code class="javascript hljs">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">200</span> <span class="token operator">&lt;</span> <span class="token string">"30"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// false，將字串 "30" 轉為數值 30 再進行比較</span>
+</code></pre><p>如果需要判斷的條件比較複雜，需要由幾個簡單條件組合而成，這時會使用邏輯運算子來組合條件運算式。</p><table>
+<thead>
+<tr>
+<th>邏輯運算子</th>
+<th>範例</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td><code>A &amp;&amp; B</code></td>
+<td>運算式 <code>A</code> 與運算式 <code>B</code> 的結果要同時成立，整個結果才會成立</td>
+</tr>
+<tr>
+<td><code>||</code></td>
+<td><code>A || B</code></td>
+<td>運算式 <code>A</code> 或運算式 <code>B</code> 的結果至少有一個成立，整個結果才會成立</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td><code>!A</code></td>
+<td>將運算式 <code>A</code> 的結果反相<br>若原本為 <code>true</code> 則傳回 <code>false</code>；原本是 <code>false</code> 就傳回 <code>true</code></td>
+</tr>
+</tbody>
+</table><p>例如要判斷變數 <code>year</code> 中所儲存的西元年是否為閏年的方式，只要滿足以下 2 個條件其中任何一條即可：</p><ol>
+<li>西元年份可以被 4 整除，但是不被 100 整除</li>
+<li>西元年份可以被 400 整除</li>
+</ol><p>判斷式可以這樣寫：</p><pre><code class="javascript hljs"><span class="token keyword">var</span> isLeap <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>year <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> year <span class="token operator">%</span> <span class="token number">100</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">||</span> year <span class="token operator">%</span> <span class="token number">400</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><ul>
+<li>
+<p>第 1 種狀況，可以被 4 整除(<code>year % 4 == 0</code>)但是不被 100 整除(<code>year % 100 != 0</code>)，這是一個複合條件，前後都要成立才行，因此以 <code>&amp;&amp;</code> 來連接：</p>
+<pre><code class="javascript hljs">year <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> year <span class="token operator">%</span> <span class="token number">100</span> <span class="token operator">!=</span> <span class="token number">0</span>
+</code></pre>
+</li>
+<li>
+<p>第 2 種狀況，可以被 400 整除(<code>year % 400 == 0</code>)</p>
+</li>
+<li>
+<p>因為滿足第 1 種狀況或第 2 種狀況的西元年份都會是閏年，所以用 <code>||</code> 連接兩種狀況的判斷條件：</p>
+<pre><code class="javascript hljs"><span class="token punctuation">(</span>year <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> year <span class="token operator">%</span> <span class="token number">100</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">||</span> year <span class="token operator">%</span> <span class="token number">400</span> <span class="token operator">==</span> <span class="token number">0</span>
+</code></pre>
+<p>加小括號 <code>()</code> 用來表示 <code>year % 4 == 0 &amp;&amp; year % 100 != 0</code> 要先運算完，再跟後面的 <code>year % 400 == 0</code> 組合計算。由於 <code>&amp;&amp;</code> 與 <code>||</code> 兩個運算子的計算優先權是相同的，在這個例子中，即使不加 <code>()</code>，運算的順序會是由左而右依序計算，最後的運算結果也會與原本有加 <code>()</code> 的運算式相同。但若調換一下 2 個條件的順序：</p>
+<pre><code class="javascript hljs">year <span class="token operator">%</span> <span class="token number">400</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> <span class="token punctuation">(</span>year <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> year <span class="token operator">%</span> <span class="token number">100</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+</code></pre>
+<p>在這邊的 <code>()</code> 若省略的話，會先計算 <code>year % 400 == 0 || year % 4 == 0</code>，再將運算結果與 <code>year % 100 != 0</code> 做 <code>&amp;&amp;</code> 運算，這樣一來會與原本的運算式的結果不相同。因此建議要優先計算的運算式還是加上 <code>()</code> 來指定優先順序，另外，還可以提升程式碼的可讀性，讓日後觀看或維護程式碼的人員可以很明確地得知運算式的優先順序，而不是靠猜測。</p>
+</li>
+</ul><h4 id="條件判斷-if"><a class="anchor hidden-xs" href="#條件判斷-if" title="條件判斷-if"><span class="octicon octicon-link"></span></a>條件判斷 if</h4><ul>
+<li>
+<p><strong>語法1: 單純 if，條件成立時才要做</strong></p>
+<pre><code class="javascript hljs"><span class="token keyword">if</span> <span class="token punctuation">(</span>條件運算式<span class="token punctuation">)</span>
+    條件成立時要執行的動作<span class="token punctuation">;</span>
+</code></pre>
+<p>說明：</p>
+<ul>
+<li>
+<p>條件運算式一般說來是用關係運算子與邏輯運算子組合出來的運算式，但實際上，任何的運算式，只要運算的結果不為 0，也會視為條件成立。</p>
+<pre><code class="javascript hljs"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 因為條件運算式的結果永遠是3，所以這個區塊的內容永遠都會被執行到</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li>
+<p><code>if</code> 控制的範圍只有緊跟著它的第一個敘述，如果條件成立時要執行的動作不只一件，可以使用一對大括號 <code>{}</code> 將它們打包成一個執行區塊：</p>
+<pre><code class="javascript hljs"><span class="token keyword">if</span> <span class="token punctuation">(</span>條件運算式<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    條件成立時要執行的動作<span class="token number">1</span><span class="token punctuation">;</span>
+    條件成立時要執行的動作<span class="token number">2</span><span class="token punctuation">;</span>
+    條件成立時要執行的動作<span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token comment">//...</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li>
+<p><code>if</code> 需連同要執行的敘述才算完整，所以不要在條件運算式的括號後面就加分號 <code>;</code></p>
+<pre><code class="javascript hljs"><span class="token keyword">if</span> <span class="token punctuation">(</span>條件運算式<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+    欲執行的動作<span class="token punctuation">;</span>   <span class="token comment">// 這一個敘述不受 if 控制，所以永遠都會執行</span>
+</code></pre>
+<p>如果直接在條件運算式的括號後面就加上分號，表示條件成立的時候要做的動作是<strong>空白</strong>。</p>
+</li>
+</ul>
+<p>舉個例子來說，假設現在我們有一個成績列表的網頁(<code>chi_score.html</code>)如下：</p>
+<pre><code class="html hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span>
+<span data-linenumber="17"></span>
+<span data-linenumber="18"></span>
+<span data-linenumber="19"></span>
+<span data-linenumber="20"></span>
+<span data-linenumber="21"></span>
+<span data-linenumber="22"></span>
+<span data-linenumber="23"></span></div><div class="code"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"zh-hant"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"X-UA-Compatible"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"ie=edge"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>國文成績列表<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+      <span class="hljs-selector-class">.pass</span> {<span class="hljs-attribute">color</span>: green}
+      <span class="hljs-selector-class">.fail</span> {<span class="hljs-attribute">color</span>: red}
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>王大頭<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"score"</span>&gt;</span>88<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>林美美<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"score"</span>&gt;</span>92<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>陳天才<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"score"</span>&gt;</span>56<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>孫小芸<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"score"</span>&gt;</span>75<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>錢多多<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"score"</span>&gt;</span>48<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>李加進<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"score"</span>&gt;</span>95<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></div></code></pre>
+<p>表格中代表成績的欄位已全部加上 <code>score</code> 類別，另外也在 <code>&lt;style&gt;&lt;/style&gt;</code> 標籤內定義了 <code>pass</code> 與 <code>fail</code> 兩個 css 類別。現在利用 javascript 將低於 <code>60</code> 分的欄位的字體顏色改為紅色：</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span></div><div class="code"><span class="token keyword">var</span> scores <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.score'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+scores<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>textContent <span class="token operator">&lt;</span> <span class="token number">60</span><span class="token punctuation">)</span>
+        item<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'fail'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</div></div></code></pre>
+<ul>
+<li>
+<p><ins>第 1 行</ins>，取得所有套用 <code>score</code> 類別的網頁元素，並將其暫存在 <code>scores</code> 這個變數之中。</p>
+<p><code>document.querySelectorAll()</code> 可使用 CSS 的篩選規則在網頁中篩選出符合規則的網頁元素，這個方法會回傳 <code>NodeList</code> 類型的物件，將符合篩選規則的網頁元素透過這個物件回傳。</p>
+</li>
+<li>
+<p><ins>第 3 行</ins>，使用 <code>NodeList</code> 類型的 <code>.forEach()</code> 方法對 <code>scores</code> 變數中所有元素進行處理。<code>NodeList</code> 類型的 <code>.forEach()</code> 方法與陣列的 <code>.forEach()</code> 方法相同，它接受一個回呼函式，用來對每一個元素進行處理。</p>
+<p>在這個匿名回呼函式中，我們只使用的第一個必要的參數 <code>item</code>，由於 <code>NodeList</code> 裡的內容會是符合規則的網頁元素，因此回呼函式每次所接收到的參數 <code>item</code> 也會是一個網頁元素類型的變數，也就是像 <code>&lt;td class="score"&gt;88&lt;/td&gt;</code> 這樣一組的標籤元素。</p>
+</li>
+<li>
+<p><ins>第 4 - 5 行</ins>，如果該元素的文字內容小於 60，則為該元素額外套用 <code>fail</code> 這個 CSS 類別。</p>
+<p>網頁元素的 <code>textContent</code> 屬性指的是它的起始與結尾標籤間的文字內容(不包含 HTML 標籤)，以 <code>&lt;td class="score"&gt;88&lt;/td&gt;</code> 這個網頁元素來說，它的 <code>textContent</code> 屬性的值就是 <code>88</code>。</p>
+<p>網頁元素的 <code>classList</code> 屬性指的是該元素所套用的 CSS 類別列表(清單)，這個屬性有一個 <code>.add()</code> 方法可以新增要套用的 CSS 類別。</p>
+</li>
+</ul>
+<p>執行結果：</p>
+<p><kbd><img src="https://i.imgur.com/BnxhZaU.png" alt=""></kbd></p>
+<div class="alert alert-info">
+<p><img alt=":bulb:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/bulb.png" title=":bulb:"> <strong>如何測試上面的程式碼？</strong></p>
+<ul>
+<li>
+<p>以瀏覽器開啟成績列表的網頁後，再啟用瀏覽器的網頁主控臺，將上方的 javascript 程式碼鍵入主控臺來測試執行</p>
+<p><kbd><img src="https://i.imgur.com/ZZIlpmL.png" alt=""></kbd></p>
+</li>
+<li>
+<p>或在網頁原始碼的 <code>&lt;/table&gt;</code> 結尾標籤之後加入一組 <code>&lt;script&gt;&lt;/script&gt;</code> 標籤，再將上面的 javascript 程式碼貼入 <code>&lt;script&gt;</code> … <code>&lt;/script&gt;</code> 之間，讓網頁在載入時就自動執行。</p>
+<pre><code class="html hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="21"></span>
+<span data-linenumber="22"></span>
+<span data-linenumber="23"></span>
+<span data-linenumber="24"></span>
+<span data-linenumber="25"></span>
+<span data-linenumber="26"></span>
+<span data-linenumber="27"></span>
+<span data-linenumber="28"></span>
+<span data-linenumber="29"></span>
+<span data-linenumber="30"></span></div><div class="code">  &lt;/table&gt;
+  &lt;script&gt;
+    <span class="hljs-keyword">var</span> scores = document.querySelectorAll(<span class="hljs-string">'.score'</span>);
+
+    scores.<span class="hljs-keyword">forEach</span>(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item)</span> </span>{
+      <span class="hljs-keyword">if</span> (item.textContent &lt; <span class="hljs-number">60</span>)
+          item.classList.add(<span class="hljs-string">'fail'</span>);
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+</div></div></code></pre>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>語法2: if-else，條件成立或不成立，分別做不同的事情</strong></p>
+<pre><code class="javascript hljs"><span class="token keyword">if</span> <span class="token punctuation">(</span>條件運算式<span class="token punctuation">)</span>
+    成立時欲執行的動作<span class="token punctuation">;</span>
+<span class="token keyword">else</span>
+    不成立時欲執行的動作<span class="token punctuation">;</span>
+</code></pre>
+<p>說明：</p>
+<ul>
+<li>
+<p>同 <strong>語法1</strong></p>
+</li>
+<li>
+<p>條件不成立時，執行 <code>else</code> 後的敘述。控制範圍同樣也只有緊跟於 <code>else</code> 後的第一個敘述，若條件不成立時要執行 1 個以上的敘述，也需要用一對大括號 <code>{}</code>加以打包。當然如果怕搞混，不管幾個敘述都加大括號也可以。</p>
+<pre><code class="javascript hljs"><span class="token keyword">if</span> <span class="token punctuation">(</span>條件運算式<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    成立時欲執行的動作<span class="token number">1</span><span class="token punctuation">;</span>
+    成立時欲執行的動作<span class="token number">2</span><span class="token punctuation">;</span>
+    成立時欲執行的動作<span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    不成立時欲執行的動作<span class="token number">1</span><span class="token punctuation">;</span>
+    不成立時欲執行的動作<span class="token number">2</span><span class="token punctuation">;</span>
+    不成立時欲執行的動作<span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ul>
+<p>延續 <strong>語法1</strong> 的範例，假設除了不及格的分數要標成紅色之外，將及格的成績標成綠色(套用 <code>pass</code> 類別)：</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span></div><div class="code"><span class="token keyword">var</span> scores <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.score'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+scores<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>textContent <span class="token operator">&lt;</span> <span class="token number">60</span><span class="token punctuation">)</span>
+        item<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'fail'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        item<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'pass'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</div></div></code></pre>
+<p>執行結果：</p>
+<p><kbd><img src="https://i.imgur.com/RjqnIth.png" alt=""></kbd></p>
+<p><strong>語法2</strong> 適用在 2 選 1 的情況，也就是有 2 個不同的處理方式，一定會套用其中 1 種。像上面的例子就是，登載成績的這些格子，不是套用 <code>fail</code> 類別，就是套用 <code>pass</code> 類別。</p>
+</li>
+</ul><h4 id="條件式迴圈-while"><a class="anchor hidden-xs" href="#條件式迴圈-while" title="條件式迴圈-while"><span class="octicon octicon-link"></span></a>條件式迴圈 while</h4><p><code>if</code> 敘述在執行的時候，只針對條件運算式進行單次判斷。如果需要在特定條件下，反覆進行某些動作，一直到該條件不成立時才終止，此時就需要使用迴圈結構 <code>while</code>。</p><p>語法如下：</p><pre><code class="javascript hljs"><span class="token keyword">while</span> <span class="token punctuation">(</span>執行條件運算式<span class="token punctuation">)</span>
+    條件成立時欲反覆執行的動作<span class="token punctuation">;</span>
+</code></pre><p>當執行條件運算式的結果為 <code>true</code> 時，會執行一次迴圈內容，執行結束後，再回頭判斷執行條件是否成立，若成立，則再執行一次迴圈內容，接著再重新驗證執行條件 … 以此類推，一直到迴圈執行條件的運算結果為 <code>false</code> 才結束 <code>while</code> 迴圈。如果一開始執行條件的運算結果就是 <code>false</code>，則迴圈內容也不會被執行到。</p><pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1 &gt; 2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 這行不會被執行到！！！</span>
+</code></pre><p>再以前面 <code>if</code> 的成績列表範例，這次不使用 <code>NodeList</code> 類別提供的 <code>.forEach()</code> 方法，而是以 <code>while</code> 迴圈來將不及格的成績標上紅色：</p><pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span></div><div class="code"><span class="token keyword">var</span> scores <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.score'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> scores<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>textContent <span class="token operator">&lt;</span> <span class="token number">60</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'fail'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  i<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</div></div></code></pre><ul>
+<li><ins>第 2 行</ins>，宣告一個變數 <code>i</code>，用它來標示要存取 <code>scores</code> 清單中哪一號的元素，一開始的初值設為 <code>0</code></li>
+<li><ins>第 4 - 9 行</ins>，將 <code>scores</code> 清單中的每個網頁元素拿出來處理。
+<ul>
+<li>
+<p><ins>第 4 行</ins>，<code>NodeList</code> 類型的物件有一個 <code>length</code> 屬性，它的值表示由這個物件所記住的清單中總共有幾個網頁元素。若其中有 <code>n</code> 個元素的話，這些元素的編號為 <code>0</code>, <code>1</code>, <code>2</code>, …, <code>n-1</code>。</p>
+</li>
+<li>
+<p><ins>第 5 行</ins>，<code>scores[i]</code> 表示 <code>scores</code> 這個清單物件中，編號為 <code>i</code> 號的網頁元素。若該元素的文字內容小於 60 的話</p>
+</li>
+<li>
+<p><ins>第 6 行</ins>，將該元素的套用類別清單新增 <code>fail</code> 這個 CSS 類別</p>
+</li>
+<li>
+<p><ins>第 8 行</ins>，將 <code>i</code> 加 <code>1</code>，表示準備處理下一號的元素。</p>
+<div class="alert alert-warning">
+<p><img alt=":warning:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/warning.png" title=":warning:"> <strong>注意</strong></p>
+<p>迴圈的內容一定要有機會可以讓執行條件變成不成立的狀況，否則，一但進入迴圈，就出不去了。在這個例子中，若沒加上第 8 行來修改變數 <code>i</code> 的值，在迴圈內會永遠檢查 <code>scores[0]</code> 這個網頁元素的文字內容，然後永遠不會結束迴圈的執行。</p>
+</div>
+</li>
+</ul>
+</li>
+</ul><h4 id="迭代式迴圈-for"><a class="anchor hidden-xs" href="#迭代式迴圈-for" title="迭代式迴圈-for"><span class="octicon octicon-link"></span></a>迭代式迴圈 for</h4><ul>
+<li>
+<p><strong>語法1</strong></p>
+<p>Javascript 的 <code>for</code> 迴圈有幾種形式，第一種形式跟 C, C++, Java, PHP 之類的語法很相似：</p>
+<pre><code class="javascript hljs"><span class="token keyword">for</span> <span class="token punctuation">(</span>初值設定<span class="token punctuation">;</span> 執行條件<span class="token punctuation">;</span> 回合收尾<span class="token punctuation">)</span>
+    重覆執行內容<span class="token punctuation">;</span>
+</code></pre>
+<p>這個形式的 <code>for</code> 迴圈包含 3 個欄位：</p>
+<ul>
+<li>
+<p><strong>初值設定</strong>：通常用來初始化計數器變數。只在迴圈一開始被執行一次。</p>
+</li>
+<li>
+<p><strong>執行條件</strong>：</p>
+<p>在每次執行迴圈內容前，都要先評估執行條件運算式，如果執行條件運算的結果為 <code>true</code>，才會執行「重覆執行內容」的敘述；若執行條件運算的結果為 <code>false</code>，則跳離 <code>for</code> 迴圈的控制結構，由該控制結構後的第一個敘述開始執行。</p>
+<p>執行條件這個欄位的運算式是可以省略的，在省略的情況之下，表示無條件執行(每次評估執行條件的運算結果都為 <code>true</code>)。</p>
+</li>
+<li>
+<p><strong>回合收尾</strong>：</p>
+<p>當滿足執行條件的要求，執行了「重覆執行內容」的敘述後，在下一次評估執行條件前，會先執行一次回合收尾的敘述。通常被用來更新計數器的值。</p>
+</li>
+</ul>
+<p>例如下面這段用來計算 <code>1</code> 至 <code>10</code> 的總和：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    sum <span class="token operator">+=</span> i<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>上面這個範例中， <code>for</code> 迴圈的 3 個欄位分別為：</p>
+<ul>
+<li><strong>初值設定</strong>： <code>var i = 1</code>，宣告一個變數 <code>i</code>，並先將其初始值設定為 <code>1</code></li>
+<li><strong>執行條件</strong>： <code>i &lt;= 10</code>，在 <code>i</code> 小於或等於 <code>10</code> 的情況之下要重覆執行迴圈內容</li>
+<li><strong>回合收尾</strong>： <code>i++</code>，每次執行完迴圈內容之後，將 <code>i</code> 的值遞增 <code>1</code></li>
+</ul>
+<p>當這個 <code>for</code> 迴圈執行的時候的步驟如下：</p>
+<ol>
+<li>先將變數 <code>i</code> 的值設定為 <code>1</code></li>
+<li>接著檢查執行條件 <code>1 &lt;= 10</code></li>
+<li>執行迴圈內容 <code>sum += 1</code></li>
+<li>進行回合收尾，將 <code>i</code> 的值加 <code>1</code>，讓 <code>i</code> 的值變成 <code>2</code></li>
+<li>再重新評估迴圈執行條件 <code>2 &lt;= 10</code></li>
+<li>執行迴圈內容 <code>sum += 2</code></li>
+<li>回合收尾，遞增 <code>i</code> 讓 <code>i</code> 變成 <code>3</code></li>
+<li>重新評估迴圈執行條件 <code>3 &lt;= 10</code></li>
+<li>執行迴圈內容 <code>sum += 3</code></li>
+<li>執行回合收尾，變數 <code>i</code> 的值遞增為 <code>4</code></li>
+<li>重新評估執行條件 <code>4 &lt;= 10</code></li>
+<li>…以此類推，直到回合收尾之後， <code>i</code> 的值變為 <code>11</code></li>
+<li>重新評估執行條件 <code>11 &lt;= 10</code>，條件失敗，結束迴圈的執行</li>
+<li>執行 <code>for</code> 迴圈結構後的第一個敘述，在主控臺上印出 <code>sum</code> 的內容</li>
+</ol>
+<p>這個形式的 <code>for</code> 迴圈可以跟 <code>while</code> 迴圈相互轉換：</p>
+<pre><code class="javascript hljs">初值設定<span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>執行條件<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    重覆執行內容<span class="token punctuation">;</span>
+    回合收尾<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>因此也可以用這個形式的 <code>for</code> 迴圈來改寫 <code>while</code> 迴圈中的範例，將不及格的成績標為紅色：</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span></div><div class="code"><span class="token keyword">var</span> scores <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.score'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> scores<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>textContent <span class="token operator">&lt;</span> <span class="token number">60</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'fail'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div></div></code></pre>
+</li>
+<li>
+<p><strong>語法2： <code>for in</code></strong></p>
+<p>這個形式的 <code>for</code> 迴圈用來在物件的<strong>可列舉(enumerable)<strong>的</strong>屬性名稱</strong>間進行迭代，語法如下：</p>
+<pre><code class="javascript hljs"><span class="token keyword">for</span> <span class="token punctuation">(</span>變數 <span class="token keyword">in</span> 物件<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    迴圈內容<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li><strong>變數</strong>：每迭代一次，這個變數的內容會被設定為不同的屬性名稱。</li>
+<li><strong>物件</strong>：欲列舉屬性名稱的物件。</li>
+</ul>
+<p>先來看一個範例：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Hello'</span><span class="token punctuation">,</span> <span class="token string">'How'</span><span class="token punctuation">,</span> <span class="token string">'are'</span><span class="token punctuation">,</span> <span class="token string">'you'</span><span class="token punctuation">,</span> <span class="token number">2019</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> p <span class="token keyword">in</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> arr<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>在網頁主控臺 <em><strong>可能</strong></em> 會印出：</p>
+<pre><code>0 Hello
+1 How
+2 are
+3 you
+4 2019
+</code></pre>
+<div class="alert alert-warning">
+<p><img alt=":warning:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/warning.png" title=":warning:"> <strong>何時不應該使用 for in 迴圈來處理陣列元素</strong></p>
+<p>如果你的應用情境會依賴元素的順序的話，建議不要使用 <code>for in</code> 迴圈來處理陣列的元素。由於 <code>for in</code> 取得的可列舉屬性除了數字之外，也會包含非數字型態的屬性名稱，因此 <code>for in</code> 並不確保依據某種特定的次序來取得索引值。</p>
+<p><code>for in</code> 迴圈會在僅保證會在物件可列舉的屬性間迭代，但是迭代的次序就得看各家瀏覽器的實作方式，透過 <code>for in</code> 來迭代陣列的索引值，可能不會有一個一致性的順序。若處理次序對你的應用來說是重要的情況之下，建議用 <code>for</code> 迴圈的第一種形式，直接以計數器依指定順序來處理陣列元素，或是採用陣列的 <code>.forEach()</code> 方法。</p>
+</div>
+<p>再來看另外一個例子：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> stu <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">'Dino'</span><span class="token punctuation">,</span> seatno<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> score<span class="token punctuation">:</span> <span class="token number">98</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> p <span class="token keyword">in</span> stu<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> stu<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>在網頁主控臺上會印出：</p>
+<pre><code>name Dino
+seatno 3
+score 98
+</code></pre>
+<p>回到成績列表的範例，我們也可以用 <code>for in</code> 迴圈來改寫：</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span></div><div class="code"><span class="token keyword">var</span> scores <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.score'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token keyword">in</span> scores<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>textContent <span class="token operator">&lt;</span> <span class="token number">60</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        scores<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'fail'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div></div></code></pre>
+</li>
+<li>
+<p><strong>語法3： <code>for of</code></strong></p>
+<p>這個形式的 <code>for</code> 迴圈用來在<strong>可迭代物件</strong>(iterable object)的可列舉<strong>屬性值</strong>間進行迭代，語法如下：</p>
+<pre><code class="javascript hljs"><span class="token keyword">for</span> <span class="token punctuation">(</span>變數 <span class="token keyword">of</span> 物件<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    迴圈內容<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<div class="alert alert-info">
+<p><img alt=":bulb:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/bulb.png" title=":bulb:"> <strong>可迭代物件(iterable object)？</strong></p>
+<p>可迭代物件包含了 Javascript 內建的字串(<code>String</code>)、陣列(<code>Array</code>)、類陣列(Array-like)的物件(像函式的參數 <code>arguments</code> 物件，網頁裡的 <code>NodeList</code> 物件等)，還有 <code>TypedArray</code>、<code>Set</code>、<code>Map</code> 這些比較進階一點的資料結構等。</p>
+<p>自訂的一般物件並不屬於可迭代物件，所以底下這樣的寫法，執行時會發生錯誤：</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> stu <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">'Dino'</span><span class="token punctuation">,</span> seatno<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> score<span class="token punctuation">:</span> <span class="token number">98</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> val <span class="token keyword">of</span> stu<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><kbd><img src="https://i.imgur.com/bQf23P6.png" alt=""></kbd></p>
+<p>如果要讓自訂物件也變成可迭代物件，讓 <code>for of</code> 迴圈可以操作的話，就要為該物件定義 <code>Symbol.iterator</code> 方法，讓 Javascript 知道該如何在該物件進行迭代，每次迭代要如何取值。例：</p>
+<pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span></div><div class="code"><span class="token keyword">var</span> stu <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">'Dino'</span><span class="token punctuation">,</span> seatno<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> score<span class="token punctuation">:</span> <span class="token number">98</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+stu<span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>iterator<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token operator">*</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> attr <span class="token keyword">in</span> <span class="token keyword">this</span><span class="token punctuation">)</span>
+        <span class="token keyword">yield</span> <span class="token keyword">this</span><span class="token punctuation">[</span>attr<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> val <span class="token keyword">of</span> stu<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</div></div></code></pre>
+<ul>
+<li><ins>第 3-6 行</ins>，為 <code>stu</code> 物件定義 <code>Symbol.iterator</code> 方法。
+<ul>
+<li><ins>第 3 行</ins>，<code>stu</code> 的 <code>Symbol.iterator</code> 是一個匿名函式 <code>function *()</code>。注意一下 <code>function</code> 關鍵字與小括號 <code>()</code> 之間的星號 <code>*</code>，那個星號表示該函式是一個產生器(Generator)。</li>
+<li><ins>第 5 行</ins>，以 <code>yield</code> 來回傳每回合佚代的結果。注意，產生器(Generator)這種特殊型態的函式，不能以 <code>return</code> 來回傳結果，它僅能使用 <code>yield</code> 將結果回傳，並<strong>暫停</strong>產生器的執行，等待下一次被呼叫的時候，再恢復暫停時的狀態繼續執行，直到下一次遇到 <code>yield</code> 指令，或者將產生器函式內的程式碼都執行完。</li>
+</ul>
+</li>
+<li>產生器是比較進階的主題，有興趣的話，可以再去查找相關資料。</li>
+</ul>
+<p>為 <code>stu</code> 物件定義 <code>Symbol.iterator</code> 之後，Javascript 就可以透過這個產生器函式來取得每一回合迭代的結果。</p>
+</div>
+<p>跟 <code>for in</code> 迴圈有點類似，但是 <code>for in</code> 迴圈每次迭代取得的是<strong>屬性名稱(或索引)</strong>，而 <code>for of</code> 迴圈每次迭代則是取得<strong>屬性值</strong>。</p>
+<pre><code class="javascript hljs"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Hello'</span><span class="token punctuation">,</span> <span class="token string">'How'</span><span class="token punctuation">,</span> <span class="token string">'are'</span><span class="token punctuation">,</span> <span class="token string">'you'</span><span class="token punctuation">,</span> <span class="token number">2019</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> val <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>會印出 <code>arr</code> 陣列中每個元素的<strong>內容(值)</strong>：</p>
+<pre><code>Hello
+How
+are
+you
+2019
+</code></pre>
+<p>若對同一個陣列，改以 <code>for in</code> 迴圈來操作：</p>
+<pre><code class="javascript hljs"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> val <span class="token keyword">in</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>則會印出 <code>arr</code> 陣列中每個元素的<strong>索引(鍵值)</strong>：</p>
+<pre><code>0
+1
+2
+3
+4
+</code></pre>
+<div class="alert alert-info">
+<p><img alt=":bulb:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/bulb.png" title=":bulb:"> <strong>小提醒</strong></p>
+<p><code>for of</code> 迴圈是 ECMAScript 6 開始才提供的語法，比較舊的瀏覽器並不支援這個語法，像是 Windows 裡的 Internet Explorer 瀏覽器就不支援。不過連微軟官方都出面呼籲大家別用 IE，改用其它支援新網頁標準的瀏覽器，之後使用 IE 的人應該會愈來愈少，所以還是放心用 <code>for of</code> 迴圈吧！如果需要維持對 IE 的相容性，可以使用 <code>for in</code> 迴圈，這個 IE 有支援噢！</p>
+<p><em>註： ECMAScript 是 Javascript 的語法標準</em></p>
+</div>
+</li>
+</ul><h4 id="函式-function"><a class="anchor hidden-xs" href="#函式-function" title="函式-function"><span class="octicon octicon-link"></span></a>函式 function</h4><p>若有一段程式碼需要被使用到好幾次，可以考慮將它獨立成一個自訂函式，然後在需要用到的地方採用函式呼叫即可。定義一個函式的語法：</p><pre><code class="javascript hljs"><span class="token keyword">function</span> <span class="token function">函式名</span><span class="token punctuation">(</span>參數列表<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    函式內容<span class="token punctuation">;</span>
+    <span class="token comment">//...</span>
+    <span class="token keyword">return</span> 傳回值<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><ul>
+<li><strong>函式名</strong> 可自行命名，建議取與該函式的功能或作用相關的名字</li>
+<li><strong>參數列表</strong> 為函式執行時，傳給函式的額外資訊。若無可省略不寫，若有一個以上的參數，則參數間需以逗號 <code>,</code> 隔開</li>
+<li><strong>函式內容</strong> 就是這個函式要進行的作業的步驟有哪些</li>
+<li><strong>傳回值</strong> 如果需要回傳處理結果的話，可以透過關鍵字 <code>return</code> 將結果回傳</li>
+</ul><p>假設測試某個整數是否為質數這件事需要在程式裡被用到好幾次，那我們可以這樣試著定義一個函式：</p><pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span></div><div class="code"><span class="token keyword">function</span> <span class="token function">is_prime</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token comment">// 以 2, 3, ..., n-1 來測試 n 可否被整除</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>       <span class="token comment">// 若 n 可被 i 整除，表示不是質數，直接回傳 false </span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>    <span class="token comment">// 通過所有測試，沒有數字將 n 整除，回傳 true</span>
+<span class="token punctuation">}</span>
+</div></div></code></pre><p>這裡先以質數最原始的定義來實作：除了 <code>1</code> 與 <code>n</code> 自身之外，沒有其它數可以整除 <code>n</code>，此時稱 <code>n</code> 為質數。因此我們拿 <code>2</code> 至 <code>n-1</code> 之間的所有數字來測看看能否將 <code>n</code> 整除，若過程中發生整除，則回傳 <code>false</code>，若測試範圍內所有的數字都無法整除 <code>n</code>，則 <code>n</code> 為質數。</p><p>定義完函式後，在需要這個功能的地方就可以直接使用函式呼叫來取得結果，例：</p><pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="9"></span>
+<span data-linenumber="10"></span></div><div class="code"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">is_prime</span><span class="token punctuation">(</span><span class="token number">337</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'337 是質數'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</div></div></code></pre><ul>
+<li>呼叫 <code>is_prime()</code> 函式，並將 <code>337</code> 當成參數傳遞給函式。在 <code>is_prime()</code> 函式中，參數 <code>n</code> 一開始取得的值就是傳遞過來的 <code>337</code>，因此此函式會測試 <code>2</code> 到 <code>336</code> 之間是否有任何一個數可以整除 <code>337</code>。</li>
+</ul><p>函式執行時取得的參數的值，與被呼叫時提供的參數的順序有關，例：</p><pre><code class="javascript hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code"><span class="token keyword">function</span> <span class="token function">mytest</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"a = "</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> <span class="token string">", b = "</span><span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token string">", c = "</span><span class="token punctuation">,</span> c<span class="token punctuation">,</span> <span class="token string">", d = "</span><span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">mytest</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</div></div></code></pre><p>在網頁主控臺上會印出：</p><pre><code>a =  2 , b =  7 , c =  1 , d =  4
+</code></pre><div class="alert alert-info">
+<p><img alt=":bulb:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/bulb.png" title=":bulb:"> 先前提過的回呼函式(Callback function)也是函式噢！</p>
+</div></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#Javascript基礎" title="Javascript基礎">Javascript基礎</a><ul class="nav">
+<li><a href="#引用方式" title="引用方式">引用方式</a><ul class="nav">
+<li><a href="#內嵌" title="內嵌">內嵌</a></li>
+<li><a href="#引用外部檔案" title="引用外部檔案">引用外部檔案</a></li>
+</ul>
+</li>
+<li><a href="#基礎語法" title="基礎語法">基礎語法</a><ul class="nav">
+<li><a href="#變數及資料型別" title="變數及資料型別">變數及資料型別</a></li>
+<li><a href="#控制結構" title="控制結構">控制結構</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#Javascript基礎" title="Javascript基礎">Javascript基礎</a><ul class="nav">
+<li><a href="#引用方式" title="引用方式">引用方式</a><ul class="nav">
+<li><a href="#內嵌" title="內嵌">內嵌</a></li>
+<li><a href="#引用外部檔案" title="引用外部檔案">引用外部檔案</a></li>
+</ul>
+</li>
+<li><a href="#基礎語法" title="基礎語法">基礎語法</a><ul class="nav">
+<li><a href="#變數及資料型別" title="變數及資料型別">變數及資料型別</a></li>
+<li><a href="#控制結構" title="控制結構">控制結構</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>

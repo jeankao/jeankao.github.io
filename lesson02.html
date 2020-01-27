@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        Python基礎 - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @charset "UTF-8";@import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram{text-align:center;background-color:inherit;border-radius:0;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.MJX_Assistive_MathML{display:none}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;padding:0 15px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc-label{opacity:.3;background-color:#ccc;border:none;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:23px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child > ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:3px;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-published-note{color:#337ab7}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em}.focus,:focus{outline:none!important}::-moz-focus-inner{border:0!important}body{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h1 id="Python基礎"><a class="anchor hidden-xs" href="#Python基礎" title="Python基礎"><span class="octicon octicon-link"></span></a>Python基礎</h1><h2 id="Python簡介"><a class="anchor hidden-xs" href="#Python簡介" title="Python簡介"><span class="octicon octicon-link"></span></a>Python簡介</h2><p>Python 這一套功能強大、直譯式並且物件導向的程式語言，以強調對程式語言的語句易讀、易懂、易學及加快程式開發的時效，有許多程式設計者為Python提供了許多自行開發的library(函式庫)，可以負荷支持平常大部份的應用，使得現今Python發展迅速及使用廣泛，相關資源也相當豐富。</p><h2 id="安裝-Python-執行環境"><a class="anchor hidden-xs" href="#安裝-Python-執行環境" title="安裝-Python-執行環境"><span class="octicon octicon-link"></span></a>安裝 Python 執行環境</h2><h3 id="Windows"><a class="anchor hidden-xs" href="#Windows" title="Windows"><span class="octicon octicon-link"></span></a>Windows</h3><p>先至 Python 官網的下載頁面 <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" done="">https://www.python.org/downloads/</a> 下載 Python 安裝程式。由於之後要使用的網頁開發框架 Django 2 必須依存 Python 3，因此下載時請選擇 Python 3 以上的版本。</p><p><img src="https://i.imgur.com/aOsmF5W.png" alt=""></p><p>在執行安裝程式時，在第一個畫面上請勾選「Add Python 3.x to Path」，讓安裝程式自動設定 PATH 環境變數，這樣之後需在命令提示字元底下以指令的方式執行 Python 腳本程式時，系統才找得到相關的程式與資源。</p><p><img src="https://i.imgur.com/fvHfEBU.png" alt=""></p><p>Python 程式安裝後，我們先使用內附的 IDLE 直譯器來練習 Python 的基礎。先開啟Python的IDLE (Python GUI)，然後按"File" -&gt; “New File”。</p><p><img src="https://i.imgur.com/ay7NzSq.png" alt=""></p><p><img src="https://i.imgur.com/5YbBnSo.png" alt=""></p><p>這就是一個Python的編輯器，可以打好程式碼之後按"Run"-&gt;“Run Module”，結果會呈現在交談式介面裡。</p><p><img src="https://i.imgur.com/gKpYQbK.png" alt=""></p><h2 id="輸入與輸出"><a class="anchor hidden-xs" href="#輸入與輸出" title="輸入與輸出"><span class="octicon octicon-link"></span></a>輸入與輸出</h2><h3 id="輸出"><a class="anchor hidden-xs" href="#輸出" title="輸出"><span class="octicon octicon-link"></span></a>輸出</h3><p>使用 <code>print</code> 最簡單的方法就是直接在 <code>print</code> 後面加上數字、文字、列表等，比如：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span></div><div class="code">print(<span class="hljs-number">123</span>)
+print(<span class="hljs-string">'abc'</span>)
+x = <span class="hljs-number">10</span>
+print(x)
+d = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]
+print(d)
+print(d[<span class="hljs-number">0</span>])
+</div></div></code></pre><p><code>print()</code> 有兩個關鍵字參數：</p><ol>
+<li><code>end</code>：輸出的結尾字元，預設為換行，可用空白、逗號或者空字串來取代換行。</li>
+<li><code>sep</code>：<code>print()</code> 可以同時傳入 N 個參數，<code>print()</code> 會以空白字元串起來後再輸出</li>
+</ol><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">print(<span class="hljs-string">'香蕉'</span>, <span class="hljs-string">'蘋果'</span>, <span class="hljs-string">'鳳梨'</span>, sep=<span class="hljs-string">', '</span>)
+<span class="hljs-comment"># 香蕉, 蘋果, 鳳梨</span>
+</div></div></code></pre><h3 id="輸入"><a class="anchor hidden-xs" href="#輸入" title="輸入"><span class="octicon octicon-link"></span></a>輸入</h3><p>使用 <code>input</code>　輸入資料。</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span></div><div class="code">name = input(<span class="hljs-string">'請問您的大名：:\n'</span>) <span class="hljs-comment"># 換行輸入</span>
+print(<span class="hljs-string">'您好！'</span> + name)
+name = input(<span class="hljs-string">'請問您的大名：: '</span>)<span class="hljs-comment"># 同一行輸入</span>
+print(<span class="hljs-string">'您好！'</span> + name)
+</div></div></code></pre><h2 id="常用的資料型別"><a class="anchor hidden-xs" href="#常用的資料型別" title="常用的資料型別"><span class="octicon octicon-link"></span></a>常用的資料型別</h2><h3 id="數字（Number）"><a class="anchor hidden-xs" href="#數字（Number）" title="數字（Number）"><span class="octicon octicon-link"></span></a>數字（Number）</h3><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">num1 = <span class="hljs-number">5</span>
+num2 = <span class="hljs-number">2</span>
+num3 = num1 + num2
+</div></div></code></pre><h4 id="常用數學運算符號"><a class="anchor hidden-xs" href="#常用數學運算符號" title="常用數學運算符號"><span class="octicon octicon-link"></span></a>常用數學運算符號</h4><ul>
+<li>
+<p>加法 <code>+</code></p>
+<pre><code class="python hljs"><span class="hljs-number">3</span> + <span class="hljs-number">5</span>
+</code></pre>
+</li>
+<li>
+<p>減法 <code>-</code></p>
+<pre><code class="python hljs"><span class="hljs-number">3</span> - <span class="hljs-number">5</span>
+</code></pre>
+</li>
+<li>
+<p>乘法 <code>*</code></p>
+<pre><code class="python hljs"><span class="hljs-number">3</span> * <span class="hljs-number">5</span>
+</code></pre>
+</li>
+<li>
+<p>除法 <code>/</code></p>
+<pre><code class="python hljs"><span class="hljs-number">5</span> / <span class="hljs-number">3</span>
+</code></pre>
+<p>=&gt; 結果為 <code>1.6666666666666667</code></p>
+</li>
+<li>
+<p>整數除法 ‘//’</p>
+<pre><code class="python hljs"><span class="hljs-number">5</span> // <span class="hljs-number">3</span>
+</code></pre>
+<p>=&gt; 結果為 <code>1</code></p>
+</li>
+<li>
+<p>取餘數 ‘%’</p>
+<pre><code class="python hljs"><span class="hljs-number">5</span> % <span class="hljs-number">3</span>
+</code></pre>
+<p>=&gt; 結果為 <code>2</code></p>
+</li>
+<li>
+<p>次方 ‘**’</p>
+<pre><code class="python hljs"><span class="hljs-number">2</span>*<span class="hljs-number">8</span>
+</code></pre>
+<p>=&gt; 結果為 <code>256</code></p>
+</li>
+</ul><h4 id="其他"><a class="anchor hidden-xs" href="#其他" title="其他"><span class="octicon octicon-link"></span></a>其他</h4><ul>
+<li>
+<p>取亂數</p>
+<p>使用方式：</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code"><span class="hljs-keyword">import</span> random
+
+random.randint(起點, 終點)
+</div></div></code></pre>
+<ul>
+<li>要先引用 <code>random</code> 套件</li>
+<li><code>random</code> 套件中的 <code>randint</code> 是用來取某個範圍的整數亂數，包含起點，但不包含終點</li>
+</ul>
+<p>例：</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code"><span class="hljs-keyword">import</span> random
+secret = random.randint(<span class="hljs-number">1000</span>, <span class="hljs-number">10000</span>)
+</div></div></code></pre>
+<p>這樣會從 1000 ~ 9999 中隨機取一個 4 位數的整數亂數</p>
+</li>
+</ul><h3 id="字串（String）"><a class="anchor hidden-xs" href="#字串（String）" title="字串（String）"><span class="octicon octicon-link"></span></a>字串（String）</h3><p>字串用單引號 <code>'</code> 或雙引號 <code>"</code> 將字串內容前後包夾即可，只要同一組字串表示式的前後使用的引號一致即可；如果字串內容包含多行文字，則使用 3 對單引號或雙引號將完整字串包夾，例：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span></div><div class="code">myname = <span class="hljs-string">'Dino Wei'</span>
+schoolname = <span class="hljs-string">"天真高中"</span>
+taiwan_metro_cities = <span class="hljs-string">"""臺北
+新北
+桃園
+臺中
+臺南
+高雄"""</span>
+</div></div></code></pre><h4 id="常用的字串操作"><a class="anchor hidden-xs" href="#常用的字串操作" title="常用的字串操作"><span class="octicon octicon-link"></span></a>常用的字串操作</h4><ul>
+<li>
+<p>串接 <code>+</code></p>
+<pre><code class="python hljs">str = schoolname + myname
+</code></pre>
+<ul>
+<li><code>str</code> 的內容會變為 <code>'天真高中Dino Wei'</code></li>
+</ul>
+</li>
+<li>
+<p>重複 <code>*</code></p>
+<pre><code class="python hljs">divline = <span class="hljs-string">'----'</span> * <span class="hljs-number">10</span>
+</code></pre>
+<p><code>divline</code> 的內容會變為 <code>'----------------------------------------'</code>，也就是 <code>'----'</code> 重複 <code>10</code> 次的結果</p>
+</li>
+<li>
+<p>取得某個位置的字元 <code>[位置]</code></p>
+<pre><code class="python hljs">str = schoolname[<span class="hljs-number">2</span>]
+</code></pre>
+<ul>
+<li>
+<p><code>str</code> 的內容會變為 <code>'高'</code></p>
+<p><strong>注意：</strong> 位置的編號從 <code>0</code> 號起算，第一個字元的編號是 <code>0</code>，所以位置編號 <code>2</code> 的符號實際上是第 <code>3</code> 個符號</p>
+</li>
+<li>
+<p>若位置編號為負值，表示由尾端倒數，<code>-1</code> 表示字串中最後一個字元的位置，<code>-2</code> 表示倒數第 2 個字元的位置</p>
+<pre><code class="python hljs">str = schoolname[<span class="hljs-number">-1</span>]
+</code></pre>
+<p><code>str</code> 的內容會變為 <code>'中'</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>取得子字串 <code>[起點:終點]</code></p>
+<pre><code class="python hljs">str = schoolname[<span class="hljs-number">1</span>: <span class="hljs-number">3</span>]
+</code></pre>
+<ul>
+<li><code>str</code> 的內容會變為 <code>'真高'</code></li>
+<li>包含起點，但是排除終點</li>
+<li>若省略起點，則預設起點值為 <code>0</code>，例：<code>schoolname[:3]</code> 會取到 <code>'天真高'</code></li>
+<li>若省略終點，則預設終點值為字串終結，例：<code>schoolname[2:]</code> 會取到 <code>'高中'</code></li>
+<li>若起點終點指定的值為負值表示改由尾端倒數，例：<code>schoolname[-3:-1]</code>  則會取到 <code>'真高'</code></li>
+</ul>
+</li>
+<li>
+<p>取得字串長度: 內建函式 <code>len()</code></p>
+<pre><code class="python hljs">strn = len(taiwan_metro_cities)
+</code></pre>
+<p>變數 <code>strn</code> 的結果為 <code>17</code>，其中有中文字 <code>12</code> 個，再加上 <code>5</code> 個換行符號。</p>
+</li>
+</ul><h3 id="布林值（Boolean）"><a class="anchor hidden-xs" href="#布林值（Boolean）" title="布林值（Boolean）"><span class="octicon octicon-link"></span></a>布林值（Boolean）</h3><p><code>True</code> 或 <code>False</code>。注意在Python中布林值首字是大寫。</p><h3 id="列表（List）"><a class="anchor hidden-xs" href="#列表（List）" title="列表（List）"><span class="octicon octicon-link"></span></a>列表（List）</h3><p>List 是 Python 中最基本的資料結構，用來表示一群資料的集合。列表用方括號 <code>[]</code> 將這群資料包含在其中，每筆紀錄間以逗號 <code>,</code> 隔開。</p><p>Python 列表中的每個元素的資料型態不必都相同。</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">arbl = [<span class="hljs-string">'physics'</span>, <span class="hljs-string">'中文'</span>, <span class="hljs-number">1997</span>, <span class="hljs-number">2018</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">3.14159265358</span>]
+nums = [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>]
+letters = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-string">"hello"</span>, <span class="hljs-string">"Google"</span>]
+</div></div></code></pre><p>List 中每一筆紀錄稱為元素，每個元素在列表中都被分配到一個數字素引值，用來表示該元素在列表中的位置。索引值的編號從 <code>0</code> 起算，第一個元素的索引值為 <code>0</code>，第二個元素的索引值為 <code>1</code>，依此類推。</p><p>若索引值為負值，表示由尾端倒數。<code>-1</code> 表示最後一個元素的索引值，<code>-2</code> 代表倒數第 2 個元素的索引值 … 餘類推。</p><h4 id="列表常用的操作"><a class="anchor hidden-xs" href="#列表常用的操作" title="列表常用的操作"><span class="octicon octicon-link"></span></a>列表常用的操作</h4><ul>
+<li>
+<p>存取列表中的元素 <code>[位置]</code> 或 <code>[起點: 終點]</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code">arbl = [<span class="hljs-string">'physics'</span>, <span class="hljs-string">'中文'</span>, <span class="hljs-number">1997</span>, <span class="hljs-number">2018</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">3.14159265358</span>]
+nums = [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>]
+
+print(<span class="hljs-string">"arbl[0]: "</span>, arbl[<span class="hljs-number">0</span>])
+print(<span class="hljs-string">"nums[1:5]: "</span>, nums[<span class="hljs-number">1</span>:<span class="hljs-number">5</span>])
+</div></div></code></pre>
+<p>結果會輸出：</p>
+<pre><code>arbl[0]:  physics
+nums[1:5]:  [1, 5, 8, 9]
+</code></pre>
+<p>指定位置或起點終點時，也可以與字串一樣，使用負值來表示由列表尾端倒數的位置，<code>-1</code> 表示最後一項，<code>-2</code> 表示倒數第二個 …。</p>
+<p>例：</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">print(<span class="hljs-string">"arbl[-3]:"</span>, arbl[<span class="hljs-number">-3</span>])
+print(<span class="hljs-string">"nums[-3:]"</span>, nums[<span class="hljs-number">-3</span>:])
+</div></div></code></pre>
+<p>會印出：</p>
+<pre><code>arbl[-3]: 2018
+nums[-3:] [1, 3, 7]
+</code></pre>
+<p>要注意的是，若指定的位置超出列表的範圍，會引發 <code>IndexError</code> 執行階段錯誤，例：</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">print(arbl[<span class="hljs-number">10</span>])
+</div></div></code></pre>
+<p>目前 <code>arbl</code> 列表中只有 6 筆資料，編號為 <code>0</code> 至 <code>5</code> 號，因此欲取得編號 <code>10</code> 號的內容會引發錯誤：</p>
+<pre><code>Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+IndexError: list index out of range
+</code></pre>
+</li>
+<li>
+<p>新增至尾端 <code>.append()</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span></div><div class="code">list = []  <span class="hljs-comment"># 空列表</span>
+list.append(<span class="hljs-string">'Microsoft'</span>)
+list.append(<span class="hljs-string">'Google'</span>)
+list.append(<span class="hljs-string">'Apple'</span>)
+
+print(list)
+</div></div></code></pre>
+<p>結果為</p>
+<pre><code>['Microsoft', 'Google', 'Apple']
+</code></pre>
+</li>
+<li>
+<p>取得目前列表內元素個數 <code>len()</code></p>
+<pre><code class="python hljs">size = len(list)
+</code></pre>
+</li>
+<li>
+<p>刪除列表指定位置元素 <code>del</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code">list = [<span class="hljs-string">'Apple'</span>, <span class="hljs-string">'Google'</span>, <span class="hljs-string">'Microsoft'</span>, <span class="hljs-string">'Facebook'</span>]
+
+print(list)
+<span class="hljs-keyword">del</span> list[<span class="hljs-number">2</span>]
+print(list)
+</div></div></code></pre>
+<p>結果為</p>
+<pre><code>['Apple', 'Google', 'Microsoft', 'Facebook']
+['Apple', 'Google', 'Facebook']
+</code></pre>
+</li>
+<li>
+<p>測試列表中是否存在某元素 <code>in</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">nums = [<span class="hljs-number">1</span>, <span class="hljs-number">6</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">8</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">9</span>, <span class="hljs-number">0</span>, <span class="hljs-number">7</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]
+a = <span class="hljs-number">100</span> <span class="hljs-keyword">in</span> nums
+print(a)
+</div></div></code></pre>
+<p>結果為 <code>False</code></p>
+</li>
+<li>
+<p>刪除指定元素值 <code>.remove()</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span></div><div class="code">nums = [<span class="hljs-number">1</span>, <span class="hljs-number">6</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">8</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">9</span>, <span class="hljs-number">0</span>, <span class="hljs-number">7</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]
+print(nums)
+nums.remove(<span class="hljs-number">7</span>)
+print(nums)
+</div></div></code></pre>
+<p><strong>注意：</strong> <code>remove()</code> 只會移除掉第 1 個符合指定元素值的元素，如果指定元素值不存在，則會引發執行例外</p>
+</li>
+<li>
+<p>組合其他列表 <code>+</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span></div><div class="code">a = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>]
+b = [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>]
+c = a + b
+<span class="hljs-keyword">print</span> (c)
+</div></div></code></pre>
+<p>結果為</p>
+<pre><code>[1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
+</code></pre>
+</li>
+</ul><h3 id="值組-Tuple"><a class="anchor hidden-xs" href="#值組-Tuple" title="值組-Tuple"><span class="octicon octicon-link"></span></a>值組 (Tuple)</h3><p>值組跟列表很像，但它們最大的差異點是，列表的內容是可以更動的，但是值組不行。在建立值組的時候以一對小括號 <code>()</code> 涵括要包含的值，值與值之間以逗號 <code>,</code> 隔開：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">tuple_a = (<span class="hljs-string">'Taiwan'</span>, <span class="hljs-string">'Taipei'</span>, <span class="hljs-number">10462</span>)
+</div></div></code></pre><p>或者省略小括號也可以：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">tuple_b = <span class="hljs-string">'Taiwan'</span>, <span class="hljs-string">'Taipei'</span>, <span class="hljs-number">10462</span>
+</div></div></code></pre><p>值組內的每項資料也會自動由 <code>0</code> 開始依序編號。值組一但建立之後，就無法變更該值組內索引值與其對應值的關係，例：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">tuple_a[<span class="hljs-number">1</span>] = <span class="hljs-string">'臺中'</span>
+</div></div></code></pre><p>想將 <code>tuple_a</code> 中的第 <code>2</code> 項資料修改為 <code>'臺中'</code>，會引發 <code>TypeError</code> 錯誤：</p><pre><code>Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: 'tuple' object does not support item assignment
+</code></pre><p>列表允許的操作當中，只要不涉及資料的變更，也可以套用在值組上：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span></div><div class="code">zipCode = tuple_b[<span class="hljs-number">2</span>]    <span class="hljs-comment"># 取得 10462</span>
+cityZip = tuple_a[<span class="hljs-number">1</span>:]    <span class="hljs-comment"># 取得 ('Taipei', 10462)</span>
+count = len(tuple_a)     <span class="hljs-comment"># 取得 3</span>
+hasTaiwan = <span class="hljs-string">'Taiwan'</span> <span class="hljs-keyword">in</span> tuple_a    <span class="hljs-comment"># True, 因為 tuple_a 裡有包含 'Taiwan'</span>
+</div></div></code></pre><p>另外，在多數的程式語言中，要交換 2 個變數的內容時，通常都要透過第 3 個變數先暫存其中 1 的原始值：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span></div><div class="code">a = <span class="hljs-number">3</span>
+b = <span class="hljs-number">5</span>
+
+c = a    <span class="hljs-comment"># 暫存 a 的原值</span>
+a = b    <span class="hljs-comment"># a 已暫存，可以用 b 的值蓋掉了</span>
+b = c    <span class="hljs-comment"># 透過 c 暫存的值，將 a 的原值指定給 b</span>
+</div></div></code></pre><p>在 python 中有另一種方便的寫法：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">a, b = b, a    <span class="hljs-comment"># 等同於 (a, b) = (b, a)</span>
+</div></div></code></pre><h3 id="字典（Dictionary）"><a class="anchor hidden-xs" href="#字典（Dictionary）" title="字典（Dictionary）"><span class="octicon octicon-link"></span></a>字典（Dictionary）</h3><p>字典也是另一種常用的資料結構，跟列表相似的是，它也是用來表示某些資料的集合，但不同點在於，列表的索引是系統自動編號的，但是字典則是由使用者自行指定，而且其索引鍵不必為數值，也可以是字串或其他類型的資料。</p><p>要建立字典，可使用花括號 <code>{}</code> 將紀錄以 <code>鍵值:內容</code> 的型式包起來，紀錄與紀錄之間以逗號 <code>,</code> 隔開。</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">scores = {<span class="hljs-string">'Dino'</span>: <span class="hljs-number">90</span>, <span class="hljs-string">'Rita'</span>: <span class="hljs-number">95</span>, <span class="hljs-string">'John'</span>: <span class="hljs-number">87</span>, <span class="hljs-string">'Tom'</span>: <span class="hljs-number">79</span>, <span class="hljs-string">'Mary'</span>: <span class="hljs-number">92</span>, <span class="hljs-string">'George'</span>: <span class="hljs-number">66</span>}
+<span class="hljs-comment"># 建立字典</span>
+students = {<span class="hljs-number">10730029</span>: <span class="hljs-string">'10205'</span>, <span class="hljs-number">10730001</span>: <span class="hljs-string">'10101'</span>}
+</div></div></code></pre><h4 id="字典常用操作"><a class="anchor hidden-xs" href="#字典常用操作" title="字典常用操作"><span class="octicon octicon-link"></span></a>字典常用操作</h4><ul>
+<li>
+<p>取得字典中的資料筆數 <code>len()</code></p>
+<p>內建函式 <code>len()</code> 可取得字典內已登錄的資料的數量，例：</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">print(len(scores))
+</div></div></code></pre>
+<p>會印出 <code>6</code></p>
+</li>
+<li>
+<p>取得字典中某鍵值的對應值 <code>[]</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">print(scores[<span class="hljs-string">'Dino'</span>])
+</div></div></code></pre>
+<p>印出 <code>scores</code> 字典中， <code>'Dino'</code> 所對應到的對應值，應該會印出 <code>70</code>。</p>
+<p>若是該鍵值在字典中不存在，則會觸發執行期間的錯誤，例：</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">print(scores[<span class="hljs-string">'Jack'</span>])    
+</div></div></code></pre>
+<p>會發生錯誤，並顯示錯誤訊息：</p>
+<pre><code>Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+KeyError: 'Jack'
+</code></pre>
+<p>這個錯誤的意思是說，指定的鍵值有誤，表示字典中尚未有 <code>'Jack'</code> 這筆紀錄存在。</p>
+</li>
+<li>
+<p>新增/更新一筆紀錄 <code>=</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">scores[<span class="hljs-string">'Micky'</span>] = <span class="hljs-number">89</span>     <span class="hljs-comment"># 新增 'Micky' 的值為 89</span>
+scores[<span class="hljs-string">'George'</span>] = <span class="hljs-number">71</span>    <span class="hljs-comment"># 將 'George' 對應到的值修改為 71</span>
+</div></div></code></pre>
+<p>需搭配鍵值使用。若指定的鍵值尚未登錄在字典中，則會直接新增一筆紀錄；反之，若鍵值已存在，則修改其對應值。</p>
+</li>
+<li>
+<p>刪除一筆記錄 <code>del</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code"><span class="hljs-keyword">del</span> students[<span class="hljs-number">10730001</span>];
+</div></div></code></pre>
+<p>在 <code>del</code> 關鍵字後接上欲刪除的字典及鍵值即可。要注意的是，如果該鍵值在字典內不存在的話，同樣也會引發 <code>KeyError</code> 錯誤：</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code"><span class="hljs-keyword">del</span> scores[<span class="hljs-string">'Justin'</span>];
+</div></div></code></pre>
+<pre><code>Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+KeyError: 'Justin'
+</code></pre>
+</li>
+<li>
+<p>測試某鍵值是否已存在字典內 <code>in</code></p>
+<p>通常會搭配條件判斷 <code>if</code> 來使用，例：</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code"><span class="hljs-keyword">if</span> myKey <span class="hljs-keyword">in</span> scores:
+    <span class="hljs-keyword">del</span> scores[myKey]
+</div></div></code></pre>
+<p>檢查變數 <code>myKey</code> 的內容是否為 <code>scores</code> 字典中已登錄的鍵值，若是，則刪除該筆記錄。</p>
+</li>
+<li>
+<p>取得所有鍵值的列表 <code>.keys()</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">myKeys = scores.keys()    <span class="hljs-comment"># 取得 scores 字典中所有鍵值的列表</span>
+
+<span class="hljs-keyword">print</span> (myKeys)
+</div></div></code></pre>
+<p>會印出：</p>
+<pre><code>dict_keys(['Dino', 'Rita', 'John', 'Tom', 'Mary', 'George'])
+</code></pre>
+</li>
+<li>
+<p>取得所有對應值的列表 <code>.values()</code></p>
+<p>若想取得字典中所有對應值的列表，則改用 <code>.values()</code> 方法：</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">myValues = scores.values()    <span class="hljs-comment"># 取得 scores 字典中所有對應值的列表</span>
+
+print(myValues)
+</div></div></code></pre>
+<p>會印出：</p>
+<pre><code>dict_values([90, 95, 87, 79, 92, 66])
+</code></pre>
+</li>
+<li>
+<p>取得所有鍵值與對應值紀錄的列表 <code>.items()</code></p>
+<p>字典中每一筆紀錄都包含了鍵值與對應值，要透過 <code>.items()</code> 取得每筆紀錄的話，回傳的列表中，每筆紀錄都是以 <code>(鍵值, 對應值)</code> 這樣的型式呈現。</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">recs = scores.items()
+
+print(recs)
+</div></div></code></pre>
+<p>會印出</p>
+<pre><code>dict_items([('Dino', 90), ('Rita', 95), ('John', 87), ('Tom', 79), ('Mary', 92), ('George', 66)])
+</code></pre>
+</li>
+</ul><h3 id="集合（Set）"><a class="anchor hidden-xs" href="#集合（Set）" title="集合（Set）"><span class="octicon octicon-link"></span></a>集合（Set）</h3><p>集合裡面會包含不重複的元素值，如果不需要鍵值的話，只是單純要紀錄某個值出現過了沒有，就適合使用集合來處理。</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code">s = set()
+s.add(<span class="hljs-number">3</span>) <span class="hljs-comment"># { 3 }</span>
+s.add(<span class="hljs-number">6</span>) <span class="hljs-comment"># { 3, 6 }</span>
+s.add(<span class="hljs-number">6</span>) <span class="hljs-comment"># { 3, 6 }</span>
+len(s) <span class="hljs-comment"># 2 </span>
+</div></div></code></pre><p>要定義一個空集合的話，可以使用 <code>set()</code>：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">s1 = set()
+</div></div></code></pre><p>若要從一個現成的字串、列表、字典、值組來定義集合的話，可以將資料來源放在 <code>set()</code> 的小括號內：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span></div><div class="code">list_a = [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>]
+tuple_b = (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>)
+dic_c = {<span class="hljs-string">'A'</span>: <span class="hljs-number">65</span>, <span class="hljs-string">'C'</span>: <span class="hljs-number">67</span>, <span class="hljs-string">'b'</span>: <span class="hljs-number">98</span>}
+str_d = <span class="hljs-string">"hello"</span>
+
+sa = set(list_a)     <span class="hljs-comment"># {1, 3, 5}</span>
+sb = set(tuple_b)    <span class="hljs-comment"># {1, 2, 3, 4} 原本重複的 1, 3 在集合中僅出現一次</span>
+sc = set(dic_c)      <span class="hljs-comment"># {'b', 'C', 'A'} 僅包含字典的鍵值</span>
+sd = set(str_d)      <span class="hljs-comment"># {'o', 'h', 'e', 'l'}</span>
+se = set([<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">11</span>])    <span class="hljs-comment"># {2, 3, 5, 7, 11}</span>
+</div></div></code></pre><p>甚至也可以用花括號 <code>{}</code> 來定義集合，將集合內的元素值直接寫在花號號內，元素間以逗號 <code>,</code> 隔開：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">sf = {<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">13</span>}    <span class="hljs-comment"># {1, 2, 3, 5, 8, 13} 重複的 1 自動被移除了</span>
+</div></div></code></pre><div class="alert alert-warning">
+<p><img alt=":warning:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/warning.png" title=":warning:"> <strong>以花括號 <code>{}</code> 來定義集合的注意事項</strong></p>
+<p><code>{}</code> 可以用來定義字典，也可以用來定義集合，差別在於列舉內容時，字典需以 <code>鍵值: 對應值</code> 方式來指定每一組對應關係，而集合因為不包含鍵值，直接列出值就可以了：</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">dic_a = {<span class="hljs-number">1</span>:<span class="hljs-string">'one'</span>, <span class="hljs-string">'two'</span>:<span class="hljs-number">2</span>}    <span class="hljs-comment"># 定義字典</span>
+set_b = {<span class="hljs-string">'one'</span>, <span class="hljs-number">2</span>}            <span class="hljs-comment"># 定義集合</span>
+</div></div></code></pre>
+<p>如果要定義一個空集合的話，只能使用 <code>set()</code> 來定義，因為花括號內沒有內容，會被 Python 解釋為一個空的字典。</p>
+<pre><code class="python hljs">empty_set = set()     <span class="hljs-comment"># 空集合</span>
+empty_dic = {}        <span class="hljs-comment"># 空的字典</span>
+</code></pre>
+</div><h4 id="集合的常用操作"><a class="anchor hidden-xs" href="#集合的常用操作" title="集合的常用操作"><span class="octicon octicon-link"></span></a>集合的常用操作</h4><p>為了方便說明，先定義以下 3 個集合：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">sa = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+sb = {<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>}
+sc = {<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>}
+</div></div></code></pre><ul>
+<li>
+<p>取得集合內的元素個素: <code>len()</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">elements = len(sa)    <span class="hljs-comment"># elements 的值為 5</span>
+</div></div></code></pre>
+</li>
+<li>
+<p>聯集: <code>.union()</code> 或 <code>|</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">su1 = sa.union(sb)    <span class="hljs-comment"># {1, 2, 3, 4, 5, 6, 8, 10}</span>
+su2 = sb | sc         <span class="hljs-comment"># {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}</span>
+</div></div></code></pre>
+<p>產生一個新的集合，內容為兩個集合的聯集。聯集的元素包含兩個集合中的所有元素：</p>
+<p><img src="https://i.imgur.com/6jxmK2n.png" alt="A 與 B 的聯集"></p>
+</li>
+<li>
+<p>交集: <code>.intersection()</code> 或 <code>&amp;</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">si1 = sa.intersection(sb)    <span class="hljs-comment"># {2, 4}</span>
+si2 = sb &amp; sc                <span class="hljs-comment"># set()</span>
+</div></div></code></pre>
+<p>產生一個新集合，內容為兩個集合的交集。要同時出現在兩個集合中才會被挑出來：</p>
+<p><img src="https://i.imgur.com/poD4PRJ.png" alt="A 與 B 的交集"></p>
+</li>
+<li>
+<p>差集: <code>.difference()</code> 或 <code>-</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">sd1 = sa.difference(sb)        <span class="hljs-comment"># {1, 3, 5}</span>
+sd2 = sc - sa                  <span class="hljs-comment"># {7, 9}</span>
+</div></div></code></pre>
+<p>產生一個新的集合，內容為出現在第一個集合但不出現在第二個集合的所有元素：</p>
+<p><img src="https://i.imgur.com/wozIVJU.png" alt="A 差集 B"></p>
+</li>
+<li>
+<p>對稱差: <code>symmetric_difference()</code> 或 <code>^</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">ssd1 = sa.symmetric_difference(sb)    <span class="hljs-comment"># {1, 3, 5, 6, 8, 10}</span>
+ssd2 = sb ^ sa                        <span class="hljs-comment"># {1, 3, 5, 6, 8, 10}</span>
+</div></div></code></pre>
+<p>產生一個新的集合，內容為兩個集合中，僅出現在其中一個集合的所有元素，也就是兩個集合的聯集扣掉它們的交集的結果：</p>
+<p><img src="https://i.imgur.com/tfvRHnX.png" alt="A 與 B 的對稱差"></p>
+</li>
+<li>
+<p>測試是否與另一個集合不相交(沒有共同元素): <code>.isdisjoint()</code></p>
+<p>如果兩個集合彼此間沒有共同的元素的話，稱為不相交(disjoint)，換句話說，它們的交集會是空集合。</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code">print(sa.isdisjoint(sb))    <span class="hljs-comment"># False</span>
+print(sb.isdisjoint(sc))    <span class="hljs-comment"># True</span>
+</div></div></code></pre>
+</li>
+<li>
+<p>測試兩個集合是否相等: <code>==</code></p>
+<p>兩個集合相等的定義為兩個集合中包含的元素內容要完全相等，也就是說所有在集合 A 中包含的元素，要出現在集合 B 中；反過來說，所有包含在集合 B 中的元素也得出現在集合 A 裡。</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">s1 = {<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>}
+s2 = {<span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>}
+<span class="hljs-keyword">print</span> (s1 == s2)        <span class="hljs-comment"># True</span>
+</div></div></code></pre>
+</li>
+<li>
+<p>測試是否為另一個集合的子集合: <code>.issubset()</code> 或 <code>&lt;=</code></p>
+<p>若集合 A 中包含的所有元素都會出現在集合 B 中，此時稱集合 A 為集合 B 的子集合(subset)。</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code">s1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>}
+s2 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>}
+
+print(s1.issubset(s2))    <span class="hljs-comment"># True</span>
+print(s1 &lt;= s2)           <span class="hljs-comment"># True</span>
+</div></div></code></pre>
+<p>在此定義之下，任意一個集合都會是該集合自身的子集合：</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">print(s1 &lt;= s1)        <span class="hljs-comment"># True</span>
+</div></div></code></pre>
+<ul>
+<li>
+<p>測試是否為另一個集合的真子集合(proper subset): <code>&lt;</code></p>
+<p>若集合 A 為集合 B 的子集合，且集合 A 與集合 B 不完全相同，亦即集合 B 中包含了某些集合 A 中沒有的元素，此時稱集合 A 為集合 B 的真子集合(proper subset)。</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span></div><div class="code">s1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+s2 = {<span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>}
+s3 = {<span class="hljs-number">3</span>, <span class="hljs-number">1</span>}
+
+print(s2 &lt;= s1)        <span class="hljs-comment"># True</span>
+print(s2 &lt; s1)         <span class="hljs-comment"># False，因為 S2 與 S1 的內容相同</span>
+print(s3 &lt; s2)         <span class="hljs-comment"># True</span>
+</div></div></code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>測試是否為另一個集合的超集合: <code>.issuperset()</code> 或 <code>&gt;=</code></p>
+<p>超集合(superset)的定義與子集合剛好相反。若集合 A 為集合 B 的子集合，則集合 B 就稱為集合 A 的超集合。</p>
+<ul>
+<li>測試是否為另一個集合的真超集合(proper superset): <code>&gt;</code></li>
+</ul>
+</li>
+<li>
+<p>聯集更新: <code>.update()</code> 或 <code>|=</code></p>
+<p>上面提到的 <code>.union()</code>、<code>.intersection()</code>、<code>.difference()</code> 以及 <code>.symmetric_difference()</code> 都會產生一個新的結果集合，不會變更原集合的內容。若想以聯集、交集、差集、對稱差的結果替換掉原本的集合的話，可以用接下來介紹的幾個方法。</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code">s1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+s2 = {<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>}
+
+s1.update(s2)            <span class="hljs-comment"># 或 s1 |= s2</span>
+print(s1)                <span class="hljs-comment"># {1, 2, 3, 4, 5, 6, 8, 10}</span>
+</div></div></code></pre>
+</li>
+<li>
+<p>交集更新: <code>.intersection_update()</code> 或 <code>&amp;=</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code">s1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+s2 = {<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>}
+
+s1 &amp;= s2                 <span class="hljs-comment"># 或 s1.intersection_update(s2)</span>
+print(s1)                <span class="hljs-comment"># {2, 4}</span>
+</div></div></code></pre>
+</li>
+<li>
+<p>差集更新: <code>.difference_update()</code> 或 <code>-=</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code">s1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+s2 = {<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>}
+
+s1.difference_update(s2)     <span class="hljs-comment"># 或 s1 -= s2</span>
+print(s1)                    <span class="hljs-comment"># {1, 3, 5}</span>
+</div></div></code></pre>
+</li>
+<li>
+<p>對稱差更新: <code>.symmetric_difference_update()</code> 或 <code>^=</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code">s1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+s2 = {<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>}
+
+s1 ^= s2                 <span class="hljs-comment"># 或 s1.symmetric_difference_update(s2)</span>
+print(s1)                <span class="hljs-comment"># {1, 3, 5, 6, 8, 10}</span>
+</div></div></code></pre>
+</li>
+<li>
+<p>新增一個元素: <code>.add()</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code">s1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+s1.add(<span class="hljs-string">'a'</span>)
+print(s1)                <span class="hljs-comment"># {1, 2, 3, 4, 5, 'a'}</span>
+</div></div></code></pre>
+</li>
+<li>
+<p>刪除一個元素: <code>.remove()</code> 或 <code>.discard()</code></p>
+<p><code>.remove()</code> 與 <code>.discard()</code> 方法都是用來將元素從集合中移除，差別在於 <code>.remove()</code> 方法遇到指定的元素不存在時，會引發 <code>KeyError</code> 錯誤，而 <code>.discard()</code> 不會。</p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span></div><div class="code">s1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+
+s1.remove(<span class="hljs-number">3</span>)
+print(s1)                <span class="hljs-comment"># {1, 2, 4, 5}</span>
+s1.discard(<span class="hljs-number">4</span>)
+print(s1)                <span class="hljs-comment"># {1, 2, 5}</span>
+s1.discard(<span class="hljs-number">3</span>)
+s1.remove(<span class="hljs-number">3</span>)             <span class="hljs-comment"># 這行會發生 KeyError 錯誤！！！！因為 3 不存在    </span>
+</div></div></code></pre>
+</li>
+<li>
+<p>取出一個元素: <code>.pop()</code></p>
+<p>集合物件的 <code>.pop()</code> 方法會從集合中取出一個元素回傳。</p>
+<pre><code class="python() hljs">s1 = {1, 2, 3, 4, 5}
+n = s1.pop()            <span class="hljs-comment"># n 的值可能為 s1 中的任一個元素</span>
+<span class="hljs-built_in">print</span>(s1)               
+</code></pre>
+<div class="alert alert-warning">
+<p><img alt=":warning:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/warning.png" title=":warning:"> 用 <code>.pop()</code> 方法取出元素時沒有規定會依照特定的順序，請不要自行假設它會依序由小到大取值，這是其中一種可能，但非絕對。</p>
+</div>
+<p>另外，若集合本來就空了，此時使用 <code>.pop()</code> 方法也會引發 <code>KeyError</code> 錯誤:</p>
+<pre><code>Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+KeyError: 'pop from an empty set'
+</code></pre>
+</li>
+<li>
+<p>將集合清空: <code>.clear()</code></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span></div><div class="code">s1 = {<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>}
+print(s1)                <span class="hljs-comment"># {1, 2, 3, 4, 5, 6}</span>
+s1.clear()
+print(s1)                <span class="hljs-comment"># set()</span>
+</div></div></code></pre>
+</li>
+</ul><h2 id="流程控制"><a class="anchor hidden-xs" href="#流程控制" title="流程控制"><span class="octicon octicon-link"></span></a>流程控制</h2><p>流程控制可以根據當下的狀況是否滿足某些條件，來進行不同的處置。而在描述條件的時候，通常是在比較兩樣事物之間的關係，例：</p><ul>
+<li><strong>如果成績不及格的話</strong>：比較的是 <strong>成績</strong> 與 <strong>60</strong> 分之間的關係。</li>
+<li><strong>如果下雨的話</strong>：比較的是 <strong>天氣狀態</strong> 與 <strong>下雨</strong> 這個現象的關係。</li>
+<li><strong>如果 n 是偶數的話</strong>：比較的是 <strong>n 除以 2 的餘數</strong> 以及 <strong>0</strong> 之間的關係。<br>
+<em>註:有時可能要經過轉換或計算之後才進行比較</em></li>
+</ul><h3 id="關係運算子"><a class="anchor hidden-xs" href="#關係運算子" title="關係運算子"><span class="octicon octicon-link"></span></a>關係運算子</h3><p>關係運算子跟數學的四則運算子的概念相同，只是它的運算結果只有 <code>True</code> 或 <code>False</code> 兩種可能，用來代表關係成立(<code>True</code>)或不成立(<code>False</code>)。</p><table>
+<thead>
+<tr>
+<th>關係運算子</th>
+<th>範例</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&gt;</code></td>
+<td><code>A &gt; B</code></td>
+<td>若 <code>A</code> 比 <code>B</code> 大，則結果為 <code>True</code>，否則為 <code>False</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td><code>A &gt;= B</code></td>
+<td>若 <code>A</code> 大於或等於 <code>B</code> 則為 <code>True</code>，否則為 <code>False</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td><code>A &lt; B</code></td>
+<td>若 <code>A</code> 比 <code>B</code> 小，則結果為 <code>True</code>，否則為 <code>False</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td><code>A &lt;= B</code></td>
+<td>若 <code>A</code> 小於或等於 <code>B</code> 則為 <code>True</code>，否則為 <code>False</code></td>
+</tr>
+<tr>
+<td><code>==</code></td>
+<td><code>A == B</code></td>
+<td>若 <code>A</code> 與 <code>B</code> 等值則為 <code>True</code>，否則為 <code>False</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td><code>A != B</code></td>
+<td>若 <code>A</code> 與 <code>B</code> 不相等，則結果為 <code>True</code>，否則為 <code>False</code></td>
+</tr>
+</tbody>
+</table><h3 id="邏輯運算子"><a class="anchor hidden-xs" href="#邏輯運算子" title="邏輯運算子"><span class="octicon octicon-link"></span></a>邏輯運算子</h3><p>除了關係運算子之外，在描述比較複雜的狀況的時候，可能會需要同時需要用到幾個簡單條件來組合出完整的複合式條件，這時候會需要用到邏輯運算子。</p><table>
+<thead>
+<tr>
+<th>邏輯<br>運算子</th>
+<th>範例</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>and</code></td>
+<td><code>n &gt;= 60 and n &lt; 70</code></td>
+<td><code>and</code> 前後條件皆為 <code>True</code>，結果才為 <code>True</code>。<br>判斷 <code>n</code> 的值是否介於 <code>60</code>(包含) 與 <code>70</code> 之間</td>
+</tr>
+<tr>
+<td><code>or</code></td>
+<td><code>n &lt; 0 or n &gt; 100</code></td>
+<td><code>or</code> 前後條件至少有一個為 <code>True</code>，結果即為 <code>True</code>。<br>判斷 <code>n</code> 的值是否小於 <code>0</code> 或超過 <code>100</code></td>
+</tr>
+<tr>
+<td><code>not</code></td>
+<td><code>not n &lt; 60</code></td>
+<td>將 <code>not</code> 後面的 <code>True</code> 改為 <code>False</code>，<code>False</code> 改為 <code>True</code>。<br>判斷 <code>n</code> 的值是否沒有小於 <code>60</code>。</td>
+</tr>
+</tbody>
+</table><h3 id="條件判斷-if"><a class="anchor hidden-xs" href="#條件判斷-if" title="條件判斷-if"><span class="octicon octicon-link"></span></a>條件判斷 if</h3><h4 id="單選條件成立才執行"><a class="anchor hidden-xs" href="#單選條件成立才執行" title="單選條件成立才執行"><span class="octicon octicon-link"></span></a>單選/條件成立才執行</h4><p>語法：</p><pre><code class="python hljs"><span class="hljs-keyword">if</span> 條件判斷式:
+    動作<span class="hljs-number">1</span>
+    動作<span class="hljs-number">2</span>
+    動作<span class="hljs-number">3</span>
+    <span class="hljs-comment">#... </span>
+不被 <span class="hljs-keyword">if</span> 控制的動作
+</code></pre><ul>
+<li>條件判斷式之後的冒號 <code>:</code> 不要漏掉了。</li>
+<li>Python 是以程式碼的「<strong>縮排</strong>」來決定從屬或控制關係，上方的例子中，動作1, 2, 3 都是條件判斷式成立的時候才會被執行到，所以前面都要縮排。</li>
+<li>縮排可以用空格(Space)，也可以用定位鍵(Tab)。同一層的縮排務必使用一致的縮排方式，否則會引發 <code>IndentationError</code> 錯誤。</li>
+</ul><p>例：如果變數 <code>score</code> 已取得了某個學生的成績，若不及格，則將不及格人數+1，並在成績前加印 <code>*</code>；若成績及格的話，只要印成績就好：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code"><span class="hljs-keyword">if</span> score &lt; <span class="hljs-number">60</span>:
+    failed += <span class="hljs-number">1</span>            <span class="hljs-comment"># 不及格人數 +1</span>
+    print(<span class="hljs-string">'*'</span>, end=<span class="hljs-string">''</span>)     <span class="hljs-comment"># 在分數前面加印 *</span>
+
+print(score)               <span class="hljs-comment"># 印出成績</span>
+</div></div></code></pre><h4 id="二選一"><a class="anchor hidden-xs" href="#二選一" title="二選一"><span class="octicon octicon-link"></span></a>二選一</h4><p>如果要處理條件成立與不成立分別進行不同的動作的話，可以採用第二種形式 <code>if/else</code>，語法如下：</p><pre><code class="python hljs"><span class="hljs-keyword">if</span> 條件判斷式:
+    成立動作<span class="hljs-number">1</span>
+    成立動作<span class="hljs-number">2</span>
+    <span class="hljs-comment"># ...</span>
+<span class="hljs-keyword">else</span>:
+    不成立動作<span class="hljs-number">1</span>
+    不成立動作<span class="hljs-number">2</span>
+    <span class="hljs-comment"># ...</span>
+
+非 <span class="hljs-keyword">if</span> 控制動作 ...
+</code></pre><div class="alert alert-warning">
+<p><img alt=":warning:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/warning.png" title=":warning:"> <strong><code>else</code> 後面不要忘了加冒號 <code>:</code></strong></p>
+</div><p>若條件判斷式的運算結果為 <code>True</code>，就執行 <code>if</code> 到 <code>else:</code> 之間的動作；反之若條件判斷的結果為 <code>False</code>，就執行 <code>else:</code> 底下的動作。</p><p>例如，若要計算及格與不及格的人數，在每次取得一筆成績之後，就用以下的判斷式來更新及格人數(<code>passed</code>)或不及格人數(<code>failed</code>)：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code"><span class="hljs-keyword">if</span> score &gt;= <span class="hljs-number">60</span>:
+    passed += <span class="hljs-number">1</span>    <span class="hljs-comment"># 及格人數 +1</span>
+<span class="hljs-keyword">else</span>:
+    failed += <span class="hljs-number">1</span>    <span class="hljs-comment"># 不及格人數 +1</span>
+total += <span class="hljs-number">1</span>         <span class="hljs-comment"># 總人數 +1</span>
+</div></div></code></pre><h4 id="多選一"><a class="anchor hidden-xs" href="#多選一" title="多選一"><span class="octicon octicon-link"></span></a>多選一</h4><p>如果要處理的是多選一的狀況，可以採用 <code>if/elif.../else</code> 結構，語法如下：</p><pre><code class="python hljs"><span class="hljs-keyword">if</span> 條件判斷式<span class="hljs-number">1</span>:
+    <span class="hljs-comment"># 區塊1</span>
+<span class="hljs-keyword">elif</span> 條件判斷式<span class="hljs-number">2</span>:
+    <span class="hljs-comment"># 區塊2</span>
+<span class="hljs-keyword">elif</span> 條件判斷式<span class="hljs-number">3</span>:
+    <span class="hljs-comment"># 區塊3</span>
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-comment"># 以上均不符合執行這裡</span>
+</code></pre><p>會由上到下依序評估條件判斷式，若前一個條件無法成立，才會評估下一個條件，一直到評估的條件判斷式結果為 <code>True</code> 就執行該條件下的區塊內容；若所有匡列的條件判斷式都無法測試成功時，則執行 <code>else:</code> 之下的動作。</p><p>所以若要執行到 <code>區塊2</code> 的內容的話，一定是不滿足條件判斷式1，但條件判斷式2的結果要為 <code>True</code> 才可以。同理，若要執行 <code>區塊3</code> 內的動作的話，一定是前面兩個判斷式的估評結果皆為 <code>False</code> 而條件判斷式3的結果為 <code>True</code> 才會發生。</p><p>以成績處理為例，若要將成績 <code>score</code> 轉為 <code>A</code> (90分以上)、<code>B</code> (80 - 89分)、<code>C</code> (70 - 79分)、<code>D</code> (60 - 69分)、<code>E</code> (未滿 60 分)：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span></div><div class="code"><span class="hljs-keyword">if</span> score &gt;= <span class="hljs-number">90</span>:        <span class="hljs-comment"># score &gt;= 90</span>
+    label = <span class="hljs-string">'A'</span>
+<span class="hljs-keyword">elif</span> score &gt;= <span class="hljs-number">80</span>:      <span class="hljs-comment"># 80 &lt;= score &lt; 90</span>
+    label = <span class="hljs-string">'B'</span>
+<span class="hljs-keyword">elif</span> score &gt;= <span class="hljs-number">70</span>:      <span class="hljs-comment"># 70 &lt;= score &lt; 80</span>
+    label = <span class="hljs-string">'C'</span>
+<span class="hljs-keyword">elif</span> score &gt;= <span class="hljs-number">60</span>:      <span class="hljs-comment"># 60 &lt;= score &lt; 70</span>
+    label = <span class="hljs-string">'D'</span>
+<span class="hljs-keyword">else</span>:                  <span class="hljs-comment"># score &lt; 60</span>
+    label = <span class="hljs-string">'E'</span>
+</div></div></code></pre><div class="alert alert-warning">
+<p><img alt=":warning:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/warning.png" title=":warning:"> <strong>注意：每個條件判斷式之後，以及 <code>else</code> 後面都要加上冒號 <code>:</code></strong></p>
+</div><p>因為是依序評估條件判斷式，所以會進行<ins>第 3 行</ins>的 <code>score &gt;= 80</code> 這個條件式的估評時，隱含了此時一定是不滿足<ins>第 1 行</ins>的 <code>score &gt;= 90</code> 這個條件，換句話說，要進行<ins>第 3 行</ins>的條件估評時，此時一定滿足 <code>score &lt; 90</code> 的情況。雖然字面上在<ins>第 3 行</ins>只寫了 <code>score &gt;= 80</code> 這個條件，但實際上這行的效果等同於在判斷 <code>score &lt; 90 and score &gt;= 80</code>。</p><h3 id="條件式迴圈-while"><a class="anchor hidden-xs" href="#條件式迴圈-while" title="條件式迴圈-while"><span class="octicon octicon-link"></span></a>條件式迴圈 while</h3><p><code>if</code> 結構只會進行單次判斷，如果希望在特定條件下反覆執行某些動作的話，可以使用條件式迴圈 <code>while</code>，語法如下：</p><pre><code class="python hljs"><span class="hljs-keyword">while</span> 條件判斷式:
+    動作<span class="hljs-number">1</span>
+    動作<span class="hljs-number">2</span>
+    <span class="hljs-comment"># ...</span>
+
+非 <span class="hljs-keyword">while</span> 控制的動作
+</code></pre><ul>
+<li>注意條件判斷式後面的冒號 <code>:</code> 不要漏掉了。</li>
+<li>當條件判斷式成立的情況下會執行迴圈內容，然後再回頭重新評估條件判斷式決定是否要執行迴圈內容，如此重覆直到條件判斷式的運算結果為 False 為止。</li>
+<li>要注意在迴圈內容中要有機會可以修改到條件判斷式的評斷依據，否則會造成無窮迴圈。</li>
+</ul><p>例如數學領域有一個尚未證明的問題如下：給定一個整數 <code>n</code>，若 <code>n</code> 是奇數，則將它變為它的 <code>3</code> 倍再加 <code>1</code>；若它是偶數，則將它變為它的一半。人們發現，目前已知的所有正整數，依上述原則反覆操作，最後都會收斂到 <code>1</code>。舉個例子來說，一開始給定 <code>n</code> 為 <code>13</code>，依規則操作，<code>n</code> 的值變化的歷程為：</p><pre><code>13 -&gt; 40 -&gt; 20 -&gt; 10 -&gt; 5 -&gt; 16 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1
+</code></pre><p>若 <code>n</code> 一開始為 <code>12</code>，則變化過程為：</p><pre><code>12 -&gt; 6 -&gt; 3 -&gt; 10 -&gt; 5 -&gt; 16 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1
+</code></pre><p>給定一個正整數 <code>n</code>，要模擬上面印出 <code>n</code> 的值變化的過程的話，程式碼大概如下：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span></div><div class="code"><span class="hljs-comment"># n 為大於 0 的整數</span>
+<span class="hljs-keyword">while</span> n &gt; <span class="hljs-number">1</span>:
+    print(n, <span class="hljs-string">"-&gt; "</span>, end=<span class="hljs-string">''</span>)    <span class="hljs-comment"># 在 n 不為 1 的情況下，都要印出 n 值以及 -&gt; </span>
+    <span class="hljs-keyword">if</span> n % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>:             <span class="hljs-comment"># n 是奇數</span>
+        n = n*<span class="hljs-number">3</span> + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">else</span>:                      <span class="hljs-comment"># n 不是奇數(n 是偶數)</span>
+        n = n//<span class="hljs-number">2</span>               <span class="hljs-comment"># 整數除法</span>
+
+print(n)
+</div></div></code></pre><h3 id="迭代式迴圈-for…in"><a class="anchor hidden-xs" href="#迭代式迴圈-for…in" title="迭代式迴圈-for…in"><span class="octicon octicon-link"></span></a>迭代式迴圈 for…in</h3><p>語法：</p><pre><code class="python hljs"><span class="hljs-keyword">for</span> 變數 <span class="hljs-keyword">in</span> range(起點, 終點, 遞增值):
+    動作<span class="hljs-number">1</span>
+    動作<span class="hljs-number">2</span>
+    <span class="hljs-comment"># ...</span>
+</code></pre><ul>
+<li>以 <code>變數</code> 來接收每一回合迭代的內容，可自行命名</li>
+<li><code>range()</code> 是 Python 內鍵的函式，用來產生在指定範圍內的數列，它接受 3 個參數：
+<ol>
+<li><code>起點</code> 欲產生的數列的起點</li>
+<li><code>終點</code> 是數列的終點，不包含在被產生的數列之內</li>
+<li><code>遞增值</code> 是每一回合變數取到的值加上多少才會成為下一回合的數字。這個參數可省略，預設值為 <code>1</code></li>
+</ol>
+</li>
+</ul><p>例：列出 1 到 100 間被7除餘 3 的數</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span></div><div class="code"><span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">100</span>):
+    <span class="hljs-keyword">if</span> n % <span class="hljs-number">7</span> == <span class="hljs-number">3</span>:
+        print(n)
+</div></div></code></pre><p>這個問題很簡單，馬上就看出規律，所以也可以透過遞增值拿掉迴圈內的 <code>if</code> 判斷：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code"><span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>, <span class="hljs-number">100</span>, <span class="hljs-number">7</span>):
+    print(n)
+</div></div></code></pre><p>如果要由大到小產生遞減的數列，要將第三個參數改為負值，例如要產生 10 到 1 的數列：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code"><span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>):
+    print(n)
+</div></div></code></pre><p>除了在產生的數列進行迭代之外，迭代的對象也可以是<strong>列表(list)</strong>、<strong>值組(tuple)</strong>、<strong>字典(dict)</strong>、<strong>集合(set)</strong> 等等這類資料容器(Container)，語法如下：</p><pre><code class="python hljs"><span class="hljs-keyword">for</span> 變數 <span class="hljs-keyword">in</span> 容器:
+    動作<span class="hljs-number">1</span>
+    動作<span class="hljs-number">2</span>
+    <span class="hljs-comment"># ...</span>
+</code></pre><p>例如，假設 <code>groups</code> 內儲存的是分組的狀況，每組 3 個人，每一組成員的座號以值組的方式呈現：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span></div><div class="code">groups = [
+    (<span class="hljs-number">2</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">11</span>), (<span class="hljs-number">16</span>, <span class="hljs-number">17</span>, <span class="hljs-number">21</span>), (<span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">13</span>), 
+    (<span class="hljs-number">4</span>, <span class="hljs-number">7</span>, <span class="hljs-number">12</span>), (<span class="hljs-number">10</span>, <span class="hljs-number">14</span>, <span class="hljs-number">20</span>), (<span class="hljs-number">15</span>, <span class="hljs-number">18</span>, <span class="hljs-number">19</span>)
+]
+
+<span class="hljs-keyword">for</span> grp <span class="hljs-keyword">in</span> groups:            <span class="hljs-comment"># 每次取一組 tuple</span>
+    <span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> grp:             <span class="hljs-comment"># 從 tuple 中依次取出元素</span>
+        print(m, end=<span class="hljs-string">' '</span>)     <span class="hljs-comment"># 印出成員座號後不換行，改印一個空格</span>
+    print(<span class="hljs-string">''</span>)                 <span class="hljs-comment"># 印完一組之後才換行</span>
+</div></div></code></pre><p>執行結果如下：</p><pre><code>2 8 9 
+1 5 11 
+16 17 21 
+3 6 13 
+4 7 12 
+10 14 20 
+15 18 19 
+</code></pre><p>但是要注意一點的是，當迭代的對象如果是一個字典的時候，每次迭代取得的是鍵值(Key)，例：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span></div><div class="code">scores = {<span class="hljs-string">'Dino'</span>: <span class="hljs-number">90</span>, <span class="hljs-string">'Rita'</span>: <span class="hljs-number">95</span>, <span class="hljs-string">'John'</span>: <span class="hljs-number">87</span>, <span class="hljs-string">'Tom'</span>: <span class="hljs-number">79</span>, <span class="hljs-string">'Mary'</span>: <span class="hljs-number">92</span>, <span class="hljs-string">'George'</span>: <span class="hljs-number">66</span>}
+
+<span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> scores:
+    print(s, end=<span class="hljs-string">' '</span>)
+</div></div></code></pre><p>只會會印出鍵值:</p><pre><code>Dino Rita John Tom Mary George
+</code></pre><p>如果需要處理鍵值的對應值，還需搭配字典的 <code>[]</code> 操作來取得對應值。例如要將前面範例中成績達 <code>90</code> 分的學生名字前標上 <code>*</code>：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span></div><div class="code"><span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> scores:
+    <span class="hljs-keyword">if</span> scores[s] &gt;= <span class="hljs-number">90</span>:
+        print(<span class="hljs-string">'*'</span>, s, sep=<span class="hljs-string">''</span>)
+    <span class="hljs-keyword">else</span>:
+        print(<span class="hljs-string">' '</span>, s, sep=<span class="hljs-string">''</span>)
+</div></div></code></pre><p>執行結果如下：</p><pre><code>*Dino
+*Rita
+ John
+ Tom
+*Mary
+ George
+</code></pre><h3 id="跳出迴圈-break-與-跳過一回合-continue"><a class="anchor hidden-xs" href="#跳出迴圈-break-與-跳過一回合-continue" title="跳出迴圈-break-與-跳過一回合-continue"><span class="octicon octicon-link"></span></a>跳出迴圈 <code>break</code> 與 跳過一回合 <code>continue</code></h3><p><code>while</code> 與 <code>for...in</code> 這兩種迴圈，若在執行的過程中發現已經完成任務了，可以在迴圈內透過 <strong><code>break</code></strong> 指令來跳離迴圈，一旦執行到 <code>break</code> 就會終止迴圈的執行，跳離到不受迴圈控制的第一行。例：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span></div><div class="code"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):
+    <span class="hljs-keyword">if</span> i % <span class="hljs-number">3</span> == <span class="hljs-number">2</span>:
+        <span class="hljs-keyword">break</span>
+    print(i)
+
+print(<span class="hljs-string">'End for'</span>)
+</div></div></code></pre><p>執行結果：</p><pre><code>0
+1
+End for
+</code></pre><p>若僅是要跳過一個回合，則可在迴圈內使用 <strong><code>continue</code></strong>。當執行到 <strong><code>continue</code></strong> 時，會略過該回合尚未被執行到的敘述，直接進入下一回合：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span></div><div class="code"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):
+    <span class="hljs-keyword">if</span> i % <span class="hljs-number">3</span> == <span class="hljs-number">2</span>:
+        <span class="hljs-keyword">continue</span>
+    print(i)
+
+print(<span class="hljs-string">'End for'</span>)
+</div></div></code></pre><p>執行結果：</p><pre><code>0
+1
+3
+4
+6
+7
+9
+End for
+</code></pre><p>跳過所有被 3 除餘 2 的回合。</p><p>在 <code>while</code> 迴圈內使用 <code>continue</code> 時，要注意執行 <code>continue</code> 的時機點會不會造成迴圈條件無法被變更，導致無窮迴圈。例下面這段程式：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span></div><div class="code">i = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> i &lt; <span class="hljs-number">10</span>:
+    <span class="hljs-keyword">if</span> i % <span class="hljs-number">3</span> == <span class="hljs-number">2</span>:
+        <span class="hljs-keyword">continue</span>
+    print(i)
+    i += <span class="hljs-number">1</span>
+
+print(<span class="hljs-string">'End for'</span>)
+</div></div></code></pre><ul>
+<li>印出 <code>0</code>, <code>1</code> 之後就陷入無窮迴圈了</li>
+</ul><p>要處理這個問題，只要在執行 <code>continue</code> 前也將迴圈條件內使用的變數 <code>i</code> 的值修正為下一回合的值就可以了：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span></div><div class="code">i = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> i &lt; <span class="hljs-number">10</span>:
+    <span class="hljs-keyword">if</span> i % <span class="hljs-number">3</span> == <span class="hljs-number">2</span>:
+        i += <span class="hljs-number">1</span>
+        <span class="hljs-keyword">continue</span>
+    print(i)
+    i += <span class="hljs-number">1</span>
+
+print(<span class="hljs-string">'End for'</span>)
+</div></div></code></pre><h3 id="函式"><a class="anchor hidden-xs" href="#函式" title="函式"><span class="octicon octicon-link"></span></a>函式</h3><p>函式（function）是重複使用的程式區塊，有輸入與輸出。在 Python 中使用關鍵字 <code>def</code> 來定義函式，語法如下：</p><pre><code class="python hljs"><span class="hljs-function"><span class="hljs-keyword">def</span> 函式名<span class="hljs-params">(參數列表)</span>:</span>
+    <span class="hljs-comment"># 函式內容</span>
+    <span class="hljs-comment"># ...</span>
+    <span class="hljs-keyword">return</span> 傳回值
+</code></pre><ul>
+<li><strong>函式名</strong> 可自行命名，建議取與該函式功能相關的名稱</li>
+<li><strong>參數列表</strong> 是執行這個函式時，額外提供給函式的資訊。若函式都執行固定內容，可省略參數列表。若需要的參數超過 1 個以上，參數間以逗號 <code>,</code> 隔開</li>
+<li><strong>傳回值</strong> 是用來回覆函式執行結果</li>
+</ul><p>舉例來說，假設在程式中好幾處需要使用到 2 個數的最大公因數，就可以考慮定義一個函式：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span></div><div class="code"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">gcd</span><span class="hljs-params">(a, b)</span>:</span>
+    <span class="hljs-comment"># 使用輾轉相除法來求最大公因數</span>
+    r = a % b
+    <span class="hljs-keyword">while</span> r &gt; <span class="hljs-number">0</span>:    <span class="hljs-comment"># 要一直進行到餘數為 0 為止</span>
+        a = b
+        b = r
+        r = a % b
+    
+    <span class="hljs-keyword">return</span> b    <span class="hljs-comment"># 答案為最後一次的除數</span>
+</div></div></code></pre><p>定義完 <code>gcd()</code> 函式之後，接下來在任何需要求取最大公因素的地方，就可以直接呼叫 <code>gcd()</code> 函式：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span></div><div class="code"><span class="hljs-keyword">if</span> gcd(<span class="hljs-number">123</span>, <span class="hljs-number">217</span>) == <span class="hljs-number">1</span>:
+    print(<span class="hljs-string">'123 與 217 互質'</span>)
+</div></div></code></pre><p>呼叫函式時只要將需要的參數附在函式名稱後的小括號內即可，如上所示，透過 <code>gcd(123, 217)</code> 來呼叫 <code>gcd()</code> 函式，並將 <code>123</code> 與 <code>217</code> 當作參數傳遞給 <code>gcd()</code> 函式來執行。在函式內部執行的時候，參數 <code>a</code> 一開始取得的值就是 <code>123</code>，而 <code>b</code> 則為 <code>217</code>。</p><h2 id="綜合練習"><a class="anchor hidden-xs" href="#綜合練習" title="綜合練習"><span class="octicon octicon-link"></span></a>綜合練習</h2><p>到網路上隨意複製一篇英文文章，以長字串的方式先指定給變數 <code>article</code>，例：</p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+<span data-linenumber="2"></span>
+<span data-linenumber="3"></span>
+<span data-linenumber="4"></span>
+<span data-linenumber="5"></span>
+<span data-linenumber="6"></span>
+<span data-linenumber="7"></span>
+<span data-linenumber="8"></span>
+<span data-linenumber="9"></span>
+<span data-linenumber="10"></span>
+<span data-linenumber="11"></span>
+<span data-linenumber="12"></span>
+<span data-linenumber="13"></span>
+<span data-linenumber="14"></span>
+<span data-linenumber="15"></span>
+<span data-linenumber="16"></span>
+<span data-linenumber="17"></span>
+<span data-linenumber="18"></span>
+<span data-linenumber="19"></span>
+<span data-linenumber="20"></span>
+<span data-linenumber="21"></span>
+<span data-linenumber="22"></span>
+<span data-linenumber="23"></span>
+<span data-linenumber="24"></span>
+<span data-linenumber="25"></span>
+<span data-linenumber="26"></span>
+<span data-linenumber="27"></span>
+<span data-linenumber="28"></span>
+<span data-linenumber="29"></span>
+<span data-linenumber="30"></span>
+<span data-linenumber="31"></span>
+<span data-linenumber="32"></span>
+<span data-linenumber="33"></span>
+<span data-linenumber="34"></span>
+<span data-linenumber="35"></span>
+<span data-linenumber="36"></span>
+<span data-linenumber="37"></span>
+<span data-linenumber="38"></span>
+<span data-linenumber="39"></span>
+<span data-linenumber="40"></span>
+<span data-linenumber="41"></span>
+<span data-linenumber="42"></span>
+<span data-linenumber="43"></span>
+<span data-linenumber="44"></span>
+<span data-linenumber="45"></span>
+<span data-linenumber="46"></span>
+<span data-linenumber="47"></span>
+<span data-linenumber="48"></span>
+<span data-linenumber="49"></span>
+<span data-linenumber="50"></span>
+<span data-linenumber="51"></span>
+<span data-linenumber="52"></span>
+<span data-linenumber="53"></span>
+<span data-linenumber="54"></span>
+<span data-linenumber="55"></span>
+<span data-linenumber="56"></span>
+<span data-linenumber="57"></span>
+<span data-linenumber="58"></span>
+<span data-linenumber="59"></span>
+<span data-linenumber="60"></span>
+<span data-linenumber="61"></span>
+<span data-linenumber="62"></span>
+<span data-linenumber="63"></span>
+<span data-linenumber="64"></span></div><div class="code">article = <span class="hljs-string">"""
+Other nuke deal nations craft plan to keep doing business with Iran UNITED NATIONS
+-- Five world powers and Iran agreed late Monday to establish a financial facility 
+in the European Union to facilitate payments for Iranian imports and exports including
+oil, a key move sought by Tehran following the U.S. pullout from the 2015 nuclear
+deal and its re-imposition of sanctions. Foreign ministers from Britain, France,
+Germany, Russia, China and Iran said in a joint statement that the so-called 
+"Special Purpose Vehicle" will "assist and reassure economic operators pursuing
+legitimate business with Iran." The nuclear agreement, formally known as the Joint
+Comprehensive Plan of Action (JCPOA) is meant to prevent Tehran from developing
+nuclear weapons, but U.S. President Donald Trump announced in May he was unilaterally
+pulling out because he felt it wasn't strong enough and didn't cover other issues of
+concern to the U.S. and its allies, such as Iran's military influence in the Middle
+East and ballistic missile program. The U.S. has also accused Iran of promoting
+international terrorism, which Tehran vehemently denies. Iran's economy is already
+suffering from the sanctions that Washington re-imposed after walking away from the
+nuclear agreement, and the U.S. has threatened to punish companies from other nations
+that continue doing business with Iran. In sharp contrast, the five other world
+powers who signed the nuclear deal remain strongly committed to it, and the new
+financial facility is almost certain to anger the Trump administration. Earlier
+this week, before heading to the United Nations General Assembly in New York, British
+Prime Minister Theresa May told "CBS This Morning" co-host John Dickerson that she
+trusts Mr. Trump, but believes Iran is holding up its end of the nuclear deal.
+"I do have a difference of opinion with President Trump, because we (Britain) believe
+the JCPOA should stay in…place. And others involved in putting that deal together
+believe that it should stay in place. We do agree with the United States that there
+are other aspects of Iran's behavior that we need to be dealing with, too. So looking
+at the issue of ballistic missiles. Looking at the way in which Iran is acting
+in the region to destabilize the region. We need to address those issues, too.
+But we also want to ensure that we have a nuclear deal in place that prevents them
+from, of getting a nuclear weapon." "The important thing about the JCPOA," said May,
+"is that it is still in place. Yes, the United States has taken a particular view on
+how to deal with this issue. That's a view which we disagree with. We take a different
+view. But that deal is still in place." The Trump administration has been pushing
+its allies around the world to stop buying Iranian oil for months, but as of August
+it had received no firm commitments from the biggest purchasers of Iranian petroleum
+products to find other suppliers. May's interview with Dickerson came on the heels of
+a fresh warning from U.S. Ambassador to the U.N. that Britain and other nations
+doing business with Iran would not be given any passes. Asked on "Face the Nation"
+whether remaining signatories of the nuclear pact could face U.S. penalties for
+continued business relationships with Iran, Haley said those countries would have to
+weigh the benefit of dealing with Iran against the risk of U.S. sanctions. "The
+Europeans have a decision to make. And I think that decision is already being made. If
+you look, they are dropping business from Iran left and right," Haley said. "We will
+have decisions to make in terms whether they get exemptions or not, but I'll tell you
+right now, we're going to be really tough on Iran. We're not giving them a pass."
+European Union foreign policy chief Federica Mogherini told reporters after the
+closed-door ministerial meeting that the financial facility is aimed in part at
+preserving the nuclear agreement. The EU and Iran say the deal is working, and the
+joint statement notes that the International Atomic Energy Agency has now certified
+12 times that Iran is in compliance with its obligations. "In practical terms,"
+Mogherini said, "this will mean that EU member states will set up a legal entity
+to facilitate legitimate financial transactions with Iran and this will allow European
+companies to continue to trade with Iran in accordance with European Union law and
+could be open to other partners in the world." She said the agreement follows extensive
+exchanges and announced that a meeting of technical experts will be held to 
+"operationalize" the new financial facility. The joint statement said the six countries
+that signed the 2015 nuclear agreement "reconfirmed their commitment to its full and
+effective implementation in good faith and in a constructive atmosphere." They
+called the agreement "a key element of the global non-proliferation architecture
+and a significant achievement of multilateral diplomacy." The participants reaffirmed
+their joint statement on July 6, "in particular to pursue concrete and effective
+measures to secure payment channels with Iran."
+"""</span>
+</div></div></code></pre><h3 id="練習1-計算文章內的大寫字母個數"><a class="anchor hidden-xs" href="#練習1-計算文章內的大寫字母個數" title="練習1-計算文章內的大寫字母個數"><span class="octicon octicon-link"></span></a>練習1: 計算文章內的大寫字母個數</h3><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="66"></span>
+<span data-linenumber="67"></span>
+<span data-linenumber="68"></span>
+<span data-linenumber="69"></span>
+<span data-linenumber="70"></span>
+<span data-linenumber="71"></span></div><div class="code">count = <span class="hljs-number">0</span>            <span class="hljs-comment"># 一開始還沒看到任何大寫字母，先設成 0</span>
+<span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> article:    <span class="hljs-comment"># 將 article 中每一個符號都拿出來看，每拿到一個都先記在變數 c 裡</span>
+    <span class="hljs-keyword">if</span> c <span class="hljs-keyword">in</span> <span class="hljs-string">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span>:    <span class="hljs-comment"># 如果變數 c 的內容是 A~Z 中任何一個符號</span>
+        count = count + <span class="hljs-number">1</span>                    <span class="hljs-comment"># 就把 count 的值加 1</span>
+
+print(count)  <span class="hljs-comment"># 印出 count 的內容</span>
+</div></div></code></pre><ul>
+<li>
+<p><ins>第 67 行</ins>，把 <code>article</code> 裡每個符號拿出來看，每回合拿到一個符號都先把它放到變數 <code>c</code> 中</p>
+</li>
+<li>
+<p><ins>第 68 行</ins>，如果變數 <code>c</code> 的內容有出現在 “ABCDEFGHIJKLMNOPQRSTUVWXYZ” 中的話，表示本回拿取得暫存在變數 <code>c</code> 裡的符號是大寫字母</p>
+</li>
+<li>
+<p><ins>第 69 行</ins>，把 <code>count</code> 的值加 <code>1</code> 再放回 <code>count</code>，這行也可以縮寫為</p>
+<pre><code class="python hljs">count += <span class="hljs-number">1</span>
+</code></pre>
+</li>
+<li>
+<p><ins>第 71 行</ins>，迴圈結束後，印出 <code>count</code> 的值</p>
+</li>
+</ul><div class="alert alert-info">
+<p><img alt=":bulb:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/bulb.png" title=":bulb:"> <strong>另一種寫法</strong></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="66"></span>
+<span data-linenumber="67"></span>
+<span data-linenumber="68"></span>
+<span data-linenumber="69"></span>
+<span data-linenumber="70"></span>
+<span data-linenumber="71"></span></div><div class="code">count = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> article:
+    <span class="hljs-keyword">if</span> c &gt;= <span class="hljs-string">'A'</span> <span class="hljs-keyword">and</span> c &lt;= <span class="hljs-string">'Z'</span>:    <span class="hljs-comment"># 利用 ASCII 碼表中的關係來比對</span>
+        count = count + <span class="hljs-number">1</span>
+
+print(count)
+</div></div></code></pre>
+</div><h3 id="練習2-計算非大寫字母的字元數"><a class="anchor hidden-xs" href="#練習2-計算非大寫字母的字元數" title="練習2-計算非大寫字母的字元數"><span class="octicon octicon-link"></span></a>練習2: 計算非大寫字母的字元數</h3><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="66"></span>
+<span data-linenumber="67"></span>
+<span data-linenumber="68"></span>
+<span data-linenumber="69"></span>
+<span data-linenumber="70"></span>
+<span data-linenumber="71"></span></div><div class="code">count = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> article:
+    <span class="hljs-keyword">if</span> c <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> <span class="hljs-string">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span>:    <span class="hljs-comment"># 如果變數 c 的內容不在 A~Z 的範圍內</span>
+        count = count + <span class="hljs-number">1</span>
+
+print(count)
+</div></div></code></pre><p>跟前一個練習一樣，只是將<ins>第 68 行</ins>的 <code>if c in</code> 改為 <code>if c not in</code>，只有在 <code>c</code> 變數中暫存的符號不在大寫字母裡才需要將 <code>count</code> 加 <code>1</code>。</p><div class="alert alert-info">
+<p><img alt=":bulb:" class="emoji" src="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/images/basic/bulb.png" title=":bulb:"> <strong>另一種寫法</strong></p>
+<pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="66"></span>
+<span data-linenumber="67"></span>
+<span data-linenumber="68"></span>
+<span data-linenumber="69"></span>
+<span data-linenumber="70"></span>
+<span data-linenumber="71"></span></div><div class="code">count = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> article:
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> c &gt;= <span class="hljs-string">'A'</span> <span class="hljs-keyword">and</span> c &lt;= <span class="hljs-string">'Z'</span>:
+        count = count + <span class="hljs-number">1</span>
+
+print(count)  <span class="hljs-comment"># 印出 count 的內容</span>
+</div></div></code></pre>
+</div><h3 id="練習3-同時計算大小寫字母個數"><a class="anchor hidden-xs" href="#練習3-同時計算大小寫字母個數" title="練習3-同時計算大小寫字母個數"><span class="octicon octicon-link"></span></a>練習3: 同時計算大小寫字母個數</h3><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="66"></span>
+<span data-linenumber="67"></span>
+<span data-linenumber="68"></span>
+<span data-linenumber="69"></span>
+<span data-linenumber="70"></span>
+<span data-linenumber="71"></span>
+<span data-linenumber="72"></span>
+<span data-linenumber="73"></span>
+<span data-linenumber="74"></span>
+<span data-linenumber="75"></span>
+<span data-linenumber="76"></span>
+<span data-linenumber="77"></span>
+<span data-linenumber="78"></span>
+<span data-linenumber="79"></span>
+<span data-linenumber="80"></span></div><div class="code">count = <span class="hljs-number">0</span>       <span class="hljs-comment"># 全部字元數</span>
+caps = <span class="hljs-number">0</span>        <span class="hljs-comment"># 大寫字元數</span>
+lowers = <span class="hljs-number">0</span>      <span class="hljs-comment"># 小寫字元數</span>
+others = <span class="hljs-number">0</span>      <span class="hljs-comment"># 其他字元數</span>
+<span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> article:
+    <span class="hljs-keyword">if</span> c <span class="hljs-keyword">in</span> <span class="hljs-string">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span>:    <span class="hljs-comment"># c 是大寫字母?</span>
+        caps = caps + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">elif</span> c <span class="hljs-keyword">in</span> <span class="hljs-string">"abcdefghijklmnopqrstuvwxyz"</span>:  <span class="hljs-comment"># c 是小寫字母?</span>
+        lowers += <span class="hljs-number">1</span>
+    <span class="hljs-keyword">else</span>:                                    <span class="hljs-comment"># c 不是大寫字母，也非小寫字母</span>
+        others += <span class="hljs-number">1</span>
+
+    count = count + <span class="hljs-number">1</span>   <span class="hljs-comment"># 不受 if 控制，但受 for 控制</span>
+
+print(caps, lowers, others, count)
+</div></div></code></pre><h3 id="練習4-分別計算每個字母的出現次數"><a class="anchor hidden-xs" href="#練習4-分別計算每個字母的出現次數" title="練習4-分別計算每個字母的出現次數"><span class="octicon octicon-link"></span></a>練習4: 分別計算每個字母的出現次數</h3><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="66"></span>
+<span data-linenumber="67"></span>
+<span data-linenumber="68"></span>
+<span data-linenumber="69"></span>
+<span data-linenumber="70"></span>
+<span data-linenumber="71"></span>
+<span data-linenumber="72"></span>
+<span data-linenumber="73"></span>
+<span data-linenumber="74"></span>
+<span data-linenumber="75"></span>
+<span data-linenumber="76"></span>
+<span data-linenumber="77"></span>
+<span data-linenumber="78"></span></div><div class="code">count = {}      <span class="hljs-comment"># 建立一個空字典</span>
+letters = <span class="hljs-number">0</span>     <span class="hljs-comment"># 總字元數</span>
+<span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> article:
+    capc = c.capitalize()                       <span class="hljs-comment"># 轉大寫</span>
+    <span class="hljs-keyword">if</span> capc <span class="hljs-keyword">in</span> <span class="hljs-string">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span>:    <span class="hljs-comment"># capc 是大寫字母?</span>
+        <span class="hljs-keyword">if</span> capc <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> count:                   <span class="hljs-comment"># 如果 capc 尚未在 count 字典中</span>
+            count[capc] = <span class="hljs-number">0</span>                     <span class="hljs-comment"># 在 count 中新增一筆紀錄</span>
+        count[capc] += <span class="hljs-number">1</span>                        <span class="hljs-comment"># 把 count 中 capc 對應到的值加 1</span>
+    letters += <span class="hljs-number">1</span>
+
+print(<span class="hljs-string">"Total letters = "</span>, letters)
+<span class="hljs-keyword">for</span> capc <span class="hljs-keyword">in</span> count:
+    print(capc, <span class="hljs-string">':'</span>, count[capc])
+</div></div></code></pre><ul>
+<li>
+<p>要算某個符號出現的次數，有符號與數值的對應關係，因此適合以字典來紀錄每個符號的出現次數，以字母當鍵值，對應值為該字母目前出現過的次數。</p>
+</li>
+<li>
+<p><ins>第 73 行</ins>是要將 <code>capc</code> 所記錄的大寫字母的個數加 <code>1</code>，但是若字典 <code>count</code> 裡原先沒有 <code>capc</code> 這個大寫字母的相關紀錄，所引發 <code>KeyError</code> 的錯誤。因此加了<ins>第 71, 72 行</ins>的判斷，在增加個數之前，確保字典中有相關紀錄存在。</p>
+</li>
+</ul><p>以範例文章的內容來說，<ins>第 77-78 行</ins>印出的結果如下：</p><pre><code>O : 270
+T : 413
+H : 192
+E : 485
+R : 238
+N : 354
+U : 118
+K : 21
+D : 128
+A : 363
+L : 175
+I : 387
+S : 259
+C : 128
+F : 84
+P : 91
+G : 85
+B : 45
+W : 76
+V : 34
+M : 109
+Y : 47
+X : 6
+J : 10
+Z : 2
+</code></pre><h3 id="練習5-分別計算每個字母的出現次數並排序"><a class="anchor hidden-xs" href="#練習5-分別計算每個字母的出現次數並排序" title="練習5-分別計算每個字母的出現次數並排序"><span class="octicon octicon-link"></span></a>練習5: 分別計算每個字母的出現次數並排序</h3><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="66"></span>
+<span data-linenumber="67"></span>
+<span data-linenumber="68"></span>
+<span data-linenumber="69"></span>
+<span data-linenumber="70"></span>
+<span data-linenumber="71"></span>
+<span data-linenumber="72"></span>
+<span data-linenumber="73"></span>
+<span data-linenumber="74"></span>
+<span data-linenumber="75"></span>
+<span data-linenumber="76"></span>
+<span data-linenumber="77"></span>
+<span data-linenumber="78"></span>
+<span data-linenumber="79"></span>
+<span data-linenumber="80"></span>
+<span data-linenumber="81"></span>
+<span data-linenumber="82"></span>
+<span data-linenumber="83"></span>
+<span data-linenumber="84"></span></div><div class="code">count = {}
+letters = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> article:
+    capc = c.capitalize()
+    <span class="hljs-keyword">if</span> capc <span class="hljs-keyword">in</span> <span class="hljs-string">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span>:
+        <span class="hljs-keyword">if</span> capc <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> count:
+            count[capc] = <span class="hljs-number">0</span>
+        count[capc] += <span class="hljs-number">1</span>
+    letters += <span class="hljs-number">1</span>
+
+print(<span class="hljs-string">"Total letters = "</span>, letters)
+
+items = sorted(count.items(), key=<span class="hljs-keyword">lambda</span> d: d[<span class="hljs-number">1</span>], reverse=<span class="hljs-keyword">True</span>)
+
+<span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> items:
+    print(<span class="hljs-string">"{}: {}"</span>.format(item[<span class="hljs-number">0</span>], item[<span class="hljs-number">1</span>]))
+
+print(<span class="hljs-string">'出現次數最多的字母是'</span>, items[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>], <span class="hljs-string">',次數為'</span>, items[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>], <span class="hljs-string">'次'</span>)
+print(<span class="hljs-string">'出現次數最少的字母是 {}, 次數為 {} 次'</span>.format(items[<span class="hljs-number">-1</span>][<span class="hljs-number">0</span>], items[<span class="hljs-number">-1</span>][<span class="hljs-number">1</span>]))     <span class="hljs-comment"># 格式化輸出</span>
+</div></div></code></pre><ul>
+<li>
+<p><ins>第 78 行</ins>，取出 <code>count</code> 字典中所有的項目 <code>(key, value)</code> 的值組(Tuple), 排序的時候以 <code>value</code> 當比較的依據, 反向排序</p>
+</li>
+<li>
+<p><ins>第 80-81 行</ins>，將排序完的結果印出來，這邊使用了 Python 格式化字串的方式來進行輸出。</p>
+<pre><code class="python hljs"><span class="hljs-string">"{}: {}"</span>.format(item[<span class="hljs-number">0</span>], item[<span class="hljs-number">1</span>])
+</code></pre>
+<p>的意思是，輸出的格式為 <code>"{}: {}"</code>，有兩個需要被替換的資料標記，中間有一個冒號以及空格 <code>": "</code> 隔開，接著使用 <code>.format()</code> 方法，讓 <code>item[0]</code> 的內容替換第一組 <code>{}</code>，而第二組 <code>{}</code> 則由 <code>item[1]</code> 的內容取代。</p>
+</li>
+<li>
+<p><ins>第 83 行</ins>，印出出現頻率最高的符號。因為是反向排序，所以最大的會出現在第一筆(<code>items[0]</code>)。</p>
+</li>
+<li>
+<p><ins>第 84 行</ins>，印出出現頻率最低的符號。因為是反向排序，所以最小的會出現在最後一筆(<code>items[-1]</code>)。</p>
+</li>
+</ul></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#Python基礎" title="Python基礎">Python基礎</a><ul class="nav">
+<li><a href="#Python簡介" title="Python簡介">Python簡介</a></li>
+<li><a href="#安裝-Python-執行環境" title="安裝 Python 執行環境">安裝 Python 執行環境</a><ul class="nav">
+<li><a href="#Windows" title="Windows">Windows</a></li>
+</ul>
+</li>
+<li><a href="#輸入與輸出" title="輸入與輸出">輸入與輸出</a><ul class="nav">
+<li><a href="#輸出" title="輸出">輸出</a></li>
+<li><a href="#輸入" title="輸入">輸入</a></li>
+</ul>
+</li>
+<li><a href="#常用的資料型別" title="常用的資料型別">常用的資料型別</a><ul class="nav">
+<li><a href="#數字（Number）" title="數字（Number）">數字（Number）</a></li>
+<li><a href="#字串（String）" title="字串（String）">字串（String）</a></li>
+<li><a href="#布林值（Boolean）" title="布林值（Boolean）">布林值（Boolean）</a></li>
+<li><a href="#列表（List）" title="列表（List）">列表（List）</a></li>
+<li><a href="#值組-Tuple" title="值組 (Tuple)">值組 (Tuple)</a></li>
+<li><a href="#字典（Dictionary）" title="字典（Dictionary）">字典（Dictionary）</a></li>
+<li><a href="#集合（Set）" title="集合（Set）">集合（Set）</a></li>
+</ul>
+</li>
+<li><a href="#流程控制" title="流程控制">流程控制</a><ul class="nav">
+<li><a href="#關係運算子" title="關係運算子">關係運算子</a></li>
+<li><a href="#邏輯運算子" title="邏輯運算子">邏輯運算子</a></li>
+<li><a href="#條件判斷-if" title="條件判斷 if">條件判斷 if</a></li>
+<li><a href="#條件式迴圈-while" title="條件式迴圈 while">條件式迴圈 while</a></li>
+<li><a href="#迭代式迴圈-for…in" title="迭代式迴圈 for…in">迭代式迴圈 for…in</a></li>
+<li><a href="#跳出迴圈-break-與-跳過一回合-continue" title="跳出迴圈 break 與 跳過一回合 continue">跳出迴圈 break 與 跳過一回合 continue</a></li>
+<li><a href="#函式" title="函式">函式</a></li>
+</ul>
+</li>
+<li><a href="#綜合練習" title="綜合練習">綜合練習</a><ul class="nav">
+<li><a href="#練習1-計算文章內的大寫字母個數" title="練習1: 計算文章內的大寫字母個數">練習1: 計算文章內的大寫字母個數</a></li>
+<li><a href="#練習2-計算非大寫字母的字元數" title="練習2: 計算非大寫字母的字元數">練習2: 計算非大寫字母的字元數</a></li>
+<li><a href="#練習3-同時計算大小寫字母個數" title="練習3: 同時計算大小寫字母個數">練習3: 同時計算大小寫字母個數</a></li>
+<li><a href="#練習4-分別計算每個字母的出現次數" title="練習4: 分別計算每個字母的出現次數">練習4: 分別計算每個字母的出現次數</a></li>
+<li><a href="#練習5-分別計算每個字母的出現次數並排序" title="練習5: 分別計算每個字母的出現次數並排序">練習5: 分別計算每個字母的出現次數並排序</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#Python基礎" title="Python基礎">Python基礎</a><ul class="nav">
+<li><a href="#Python簡介" title="Python簡介">Python簡介</a></li>
+<li><a href="#安裝-Python-執行環境" title="安裝 Python 執行環境">安裝 Python 執行環境</a><ul class="nav">
+<li><a href="#Windows" title="Windows">Windows</a></li>
+</ul>
+</li>
+<li><a href="#輸入與輸出" title="輸入與輸出">輸入與輸出</a><ul class="nav">
+<li><a href="#輸出" title="輸出">輸出</a></li>
+<li><a href="#輸入" title="輸入">輸入</a></li>
+</ul>
+</li>
+<li><a href="#常用的資料型別" title="常用的資料型別">常用的資料型別</a><ul class="nav">
+<li><a href="#數字（Number）" title="數字（Number）">數字（Number）</a></li>
+<li><a href="#字串（String）" title="字串（String）">字串（String）</a></li>
+<li><a href="#布林值（Boolean）" title="布林值（Boolean）">布林值（Boolean）</a></li>
+<li><a href="#列表（List）" title="列表（List）">列表（List）</a></li>
+<li><a href="#值組-Tuple" title="值組 (Tuple)">值組 (Tuple)</a></li>
+<li><a href="#字典（Dictionary）" title="字典（Dictionary）">字典（Dictionary）</a></li>
+<li><a href="#集合（Set）" title="集合（Set）">集合（Set）</a></li>
+</ul>
+</li>
+<li><a href="#流程控制" title="流程控制">流程控制</a><ul class="nav">
+<li><a href="#關係運算子" title="關係運算子">關係運算子</a></li>
+<li><a href="#邏輯運算子" title="邏輯運算子">邏輯運算子</a></li>
+<li><a href="#條件判斷-if" title="條件判斷 if">條件判斷 if</a></li>
+<li><a href="#條件式迴圈-while" title="條件式迴圈 while">條件式迴圈 while</a></li>
+<li><a href="#迭代式迴圈-for…in" title="迭代式迴圈 for…in">迭代式迴圈 for…in</a></li>
+<li><a href="#跳出迴圈-break-與-跳過一回合-continue" title="跳出迴圈 break 與 跳過一回合 continue">跳出迴圈 break 與 跳過一回合 continue</a></li>
+<li><a href="#函式" title="函式">函式</a></li>
+</ul>
+</li>
+<li><a href="#綜合練習" title="綜合練習">綜合練習</a><ul class="nav">
+<li><a href="#練習1-計算文章內的大寫字母個數" title="練習1: 計算文章內的大寫字母個數">練習1: 計算文章內的大寫字母個數</a></li>
+<li><a href="#練習2-計算非大寫字母的字元數" title="練習2: 計算非大寫字母的字元數">練習2: 計算非大寫字母的字元數</a></li>
+<li><a href="#練習3-同時計算大小寫字母個數" title="練習3: 同時計算大小寫字母個數">練習3: 同時計算大小寫字母個數</a></li>
+<li><a href="#練習4-分別計算每個字母的出現次數" title="練習4: 分別計算每個字母的出現次數">練習4: 分別計算每個字母的出現次數</a></li>
+<li><a href="#練習5-分別計算每個字母的出現次數並排序" title="練習5: 分別計算每個字母的出現次數並排序">練習5: 分別計算每個字母的出現次數並排序</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
